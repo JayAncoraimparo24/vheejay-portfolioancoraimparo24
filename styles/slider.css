@@ -1,0 +1,132 @@
+/* Pictures shown one at a time (components/slider.js), in the project popup and on the project page */
+.slider {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* A fixed height, so the page below does not jump when the next picture is taller or wider */
+.slider__stage {
+  height: clamp(10rem, 30vh, 17rem);
+  touch-action: pan-y; /* up and down still scroll the page, left and right turn the page of pictures */
+}
+
+.slider__slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+
+.slider__slide[hidden] {
+  display: none;
+}
+
+.slider__slide .media__box {
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+/* Show the whole screenshot instead of cropping it */
+.slider .media__img {
+  object-fit: contain;
+  background: var(--color-white);
+}
+
+.slider .media:hover .media__box {
+  box-shadow: none;
+  transform: none;
+}
+
+.slider .media__caption {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.slider__bar {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__btn {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-navy);
+  cursor: pointer;
+  background: var(--glass-bg, var(--color-white));
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    transform 300ms var(--ease-spring, ease);
+}
+
+.slider__btn:hover {
+  background: var(--color-cyan-50);
+  border-color: var(--color-primary);
+  transform: scale(1.08);
+}
+
+.slider__btn:active {
+  transform: scale(0.94);
+}
+
+.slider__count {
+  min-width: 3.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* The work galleries: a taller picture, and a row of small pictures to jump to any page */
+.slider--gallery .slider__stage {
+  height: clamp(14rem, 48vh, 26rem);
+}
+
+.slider__thumbs {
+  display: flex;
+  gap: var(--space-2);
+  padding-block: var(--space-1) var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.slider__thumb {
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-cyan-50);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  opacity: 0.6;
+  transition:
+    opacity var(--transition),
+    border-color var(--transition);
+}
+
+.slider__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__thumb:hover {
+  opacity: 1;
+}
+
+.slider__thumb[aria-current='true'] {
+  border-color: var(--color-primary);
+  opacity: 1;
+}

@@ -5,7 +5,7 @@ import { profile } from '../data/profile.js';
 import { createNavbar } from '../components/navbar.js';
 import { createFooter } from '../components/footer.js';
 import { icon } from '../components/icons.js';
-import { mediaFrame } from '../components/media.js';
+import { createSlider } from '../components/slider.js';
 import { tagList } from '../components/tag.js';
 import { placeholderNote } from '../components/section.js';
 import { initReveal } from './reveal.js';
@@ -51,16 +51,6 @@ function createAchievement(text) {
   return el('div', { class: 'achievement' }, icon('award', 22), el('p', { text }));
 }
 
-function createGallery(project, items = project.screenshots, ratio = '16 / 10') {
-  return el(
-    'div',
-    { class: 'grid grid--gallery grid--shots' },
-    items.map(({ src, caption, ratio: ownRatio }) =>
-      mediaFrame({ src, alt: `${project.title} – ${caption}`, label: caption, caption, ratio: ownRatio ?? ratio, openFull: true }),
-    ),
-  );
-}
-
 function createPager(index) {
   const neighbour = (offset, label, className) => {
     const target = projects[index + offset];
@@ -77,7 +67,7 @@ function createProjectBody(project, index) {
     createHeader(project),
     detailBlock('Overview', el('p', { text: project.overview })),
     project.highlight ? detailBlock('Project highlight', createAchievement(project.highlight)) : null,
-    detailBlock('Screenshots', createGallery(project)),
+    detailBlock('Screenshots', createSlider(project.screenshots, project.title)),
     el(
       'div',
       { class: 'detail-columns' },
@@ -88,7 +78,7 @@ function createProjectBody(project, index) {
     ),
     detailBlock('My contributions', bulletList(project.contributions)),
     project.documentation?.length ? detailBlock('Project documentation', bulletList(project.documentation)) : null,
-    project.photos?.length ? detailBlock('Team photos', createGallery(project, project.photos, '4 / 3')) : null,
+    project.photos?.length ? detailBlock('Team photos', createSlider(project.photos, project.title)) : null,
     createPager(index),
   );
 }

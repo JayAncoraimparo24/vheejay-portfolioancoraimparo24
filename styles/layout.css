@@ -103,16 +103,6 @@
   color: var(--color-primary);
 }
 
-/* Grids */
-.grid {
-  display: grid;
-  gap: var(--space-5);
-}
-
-.grid--gallery {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
-}
-
 /* Scroll reveal: js/reveal.js adds .reveal, then .is-visible when the element enters the screen.
    Without JavaScript (or with reduced motion) nothing is hidden. */
 .reveal {

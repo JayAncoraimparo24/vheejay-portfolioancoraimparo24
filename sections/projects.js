@@ -3,6 +3,7 @@ import { projects } from '../data/projects.js';
 import { projectUrl } from '../js/config.js';
 import { createSection } from '../components/section.js';
 import { tagList } from '../components/tag.js';
+import { openProject } from '../components/projectDialog.js';
 
 const MAX_TOOLS = 6; // the project page lists every tool
 const MAX_POINTS = 3; // and every contribution
@@ -35,9 +36,21 @@ function projectRow(project) {
         el('h3', { class: 'project-row__title', text: project.title }),
         el('p', { class: 'project-row__meta', text: [project.type, project.date].filter(Boolean).join(' · ') }),
       ),
+      // View opens the details in a popup. The link still goes to the full page when it is opened in a new tab.
       el(
         'a',
-        { class: 'btn btn--secondary btn--small', href: projectUrl(project.id), 'aria-label': `View details: ${project.title}` },
+        {
+          class: 'btn btn--secondary btn--small',
+          href: projectUrl(project.id),
+          'aria-label': `View details: ${project.title}`,
+          on: {
+            click: (event) => {
+              if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey) return;
+              event.preventDefault();
+              openProject(project, event.currentTarget);
+            },
+          },
+        },
         'View',
       ),
     ),

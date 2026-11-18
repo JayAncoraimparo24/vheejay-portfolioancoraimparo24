@@ -2,7 +2,7 @@ import { el } from '../js/dom.js';
 import { icon } from './icons.js';
 
 const OPEN_CLASS = 'is-open';
-const GALLERY_SELECTOR = '.grid--shots, .photo-masonry';
+const GALLERY_SELECTOR = '.slider';
 const LINK_SELECTOR = 'a.media__link';
 
 /** Full-screen picture viewer for gallery images: arrows, keyboard, Esc, click outside to close. */
@@ -80,8 +80,11 @@ export function initLightbox() {
 
   document.addEventListener('keydown', (event) => {
     if (overlay.hidden) return;
-    if (event.key === 'Escape') close();
-    else if (event.key === 'ArrowLeft' && links.length > 1) show(index - 1);
+    // preventDefault tells anything else listening (like the project popup) that this key was already used
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+    } else if (event.key === 'ArrowLeft' && links.length > 1) show(index - 1);
     else if (event.key === 'ArrowRight' && links.length > 1) show(index + 1);
   });
 }

@@ -3,17 +3,19 @@ import { uiuxShowcase, figmaLinks, graphicFigmaLinks, graphicDesignShowcase, pho
 import { createSection } from '../components/section.js';
 import { createTabs } from '../components/tabs.js';
 import { icon } from '../components/icons.js';
-import { mediaFrame } from '../components/media.js';
+import { createSlider } from '../components/slider.js';
 import { thumbOf } from '../js/config.js';
 
 /**
- * Photo galleries keep each picture's own proportions (masonry columns, no cropping)
- * and open the picture at full size when clicked.
+ * Each kind of work is shown one picture at a time, with a row of small pictures under it to jump around.
+ * The page shows a small copy of the picture, and the full picture opens when it is clicked.
  */
-const tile = ({ title, src, ratio }) =>
-  mediaFrame({ src: thumbOf(src), fullSrc: src, alt: title, label: title, caption: title, ratio: ratio ?? '4 / 3', openFull: true });
-
-const createGallery = (items) => el('div', { class: 'photo-masonry' }, items.map(tile));
+const createGallery = (items, label) =>
+  createSlider(
+    items.map(({ title, src }) => ({ src, thumb: thumbOf(src), caption: title })),
+    label,
+    { thumbs: true },
+  );
 
 /**
  * A row of small, equal chips that open the Figma files in a new tab.
@@ -66,16 +68,16 @@ export function createWorkGallery() {
           id: 'ui-ux-showcase',
           label: 'UI/UX Design',
           icon: 'layout',
-          content: [createFigmaButtons(figmaLinks), createGallery(uiuxShowcase)],
+          content: [createFigmaButtons(figmaLinks), createGallery(uiuxShowcase, 'UI/UX design')],
         },
         {
           id: 'graphic-design',
           label: 'Graphic Design',
           icon: 'palette',
-          content: [createFigmaButtons(graphicFigmaLinks), createGallery(graphicDesignShowcase)],
+          content: [createFigmaButtons(graphicFigmaLinks), createGallery(graphicDesignShowcase, 'Graphic design')],
         },
-        { id: 'photography', label: 'Photography', icon: 'camera', content: createGallery(photographyShowcase) },
-        { id: 'it-support-showcase', label: 'IT Support', icon: 'headset', content: createGallery(itSupportShowcase) },
+        { id: 'photography', label: 'Photography', icon: 'camera', content: createGallery(photographyShowcase, 'Photography') },
+        { id: 'it-support-showcase', label: 'IT Support', icon: 'headset', content: createGallery(itSupportShowcase, 'IT support') },
       ],
     }),
   );

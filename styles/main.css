@@ -14,9 +14,10 @@
 @import url('cards.css');
 @import url('media.css');
 @import url('lightbox.css');
-
 @import url('snake.css');
 @import url('tabs.css');
+@import url('slider.css');
+@import url('dialog.css');
 
 /* Page sections */
 @import url('hero.css');
