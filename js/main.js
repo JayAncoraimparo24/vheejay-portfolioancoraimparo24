@@ -14,17 +14,16 @@ import { initScrollSpy } from './scrollSpy.js';
 import { initEditMode } from './editMode.js';
 import { initScrollState } from './scrollState.js';
 import { initLightbox } from '../components/lightbox.js';
-import { createToolsMarquee } from '../sections/toolsMarquee.js';
 
+// A short resume-style page first (about, education, skills, experience, projects), then the work galleries
 const SECTION_FACTORIES = [
   createHero,
-  createToolsMarquee,
   createAbout,
+  createEducation,
   createSkills,
+  createExperience,
   createProjects,
   createWorkGallery,
-  createExperience,
-  createEducation,
   createContact,
 ];
 

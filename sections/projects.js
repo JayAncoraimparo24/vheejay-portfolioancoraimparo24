@@ -1,7 +1,11 @@
 import { el } from '../js/dom.js';
 import { projects } from '../data/projects.js';
+import { projectUrl } from '../js/config.js';
 import { createSection } from '../components/section.js';
-import { projectCard } from '../components/projectCard.js';
+import { tagList } from '../components/tag.js';
+
+const MAX_TOOLS = 6; // the project page lists every tool
+const MAX_POINTS = 3; // and every contribution
 
 // The other work sections, so a visitor can jump straight to them from here
 const MORE_WORK = [
@@ -10,6 +14,36 @@ const MORE_WORK = [
   { id: 'photography', label: 'Photography' },
   { id: 'it-support-showcase', label: 'IT Support' },
 ];
+
+/** One project as a row: title and dates, a View button, the main tools, and a few key points. */
+function projectRow(project) {
+  const hiddenTools = project.tools.length - MAX_TOOLS;
+  const tools = hiddenTools > 0 ? [...project.tools.slice(0, MAX_TOOLS), `+${hiddenTools} more`] : project.tools;
+  // A project that is still in progress has no contributions yet, so its overview is shown instead
+  const points = project.contributions.length ? project.contributions.slice(0, MAX_POINTS) : [project.overview];
+
+  return el(
+    'article',
+    { class: 'project-row' },
+    el(
+      'div',
+      { class: 'project-row__head' },
+      el(
+        'div',
+        {},
+        el('h3', { class: 'project-row__title', text: project.title }),
+        el('p', { class: 'project-row__meta', text: [project.type, project.date].filter(Boolean).join(' · ') }),
+      ),
+      el(
+        'a',
+        { class: 'btn btn--secondary btn--small', href: projectUrl(project.id), 'aria-label': `View details: ${project.title}` },
+        'View',
+      ),
+    ),
+    tools.length ? tagList(tools) : null,
+    el('ul', { class: 'bullet-list' }, points.map((text) => el('li', { text }))),
+  );
+}
 
 function createMoreWork() {
   return el(
@@ -22,13 +56,8 @@ function createMoreWork() {
 
 export function createProjects() {
   return createSection(
-    {
-      id: 'projects',
-      eyebrow: 'Projects',
-      title: 'Featured Projects',
-      intro: 'Select a project to see its overview, tools, key features, and my contributions.',
-    },
-    el('div', { class: 'grid grid--projects' }, projects.map(projectCard)),
+    { id: 'projects', title: 'Project Experience', iconName: 'folder', narrow: true },
+    el('div', { class: 'project-rows' }, projects.map(projectRow)),
     createMoreWork(),
   );
 }

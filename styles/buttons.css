@@ -133,3 +133,13 @@
 .link-arrow:hover svg {
   transform: translateX(4px);
 }
+
+/* Small buttons: the links in the header and the "View" buttons on the project rows */
+.btn--small {
+  padding: 0.4rem 0.9rem;
+  font-size: var(--text-sm);
+}
+
+.btn--small:hover svg {
+  transform: none;
+}

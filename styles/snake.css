@@ -2,7 +2,6 @@
  * "Snake" effect: a short cyan segment travelling around an element's border.
  * Markup comes from components/snakeBorder.js. Parents must be position: relative.
  */
-.project-card,
 .btn {
   position: relative;
 }

@@ -1,72 +1,47 @@
 import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
-import { button } from '../components/button.js';
 import { icon } from '../components/icons.js';
-import { createSnakeBorder } from '../components/snakeBorder.js';
 import { createFlipCard } from '../components/flipCard.js';
 import { siteUrl } from '../js/config.js';
 
-/** Round icon buttons under the location: email, LinkedIn, GitHub (each only when it is set in data/profile.js). */
-function createQuickLinks() {
+/** A small pill-shaped link with an icon in front: View My Work, Message, GitHub, LinkedIn. */
+function linkButton({ label, href, iconName, variant = 'secondary', external = false }) {
+  const props = { class: `btn btn--${variant} btn--small`, href };
+  if (external) Object.assign(props, { target: '_blank', rel: 'noopener noreferrer' });
+  return el('a', props, icon(iconName, 16), label);
+}
+
+function createLinks() {
   const links = [
-    // The email icon takes the visitor to the contact form, which offers Gmail, an email app, or copying the message
-    // (a plain mailto: link does nothing on a computer without an email app)
-    profile.email && { name: 'mail', label: 'Send me a message', href: '#contact' },
-    profile.linkedin?.url && { name: 'linkedin', label: 'LinkedIn profile', href: profile.linkedin.url, external: true },
-    profile.github?.url && { name: 'github', label: 'GitHub profile', href: profile.github.url, external: true },
+    { label: 'View My Work', href: '#projects', iconName: 'folder', variant: 'primary' },
+    // The message button goes to the contact form (a plain mailto: link does nothing without a mail app)
+    profile.email && { label: 'Message', href: '#contact', iconName: 'mail' },
+    profile.github?.url && { label: 'GitHub', href: profile.github.url, iconName: 'github', external: true },
+    profile.linkedin?.url && { label: 'LinkedIn', href: profile.linkedin.url, iconName: 'linkedin', external: true },
   ].filter(Boolean);
-  if (!links.length) return null;
 
-  return el(
-    'ul',
-    { class: 'hero__links', 'aria-label': 'Quick contact links' },
-    links.map(({ name, label, href, external }) =>
-      el(
-        'li',
-        {},
-        el(
-          'a',
-          { class: 'hero__link', href, 'aria-label': label, title: label, ...(external && { target: '_blank', rel: 'noopener noreferrer' }) },
-          icon(name, 20),
-        ),
-      ),
-    ),
-  );
+  return el('div', { class: 'hero__links' }, links.map(linkButton));
 }
 
-/** Back of the portrait card: a second picture with a short label. */
-function createPortraitBack({ src, alt, caption }) {
-  return el(
+/** The portrait. Click it to turn it over and see the second picture (components/flipCard.js). */
+function createPortrait() {
+  const front = el(
     'div',
-    { class: 'hero__back' },
-    el('img', { class: 'hero__back-img', src: siteUrl(src), alt, loading: 'lazy' }),
-    el('span', { class: 'hero__back-caption', text: caption }),
+    { class: 'hero__photo' },
+    profile.photo
+      ? el('img', { class: 'hero__img', src: siteUrl(profile.photo), alt: `Portrait of ${profile.name}` })
+      : el('span', { class: 'hero__initials', text: profile.initials }),
   );
-}
+  if (!profile.photo || !profile.photoBack) return front;
 
-function createProfileImage() {
-  if (profile.photo) {
-    const front = el(
-      'div',
-      { class: 'hero__photo hero__photo--filled' },
-      el('img', { class: 'slot-image', src: siteUrl(profile.photo), alt: `Portrait of ${profile.name}` }),
-      createSnakeBorder({ radius: 16 }),
-    );
-    if (!profile.photoBack) return front;
-    return createFlipCard({
-      front,
-      back: createPortraitBack(profile.photoBack),
-      label: 'Flip the photo to see the other side',
-      hint: 'Tap the photo to flip it',
-    });
-  }
-  return el(
+  const { src, alt, caption } = profile.photoBack;
+  const back = el(
     'div',
-    { class: 'hero__photo', role: 'img', 'aria-label': 'Profile photo placeholder' },
-    createSnakeBorder({ radius: 16 }),
-    el('span', { class: 'hero__initials', text: profile.initials }),
-    el('span', { class: 'hero__photo-hint', text: 'Profile photo placeholder' }),
+    { class: 'hero__photo hero__photo--back' },
+    el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: 'lazy' }),
+    el('span', { class: 'hero__caption', text: caption }),
   );
+  return createFlipCard({ front, back, label: 'Turn the photo over to see the other side', hint: 'Tap to flip' });
 }
 
 export function createHero() {
@@ -75,14 +50,14 @@ export function createHero() {
     { class: 'hero', id: 'home', 'data-nav': 'home', 'aria-labelledby': 'hero-title' },
     el(
       'div',
-      { class: 'container hero__inner' },
+      { class: 'container container--narrow hero__inner' },
+      createPortrait(),
       el(
         'div',
         { class: 'hero__content' },
-        el('p', { class: 'eyebrow', text: 'Portfolio' }),
         el('h1', { class: 'hero__title', id: 'hero-title', text: profile.name }),
-        // The job title comes right after the name, so it is the first thing a visitor learns
         el('p', { class: 'hero__roles', text: profile.roles.join(' | ') }),
+        el('p', { class: 'hero__location' }, icon('pin', 16), el('span', { text: profile.location })),
         profile.verse
           ? el(
               'p',
@@ -91,25 +66,8 @@ export function createHero() {
               el('cite', { text: profile.verse.reference }),
             )
           : null,
-        profile.quote
-          ? el(
-              'blockquote',
-              { class: 'hero__quote' },
-              el('p', { text: profile.quote.text }),
-              el('footer', { text: `— ${profile.quote.author}` }),
-            )
-          : null,
-        el(
-          'div',
-          { class: 'hero__actions' },
-          button({ label: 'View My Work', href: '#projects', iconName: 'arrow' }),
-          button({ label: 'About Me', href: '#about', variant: 'secondary' }),
-        ),
-        el('p', { class: 'hero__location' }, icon('pin', 18), el('span', { text: profile.location })),
-        createQuickLinks(),
+        createLinks(),
       ),
-      createProfileImage(),
     ),
-    el('a', { class: 'scroll-cue', href: '#about', 'aria-label': 'Scroll down to the About section' }),
   );
 }

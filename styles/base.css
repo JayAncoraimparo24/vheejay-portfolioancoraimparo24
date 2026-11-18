@@ -110,3 +110,11 @@ textarea {
     animation: none !important;
   }
 }
+
+/* An icon from an SVG file (components/icons.js): the file is a mask, so it takes the text colour */
+.icon-file {
+  display: inline-block;
+  background: currentcolor;
+  mask: var(--icon-url) center / contain no-repeat;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
+}

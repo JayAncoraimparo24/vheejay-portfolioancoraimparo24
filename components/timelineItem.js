@@ -13,7 +13,7 @@ export function timelineItem(job) {
     'article',
     { class: 'timeline__item' },
     el('p', { class: 'timeline__period', text: job.period }),
-    el('h3', { class: 'card__title', text: job.company }),
+    el('h3', { class: 'timeline__title', text: job.company }),
     el('p', { class: 'timeline__meta', text: job.location }),
     el('p', { class: 'timeline__position', text: job.position }),
     job.note ? el('p', { class: 'timeline__note', text: job.note }) : null,

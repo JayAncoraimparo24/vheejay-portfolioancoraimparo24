@@ -77,27 +77,6 @@
   color: var(--color-text);
 }
 
-/* Inside a project card: a shorter picture area that keeps the top-left of a screenshot visible */
-.project-card .media__box {
-  --media-ratio: 5 / 2;
-
-  border-width: 0 0 1px;
-  border-radius: 0;
-}
-
-.project-card:hover .media__box {
-  box-shadow: none;
-  transform: none;
-}
-
-.project-card .media__img {
-  object-position: left top;
-}
-
-.project-card:hover .media__img {
-  transform: scale(1.04);
-}
-
 /* Project screenshots: show the whole screen instead of cropping it */
 .grid--shots {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));

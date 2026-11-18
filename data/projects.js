@@ -125,19 +125,20 @@ export const projects = [
       { src: 'assets/images/ais/demo-table.jpg', caption: 'Barcode scanner, laptop, and printed manuals', ratio: '1200 / 1600' },
     ],
   },
-  {
-    id: 'peso-wifi-system',
-    number: '04',
-    title: 'PESO WiFi System',
-    type: 'Ongoing project',
-    role: 'UI/UX Design, Front-End Development, System Development Support',
-    date: 'Ongoing',
-    overview:
-      'A community-based public WiFi management platform. This project is still in progress, so features, tools, and results will be added once it is completed.',
-    tools: [],
-    features: [],
-    contributions: [],
-    achievement: null,
-    screenshots: screenshots(3, 'Screenshot'),
-  },
+  // Taken out for now. To show it again, remove the "//" in front of each line below.
+  // {
+  //   id: 'peso-wifi-system',
+  //   number: '04',
+  //   title: 'PESO WiFi System',
+  //   type: 'Ongoing project',
+  //   role: 'UI/UX Design, Front-End Development, System Development Support',
+  //   date: 'Ongoing',
+  //   overview:
+  //     'A community-based public WiFi management platform. This project is still in progress, so features, tools, and results will be added once it is completed.',
+  //   tools: [],
+  //   features: [],
+  //   contributions: [],
+  //   achievement: null,
+  //   screenshots: screenshots(3, 'Screenshot'),
+  // },
 ];

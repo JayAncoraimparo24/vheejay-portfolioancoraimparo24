@@ -1,4 +1,8 @@
 /* Page structure: container, sections, section headings, grids, scroll reveal */
+.container--narrow {
+  max-width: 52rem;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -7,7 +11,7 @@
 }
 
 .section {
-  padding-block: var(--space-8);
+  padding-block: var(--space-6);
 }
 
 .section--tint {
@@ -21,9 +25,8 @@
   background: var(--color-deep);
 }
 
-/* Faint dot grid that drifts slowly behind the hero and the tinted and dark sections.
+/* Faint dot grid behind the tinted and dark sections.
    The layer is one grid cell larger than the section and moves exactly one cell, so the loop never jumps. */
-.hero,
 .section--tint,
 .section--dark {
   position: relative;
@@ -31,7 +34,6 @@
   overflow: hidden;
 }
 
-.hero::before,
 .section--tint::before,
 .section--dark::before {
   position: absolute;
@@ -49,7 +51,7 @@
   }
 }
 
-/* Section heading: a numbered label, the title, a short intro, then a thin rule */
+/* Section heading: an icon, the title, and an optional short intro */
 #main {
   counter-reset: section;
 }
@@ -57,17 +59,18 @@
 .section__header {
   display: grid;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
   counter-increment: section;
 }
 
+/* The title has a small icon in front of it */
 .section__title {
-  font-size: var(--text-3xl);
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-size: var(--text-xl);
   letter-spacing: -0.01em;
 }
-
 .section__intro {
   max-width: 42rem;
   color: var(--color-muted);
@@ -88,12 +91,7 @@
   content: counter(section, decimal-leading-zero) ' /';
 }
 
-.section--dark .section__header {
-  border-color: rgb(255 255 255 / 14%);
-}
-
-.section--dark .section__title,
-.section--dark .card__title {
+.section--dark .section__title {
   color: var(--color-on-dark);
 }
 
@@ -109,14 +107,6 @@
 .grid {
   display: grid;
   gap: var(--space-5);
-}
-
-.grid--skills {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
-}
-
-.grid--projects {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
 }
 
 .grid--gallery {
@@ -138,9 +128,5 @@
 @media (min-width: 48rem) {
   :root {
     --gutter: 2rem;
-  }
-
-  .section {
-    padding-block: var(--space-9);
   }
 }

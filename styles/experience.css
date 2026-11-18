@@ -1,8 +1,17 @@
-/* About, work experience timeline, and education */
-.about__summary {
-  max-width: 48rem;
-  font-size: var(--text-lg);
-  line-height: 1.8;
+/* About and the work experience timeline */
+/* Quote under the summary */
+.about__quote {
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-4) 0 0;
+  padding-left: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  border-left: 3px solid var(--color-primary);
+}
+
+.about__quote footer {
+  font-size: var(--text-xs);
 }
 
 .timeline {
@@ -37,7 +46,7 @@
   position: relative;
   display: grid;
   gap: var(--space-2);
-  padding: var(--space-5);
+  padding: var(--space-4);
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -47,16 +56,10 @@
     transform var(--transition);
 }
 
-.timeline__item:hover {
-  border-color: var(--color-primary);
-  box-shadow: 6px 6px 0 var(--shadow-hard);
-  transform: translate(-3px, -3px);
-}
-
 /* Dot on the line; the current job's dot pulses */
 .timeline__item::before {
   position: absolute;
-  top: var(--space-5);
+  top: var(--space-4);
   left: calc(-1 * var(--space-5) - 5px);
   width: 12px;
   height: 12px;
@@ -89,8 +92,8 @@
   color: var(--color-primary-dark);
 }
 
-.timeline__item .card__title {
-  font-size: var(--text-xl);
+.timeline__title {
+  font-size: var(--text-base);
   color: var(--color-navy);
 }
 
@@ -107,8 +110,4 @@
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-primary-dark);
-}
-
-.education-card {
-  max-width: 40rem;
 }

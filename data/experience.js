@@ -5,7 +5,12 @@ export const experience = [
     position: 'Junior IT Specialist',
     period: 'October 23, 2026 – Present',
     note: null,
-    // Replace with real responsibilities when provided.
+    // Left empty on purpose for now. These lines were taken out and can be put back when you want them shown:
+    //   'Nov 9: Created a calendar design for MHIPCOR Company.',
+    //   'Nov 10: Polished the overall calendar design, added a QR code to access the company website, and designed souvenir mugs for the company.',
+    //   'Nov 11: Continued working on the souvenir mug design and made improvements to the calendar layout and overall design.',
+    //   'Nov 12: Created a company T-shirt uniform design for 2027.',
+    //   'Nov 13: Polished the T-shirt uniform design and continued improving the overall design materials for the company.',
     responsibilities: [],
   },
   {

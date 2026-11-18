@@ -1,4 +1,13 @@
+import { siteUrl } from '../js/config.js';
+
 const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/**
+ * Icons that come from an SVG file in assets/icons/ (downloaded from Flaticon).
+ * To use one, save the file as assets/icons/<name>.svg and add <name> to this list.
+ * It takes the text colour of its surroundings, so it also works in dark mode.
+ */
+const FILE_ICONS = new Set([]);
 
 const PATHS = {
   menu: 'M4 6h16M4 12h16M4 18h16',
@@ -24,13 +33,18 @@ const PATHS = {
   sun: 'M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2v2M12 20v2M4.900 4.900l1.400 1.400M17.700 17.700l1.400 1.400M2 12h2M20 12h2M4.900 19.100l1.400-1.400M17.700 6.300l1.400-1.400',
   moon: 'M20 14.500A8 8 0 0 1 9.500 4a8 8 0 1 0 10.500 10.500z',
   external: 'M7 17L17 7M9 7h8v8',
-  headset:'M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H5a1 1 0 0 1-1-1zM20 14h-3v5h2a1 1 0 0 0 1-1zM17 19c0 1.500-2 2-5 2',
+  headset: 'M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H5a1 1 0 0 1-1-1zM20 14h-3v5h2a1 1 0 0 0 1-1zM17 19c0 1.500-2 2-5 2',
   camera: 'M3 8h4l2-3h6l2 3h4v11H3zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
   palette: 'M12 3a9 9 0 1 0 0 18c1.500 0 2-1 1.500-2s0-2 1.500-2h2a4 4 0 0 0 4-4c0-5-4.500-10-9-10zM7.500 11h.01M10 7.500h.01M14.500 7.500h.01',
-  award:'M12 14a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.500 13l-1.500 8 5-3 5 3-1.500-8',
+  award: 'M12 14a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.500 13l-1.500 8 5-3 5 3-1.500-8',
+  user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
+  education: 'M2 9l10-5 10 5-10 5zM6 11.500V16c0 1.500 2.700 3 6 3s6-1.500 6-3v-4.500M22 9v6',
+  briefcase: 'M3 7h18v13H3zM9 7V4h6v3M3 13h18',
+  folder: 'M3 6h6l2 2h10v11H3z',
 };
 
-export function icon(name, size = 20) {
+/** A drawn icon (stroke style, takes the text colour). */
+function drawnIcon(name, size) {
   const svg = document.createElementNS(SVG_NS, 'svg');
   svg.setAttribute('viewBox', '0 0 24 24');
   svg.setAttribute('width', size);
@@ -46,4 +60,19 @@ export function icon(name, size = 20) {
   path.setAttribute('d', PATHS[name] ?? PATHS.file);
   svg.append(path);
   return svg;
+}
+
+/** An icon from an SVG file: the file is used as a mask, so the icon is painted in the text colour. */
+function fileIcon(name, size) {
+  const span = document.createElement('span');
+  span.className = 'icon-file';
+  span.setAttribute('aria-hidden', 'true');
+  span.style.setProperty('--icon-url', `url("${siteUrl(`assets/icons/${name}.svg`)}")`);
+  span.style.width = `${size}px`;
+  span.style.height = `${size}px`;
+  return span;
+}
+
+export function icon(name, size = 20) {
+  return FILE_ICONS.has(name) ? fileIcon(name, size) : drawnIcon(name, size);
 }

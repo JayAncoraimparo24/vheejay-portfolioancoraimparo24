@@ -39,19 +39,15 @@
 
 /* ---------- Performance: pause decorative loops while the page is scrolling ----------
    js/scrollState.js sets .is-scrolling on <html>. The animations resume where they stopped. */
-.is-scrolling .hero::before,
 .is-scrolling .section--tint::before,
 .is-scrolling .section--dark::before,
 .is-scrolling .snake-border__line,
-.is-scrolling .marquee__track,
 .is-scrolling .timeline__item::before,
-.is-scrolling .hero__title,
-.is-scrolling .flip-card,
-.is-scrolling .scroll-cue {
+.is-scrolling .hero__title {
   animation-play-state: paused !important;
 }
 
-/* Off screen: nothing in the hero or the tools strip needs to keep moving */
+/* Off screen: nothing in the hero needs to keep moving */
 [data-offscreen],
 [data-offscreen]::before,
 [data-offscreen] *,
@@ -60,14 +56,13 @@
   animation-play-state: paused !important;
 }
 
-/* The dot grid only drifts in the hero; the other sections (some very tall) keep still dots */
+/* The dot grid stays still (the sections can be very tall, and a huge moving layer is costly) */
 .section--tint::before,
 .section--dark::before {
   animation: none;
 }
 
 /* ---------- Colour behind the glass ---------- */
-.hero,
 .section--tint {
   background-image:
     radial-gradient(34rem 24rem at 8% 6%, var(--blob-a), transparent 65%),
@@ -78,50 +73,14 @@
 
 /* ---------- Background polish (all still, so it costs nothing while scrolling) ---------- */
 
-/* 1) A soft glow behind the portrait makes the picture the centre of the hero */
-:root {
-  --orb-a: rgb(6 182 212 / 55%);
-  --orb-b: rgb(99 102 241 / 32%);
-}
-
-:root[data-theme='dark'] {
-  --orb-a: rgb(34 211 238 / 22%);
-  --orb-b: rgb(99 102 241 / 24%);
-}
-
-.hero__inner {
-  position: relative;
-}
-
-.hero__inner::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  width: min(38rem, 130%);
-  aspect-ratio: 1;
-  content: '';
-  pointer-events: none;
-  background: radial-gradient(circle, var(--orb-a), var(--orb-b) 42%, transparent 70%);
-  transform: translate(-50%, -50%);
-}
-
-/* On a wide screen the glow sits behind the portrait (the right column) */
-@media (min-width: 56rem) {
-  .hero__inner::after {
-    left: 77%;
-  }
-}
-
-/* 2) The dots fade out towards the top and bottom edge of each section, so they stop looking like flat wallpaper */
-.hero::before,
+/* 1) The dots fade out towards the top and bottom edge of each section, so they stop looking like flat wallpaper */
 .section--tint::before,
 .section--dark::before {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
 }
 
-/* 3) The tinted sections melt into the plain sections around them instead of ending with a hard line */
+/* 2) The tinted sections melt into the plain sections around them instead of ending with a hard line */
 .section--tint {
   background-image:
     linear-gradient(to bottom, var(--color-white), transparent 7rem),
@@ -132,27 +91,13 @@
 }
 
 /* ---------- Cards ---------- */
-.card,
 .timeline__item {
   background: var(--glass-bg);
   border: 1px solid var(--glass-edge);
   box-shadow: var(--glass-shadow), 0 0 0 1px var(--glass-line);
 }
 
-.card:hover,
-.timeline__item:hover {
-  background: var(--glass-bg-strong);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-shadow-hover), 0 0 0 1px rgb(6 182 212 / 40%);
-  transform: translateY(-4px);
-}
-
 /* The coloured top edge of skill and project cards stays, now as a soft rim */
-.skill-card,
-.project-card {
-  border-top: 3px solid var(--color-primary);
-}
-
 /* Tags and chips: small frosted pills */
 .tag {
   background: rgb(6 182 212 / 9%);
@@ -265,7 +210,6 @@
 
 /* ---------- Shapes: large things are softly rounded, small controls are pills or circles ----------
    (To go back to the earlier, less rounded look, delete this block.) */
-.card,
 .timeline__item,
 .project-header,
 .pager__link {
@@ -297,19 +241,8 @@
   border-radius: 12px;
 }
 
-.card__icon,
 .contact__icon {
   border-radius: 12px;
-}
-
-/* The number on a project picture is a soft circle (it was a hard-edged square) */
-.project-card__badge {
-  min-width: 0;
-  width: 2.25rem;
-  padding: 0;
-  border: 2px solid rgb(255 255 255 / 85%);
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgb(6 182 212 / 40%);
 }
 
 /* Footer button */
