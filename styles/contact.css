@@ -183,6 +183,17 @@
   transform: translateY(-2px);
 }
 
+/* Credit for the icons, on its own line under the three parts */
+.site-footer__credit {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+.site-footer__credit a {
+  text-decoration: underline;
+}
+
 /* While editing on your own computer the floating toolbar sits over the footer, so leave room for it */
 body:has(.edit-toolbar) .site-footer {
   padding-bottom: 4.5rem;

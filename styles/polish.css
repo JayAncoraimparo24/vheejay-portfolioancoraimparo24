@@ -20,7 +20,7 @@ html {
     transform 420ms var(--ease-spring);
 }
 
-.contact__icon svg {
+.contact__icon .icon-file {
   transition: transform 420ms var(--ease-spring);
 }
 
@@ -31,7 +31,7 @@ html {
   transform: translateY(-2px) rotate(-6deg) scale(1.08);
 }
 
-.contact__row:hover .contact__icon svg {
+.contact__row:hover .contact__icon .icon-file {
   transform: scale(1.1) rotate(6deg);
 }
 /* Buttons: a light sweep across the button, and the icon nudges */
@@ -55,7 +55,7 @@ html {
   transform: translateX(120%);
 }
 
-.btn svg {
+.btn .icon-file {
   transition: transform 320ms var(--ease-spring);
 }
 
@@ -190,7 +190,7 @@ html {
   box-shadow: var(--shadow-sm);
 }
 
-.achievement svg {
+.achievement .icon-file {
   flex-shrink: 0;
   color: var(--color-primary-dark);
 }

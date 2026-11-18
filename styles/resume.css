@@ -19,9 +19,7 @@
   color: var(--color-muted);
 }
 
-.skill-group__title svg,
 .skill-group__title .icon-file,
-.section__title svg,
 .section__title .icon-file {
   flex-shrink: 0;
   color: var(--color-primary-dark);

@@ -88,7 +88,7 @@
     transform 320ms var(--ease-spring, ease);
 }
 
-.figma-chip svg:last-child {
+.figma-chip .icon-file:last-child {
   opacity: 0.7;
   transition: transform 320ms var(--ease-spring, ease);
 }
@@ -100,7 +100,7 @@
   transform: translateY(-2px);
 }
 
-.figma-chip:hover svg:last-child {
+.figma-chip:hover .icon-file:last-child {
   opacity: 1;
   transform: translate(2px, -2px);
 }

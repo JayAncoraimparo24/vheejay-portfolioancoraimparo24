@@ -29,11 +29,11 @@
   transform: none;
 }
 
-.btn svg {
+.btn .icon-file {
   transition: transform var(--transition);
 }
 
-.btn:hover svg {
+.btn:hover .icon-file {
   transform: translateX(3px);
 }
 
@@ -118,19 +118,19 @@
   transform: translateX(-3px);
 }
 
-.link-back svg {
+.link-back .icon-file {
   transition: transform var(--transition);
 }
 
-.link-back:hover svg {
+.link-back:hover .icon-file {
   transform: translateX(-4px);
 }
 
-.link-arrow svg {
+.link-arrow .icon-file {
   transition: transform var(--transition);
 }
 
-.link-arrow:hover svg {
+.link-arrow:hover .icon-file {
   transform: translateX(4px);
 }
 
@@ -140,6 +140,6 @@
   font-size: var(--text-sm);
 }
 
-.btn--small:hover svg {
+.btn--small:hover .icon-file {
   transform: none;
 }

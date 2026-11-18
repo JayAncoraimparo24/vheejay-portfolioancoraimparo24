@@ -23,5 +23,12 @@ export function createFooter() {
         },
       }, 'Back to top ↑'),
     ),
+    // The icons are free to use as long as Flaticon is credited
+    el(
+      'p',
+      { class: 'site-footer__credit' },
+      'Icons: ',
+      el('a', { href: 'https://www.flaticon.com/uicons', target: '_blank', rel: 'noopener noreferrer', text: 'UIcons by Flaticon' }),
+    ),
   );
 }
