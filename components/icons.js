@@ -2,7 +2,7 @@
 
 /**
  * Every icon on the site is an SVG file in assets/icons/, taken from the free UIcons set by Flaticon
- * (https://www.flaticon.com/uicons, credit in the footer). To change one, replace its file.
+ * (https://www.flaticon.com/uicons). To change one, replace its file.
  *
  * The file is used as a mask, so the icon is painted in the surrounding text colour
  * and follows the light and dark theme (see .icon-file in base.css).
