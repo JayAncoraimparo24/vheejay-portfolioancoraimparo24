@@ -1,23 +1,16 @@
-// Screenshot entries use `src: null` until real images are added to assets/images/.
-// To replace a placeholder, set src to e.g. 'assets/images/projects/rbm-login.png'.
-const screenshots = (count, label) =>
-  Array.from({ length: count }, (_, index) => ({
-    src: null,
-    caption: `${label} ${index + 1}`,
-  }));
-
 export const projects = [
   {
     id: 'rbm-motorparts',
     number: '01',
     // Same title as the capstone paper.
     title: 'Development of a Web Application Sales & Inventory System for RBM Motorparts, Accessories, & Services',
-    type: 'Capstone Project',
-    role: 'Lead UI/UX Designer, Front-End Developer, Manual QA Tester, Technical Documentation',
+    type: 'Capstone Project · Team Collaboration',
+    role: 'Lead UI/UX Designer, Front-End Developer, Manual QA Tester & Technical Documentation',
     date: 'January 2025 – May 2026',
     overview:
-      'A web-based sales and inventory system for RBM Motorparts, Accessories, & Services in Caloocan City, improving their manual and Excel-based processes. It handles barcode sales with automatic receipts, tracks inventory, controls employee access, logs system activity, and generates reports. Built by a five-member team using PHP and MySQL, following the Modified Waterfall Model.',
-    tools: ['Figma', 'Canva', 'Adobe Photoshop', 'HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'XAMPP'],
+      'A web-based sales and inventory system developed to streamline sales transactions, product management, inventory monitoring, and business reporting.',
+    techStack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'XAMPP'],
+    designTools: ['Figma', 'Canva', 'Adobe Photoshop'],
     features: [
       'Login with user authentication.',
       'Dashboard with a monthly executive summary: products, low stock, out of stock, defective units, sales revenue, units sold, gross profit, and service profits.',
@@ -34,13 +27,13 @@ export const projects = [
       'Data backup.',
     ],
     contributions: [
-      'Designed nine system screens using Figma, Canva, and Adobe Photoshop.',
-      'Prepared complete SDLC documentation, Chapters I–V.',
-      'Created five system diagrams and supporting documentation.',
-      'Developed a 19-table data dictionary.',
-      'Conducted manual testing and supported ISO/IEC 25010 software quality evaluation.',
+      'Designed 9 system interfaces and supported frontend implementation.',
+      'Prepared complete SDLC documentation (Chapters I–V).',
+      'Created 5 system diagrams and a 19-table data dictionary.',
+      'Conducted manual testing, debugging, and system refinement.',
+      'Contributed to software quality evaluation using ISO/IEC 25010.',
     ],
-    achievement: 'Evaluated with the ISO/IEC 25010 software quality model: Overall Mean Rating of 5.0 (Acceptable).',
+    highlight: 'Evaluated using ISO/IEC 25010, achieving an Overall Mean Rating of 5.0 (Acceptable).',
     // Optional: photos of the team and the presentation.
     photos: [
       { src: 'assets/images/rbm/defense-team-1.jpg', caption: 'Capstone 1 Defense' },
@@ -62,26 +55,29 @@ export const projects = [
   {
     id: 'seafood-price-tracking',
     number: '02',
-    title: 'Seafood Price Tracking System',
-    type: null,
-    role: 'UI Designer and Presenter',
+    title: 'Local Seafood Price Tracking System',
+    type: 'Hackathon Project · Team Collaboration',
+    role: 'UI/UX Designer & Presenter',
     date: 'April 2025',
     overview:
-      'An interactive website that lets Filipinos check the current prices of seafood from home. Prices of each fish and mollusk are updated daily, and the site is free to use. It was built by team ArchDevs for the GENNOTECH hackathon of the College of Computer Studies, Global Reciprocal Colleges.',
-    tools: [],
+      'An interactive website that allows Filipinos to check updated seafood prices online. It provides daily price updates for different types of fish and mollusks, making it easier for users to monitor seafood prices.',
+    achievement: 'Top 5 Finalist — GENNOTECH Creativity Hackathon 2025',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    designTools: ['Figma', 'Canva', 'Adobe Photoshop'],
     features: [
-      'Price list of fish and seafood with a search box, a location filter, and a sort option.',
-      'Pop-up for each fish with its Tagalog, English, and scientific names and a short description.',
-      'Prices updated daily, with the date of the last update shown.',
-      'Home, Description, Prices, and About pages.',
+      'Seafood price list with search, location filter, and sorting options.',
+      'Seafood details displaying Tagalog, English, and scientific names, along with short descriptions.',
+      'Daily seafood price updates with the date of the latest update.',
+      'Separate pages for Home, Description, Prices, and About.',
     ],
     contributions: [
-      'Created eight mobile/web screens.',
-      'Tested more than five key features.',
-      'Helped design the interface and price-tracking features as part of a three-member team.',
-      'Presented the platform to judges.',
+      'Designed 8 mobile and web interfaces.',
+      'Helped design the website layout and seafood price-tracking features.',
+      'Tested more than 5 key system features.',
+      'Collaborated with a three-member team to develop the platform.',
+      'Presented the website to the hackathon judges.',
     ],
-    achievement: 'Top 5 Finalist — GENNOTECH Creativity Hackathon 2025.',
+    highlight: 'Recognized as a Top 5 Finalist in the GENNOTECH Creativity Hackathon 2025.',
     // Screens of the website (cropped from the design view) and the hackathon poster.
     screenshots: [
       { src: 'assets/images/seafood/home.jpg', caption: 'Home page', ratio: '818 / 453' },
@@ -96,25 +92,37 @@ export const projects = [
     id: 'automated-itemization-system',
     number: '03',
     title: 'Automated Itemization System (AIS)',
-    type: null,
-    role: 'UI Designer, Manual QA Tester, Technical Documentation, Hardware Installation',
+    type: 'Academic Project · System Integration Architecture',
+    role: 'UI/UX Designer · Manual QA Tester · Technical Documentation · Hardware Installation',
     date: '2024–2025',
+    subject: 'System Integration Architecture',
     overview:
-      'An inventory-related system with features for tracking products, monitoring quantities, updating prices, and generating monthly reports.',
-    tools: [],
+      'An inventory management system designed to help users track products, monitor item quantities, update prices, and generate monthly reports. The system also uses a barcode scanner to support product identification and inventory management.',
+    techStack: [],
+    designTools: [],
     features: [
-      'Product tracking.',
-      'Quantity monitoring.',
-      'Price updates.',
+      'Product tracking and inventory management.',
+      'Product quantity monitoring.',
+      'Product price updating.',
       'Monthly report generation.',
+      'Barcode scanning for product identification.',
     ],
     contributions: [
       'Designed the front and back covers and page layouts of the AIS User Manual.',
-      'Developed clear, step-by-step instructions for end users.',
-      'Documented inventory tracking, product quantity monitoring, price updates, and monthly report generation.',
-      'Prepared system documentation covering workflows, requirements, and functions, including five diagrams and flowcharts.',
+      'Created step-by-step instructions to guide users in operating the system.',
+      'Prepared technical documentation covering system workflows, requirements, and functionalities.',
+      'Created five system diagrams and flowcharts.',
+      'Conducted manual testing to check system functions.',
+      'Assisted in hardware installation and barcode scanner setup.',
     ],
-    achievement: null,
+    documentation: [
+      'AIS User Manual design and layout.',
+      'Step-by-step user instructions.',
+      'Five system diagrams and flowcharts.',
+      'Technical documentation of system workflows and requirements.',
+    ],
+    highlight:
+      'Combined inventory management functions with barcode scanning and hardware setup, supported by a user manual and technical documentation.',
     // `ratio` is width / height of each picture, so portrait photos are not squeezed into a wide box.
     screenshots: [
       { src: 'assets/images/ais/user-manual-cover.jpg', caption: 'User manual: front cover', ratio: '1236 / 1600' },
@@ -125,7 +133,8 @@ export const projects = [
       { src: 'assets/images/ais/demo-table.jpg', caption: 'Barcode scanner, laptop, and printed manuals', ratio: '1200 / 1600' },
     ],
   },
-  // Taken out for now. To show it again, remove the "//" in front of each line below.
+  // Taken out for now. To show it again, remove the "//" in front of each line below
+  // (the `screenshots` helper at the very bottom is part of it).
   // {
   //   id: 'peso-wifi-system',
   //   number: '04',
@@ -135,10 +144,14 @@ export const projects = [
   //   date: 'Ongoing',
   //   overview:
   //     'A community-based public WiFi management platform. This project is still in progress, so features, tools, and results will be added once it is completed.',
-  //   tools: [],
+  //   techStack: [],
+  //   designTools: [],
   //   features: [],
   //   contributions: [],
-  //   achievement: null,
   //   screenshots: screenshots(3, 'Screenshot'),
   // },
 ];
+
+// Used by the PESO WiFi project above: placeholder screenshots until real pictures are added.
+// const screenshots = (count, label) =>
+//   Array.from({ length: count }, (_, index) => ({ src: null, caption: `${label} ${index + 1}` }));

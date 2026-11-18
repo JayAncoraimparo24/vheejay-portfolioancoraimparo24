@@ -40,6 +40,9 @@ function createHeader(project) {
       { class: 'meta' },
       metaItem('My role', project.role),
       metaItem('Date', project.date),
+      // These two only appear for the projects that have them
+      project.subject ? metaItem('Subject', project.subject) : null,
+      project.achievement ? metaItem('Achievement', project.achievement) : null,
     ),
   );
 }
@@ -72,17 +75,19 @@ function createProjectBody(project, index) {
     'div',
     { class: 'container project-page' },
     createHeader(project),
-    project.achievement ? createAchievement(project.achievement) : null,
     detailBlock('Overview', el('p', { text: project.overview })),
+    project.highlight ? detailBlock('Project highlight', createAchievement(project.highlight)) : null,
     detailBlock('Screenshots', createGallery(project)),
     el(
       'div',
       { class: 'detail-columns' },
-      // The tools block is left out when no tools are listed
-      project.tools.length ? detailBlock('Tools used', tagList(project.tools)) : null,
+      // A tools block is left out when that list is empty
+      project.techStack.length ? detailBlock('Tech stack', tagList(project.techStack)) : null,
+      project.designTools.length ? detailBlock('Design tools', tagList(project.designTools)) : null,
       detailBlock('Key features', bulletList(project.features)),
     ),
     detailBlock('My contributions', bulletList(project.contributions)),
+    project.documentation?.length ? detailBlock('Project documentation', bulletList(project.documentation)) : null,
     project.photos?.length ? detailBlock('Team photos', createGallery(project, project.photos, '4 / 3')) : null,
     createPager(index),
   );

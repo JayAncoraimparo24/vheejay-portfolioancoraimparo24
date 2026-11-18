@@ -17,8 +17,9 @@ const MORE_WORK = [
 
 /** One project as a row: title and dates, a View button, the main tools, and a few key points. */
 function projectRow(project) {
-  const hiddenTools = project.tools.length - MAX_TOOLS;
-  const tools = hiddenTools > 0 ? [...project.tools.slice(0, MAX_TOOLS), `+${hiddenTools} more`] : project.tools;
+  const allTools = [...project.techStack, ...project.designTools];
+  const hiddenTools = allTools.length - MAX_TOOLS;
+  const tools = hiddenTools > 0 ? [...allTools.slice(0, MAX_TOOLS), `+${hiddenTools} more`] : allTools;
   // A project that is still in progress has no contributions yet, so its overview is shown instead
   const points = project.contributions.length ? project.contributions.slice(0, MAX_POINTS) : [project.overview];
 
