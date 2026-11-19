@@ -8,6 +8,8 @@
   --color-primary-dark: #0e7490; /* readable cyan for text on light backgrounds */
   --color-navy: #0f172a; /* strong text (flips to a light colour in dark mode) */
   --color-white: #ffffff; /* page surface (flips to a dark colour in dark mode) */
+  --color-page: #f8fafc; /* the page background: a very slightly cool off-white, so white chips and buttons stand out a little */
+  --grid-line: rgb(15 23 42 / 6%); /* the faint grid behind the top of the page */
   --color-cyan-50: #ecfeff;
   --color-text: #1e293b;
   --color-muted: #64748b;

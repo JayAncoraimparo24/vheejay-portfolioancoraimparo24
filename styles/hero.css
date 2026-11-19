@@ -1,6 +1,23 @@
 /* Hero: a compact header with a small portrait, the name, the job title, and a few links */
 .hero {
+  position: relative;
+  isolation: isolate;
   padding-block: var(--space-6) var(--space-4);
+}
+
+/* A very faint grid behind the top of the page. It fades out towards the edges and the bottom,
+   and it does not move, so it costs nothing while scrolling. */
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, #000 15%, transparent 100%);
 }
 
 .hero__inner {

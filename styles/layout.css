@@ -22,6 +22,13 @@
   background: var(--color-deep);
 }
 
+/* A thin line between two plain sections, as wide as the text column.
+   It is not drawn next to the dark contact section. */
+.section--light + .section--light {
+  background: linear-gradient(var(--color-border), var(--color-border)) top center /
+    min(calc(52rem - 2 * var(--gutter)), calc(100% - 2 * var(--gutter))) 1px no-repeat;
+}
+
 /* Faint dot grid behind the dark (contact) section */
 .section--dark {
   position: relative;

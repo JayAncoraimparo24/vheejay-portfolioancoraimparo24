@@ -27,7 +27,7 @@ html.is-loading {
   justify-items: center;
   gap: var(--space-1);
   color: var(--color-navy);
-  background: var(--color-white);
+  background: var(--color-page);
   /* If the page's script never finishes, the screen still goes away by itself */
   animation: splash-fallback 400ms ease 6s forwards;
 }
@@ -72,7 +72,7 @@ html.no-splash .splash {
 
 .splash__vein {
   fill: none;
-  stroke: var(--color-white);
+  stroke: var(--color-page);
   stroke-width: 3;
   stroke-linecap: round;
   opacity: 0;

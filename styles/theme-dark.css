@@ -8,6 +8,8 @@
   color-scheme: dark;
 
   --color-white: #0b1326;
+  --color-page: #0b1326;
+  --grid-line: rgb(255 255 255 / 5%);
   --color-navy: #e8f4fa;
   --color-cyan-50: #0f1e38;
   --color-text: #d5e0ec;

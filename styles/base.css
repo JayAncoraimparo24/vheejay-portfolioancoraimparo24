@@ -17,7 +17,7 @@ body {
   font-size: var(--text-base);
   line-height: var(--leading-body);
   color: var(--color-text);
-  background: var(--color-white);
+  background: var(--color-page);
 }
 
 h1,
