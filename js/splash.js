@@ -1,4 +1,6 @@
-const MIN_VISIBLE_MS = 2600; // long enough to see the sprout grow and the motto being written, never longer than the page needs
+// The motto is written by about 2.0 s and "IT Specialist" is fully in by about 2.45 s, so this leaves the
+// finished screen on show for about 0.85 s before it lifts. A slow page never waits any longer than it needs to.
+const MIN_VISIBLE_MS = 3300;
 
 /**
  * Lifts the loading screen away once the page is built (called at the end of main.js).
