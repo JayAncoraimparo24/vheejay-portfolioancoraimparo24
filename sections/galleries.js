@@ -24,8 +24,11 @@ const PREVIEW_COUNT = 6; // small pictures shown on the page; View opens all of 
  */
 function createGallery(items, label, description, figma = []) {
   const pictures = items.map(({ title, src, video }) => ({ src, thumb: thumbOf(src), caption: title, video }));
-  const figmaCount = `${figma.length} Figma ${figma.length === 1 ? 'file' : 'files'}`;
-  const summary = figma.length ? `${pictures.length} pictures · ${figmaCount}` : `${pictures.length} pictures`;
+  const videoCount = pictures.filter(({ video }) => video).length;
+  const parts = [`${pictures.length - videoCount} pictures`];
+  if (videoCount) parts.push(`${videoCount} ${videoCount === 1 ? 'video' : 'videos'}`);
+  if (figma.length) parts.push(`${figma.length} Figma ${figma.length === 1 ? 'file' : 'files'}`);
+  const summary = parts.join(' · ');
 
   const open = (start, trigger) =>
     openDialog({

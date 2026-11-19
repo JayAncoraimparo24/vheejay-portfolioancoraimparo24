@@ -95,13 +95,6 @@ export const itSupportShowcase = [
   { title: 'Network rack with switches and patch panels', src: 'assets/images/it-support/network-rack.jpg', ratio: '1050 / 1400' },
   { title: 'Printer ink system and print head maintenance', src: 'assets/images/it-support/printer-ink-system.jpg', ratio: '1050 / 1400' },
   { title: 'Refilling a printer ink tank', src: 'assets/images/it-support/printer-ink-refill.jpg', ratio: '1050 / 1400' },
-  // A short video (no sound). `src` is its cover picture. The ID badge in it is pixelated on purpose.
-  {
-    title: 'Refilling a printer ink tank with a syringe (video)',
-    src: 'assets/images/it-support/printer-ink-refill-video.jpg',
-    video: 'assets/videos/it-support/printer-ink-refill.mp4',
-    ratio: '540 / 960',
-  },
   { title: 'At the server room network rack', src: 'assets/images/it-support/server-room-workstation.jpg', ratio: '1400 / 1050' },
   { title: 'Server room cabling', src: 'assets/images/it-support/server-room-cabling.jpg', ratio: '1400 / 1050' },
   { title: 'Monitor on a mounting arm', src: 'assets/images/it-support/monitor-mount.jpg', ratio: '1050 / 1400' },
@@ -111,6 +104,14 @@ export const itSupportShowcase = [
   { title: 'Video balun and CCTV cabling on the work table', src: 'assets/images/it-support/balun-cabling-table.jpg', ratio: '1050 / 1400' },
   { title: 'Video balun and DC connector wired to a network cable', src: 'assets/images/it-support/video-balun-wiring.jpg', ratio: '1050 / 1400' },
   { title: 'At my workstation', src: 'assets/images/it-support/workstation.jpg', ratio: '1400 / 1050' },
+  // A short video (no sound), last in the list so it is only seen inside the popup, not in the small row on the page.
+  // `src` is its cover picture. The ID badge in the video is pixelated on purpose.
+  {
+    title: 'Refilling a printer ink tank with a syringe (video)',
+    src: 'assets/images/it-support/printer-ink-refill-video.jpg',
+    video: 'assets/videos/it-support/printer-ink-refill.mp4',
+    ratio: '540 / 960',
+  },
 ];
 
 // Short descriptions shown with each part of the Work Gallery (on the page and in its popup).
