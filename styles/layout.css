@@ -39,15 +39,10 @@
 }
 
 /* Section heading: an icon, the title, and an optional short intro */
-#main {
-  counter-reset: section;
-}
-
 .section__header {
   display: grid;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
-  counter-increment: section;
 }
 
 /* A heading with a View button: the title on the left, the button on the right */
@@ -66,6 +61,7 @@
   font-size: var(--text-xl);
   letter-spacing: -0.01em;
 }
+
 .section__intro {
   max-width: 42rem;
   color: var(--color-muted);
@@ -80,12 +76,6 @@
   color: var(--color-primary-dark);
 }
 
-.section__header .eyebrow::before {
-  margin-right: var(--space-2);
-  color: var(--color-muted);
-  content: counter(section, decimal-leading-zero) ' /';
-}
-
 .section--dark .section__title {
   color: var(--color-on-dark);
 }
@@ -94,7 +84,8 @@
   color: var(--color-muted-on-dark);
 }
 
-.section--dark .eyebrow {
+/* The contact section is always dark, so its icon uses the bright cyan */
+.section--dark .section__title .icon-file {
   color: var(--color-primary);
 }
 

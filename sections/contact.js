@@ -45,8 +45,8 @@ export function createContact() {
   return createSection(
     {
       id: 'contact',
-      eyebrow: 'Contact',
       title: "Let's Connect",
+      iconName: 'mail',
       intro: 'Reach out by email, phone, or LinkedIn, or use the form below.',
       tone: 'dark',
       narrow: true,
