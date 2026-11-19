@@ -1,10 +1,10 @@
-// Every `src: null` renders a replaceable placeholder.
-// Put real images in assets/images/ and set `src` to the relative path.
+// Every `src: null` shows a placeholder you can replace.
+// Put real images in assets/images/ and set `src` to the path.
 
-// UI/UX and Figma work. `ratio` is each picture's width / height, so nothing is cropped.
+// UI/UX and Figma work. `ratio` is each picture's width / height, so nothing gets cropped.
 // Frames of the GECAR Calendar 2027 souvenir, exported from the Figma file linked below.
-// Links shown as small chips (under a "Figma files" label) above the UI/UX gallery. Make sure each Figma file is set to
-// "Anyone with the link can view", otherwise visitors cannot open it.
+// Links are shown as small chips (under a "Figma files" label) above the UI/UX gallery. Make sure each Figma file is set to
+// "Anyone with the link can view", otherwise visitors can't open it.
 export const figmaLinks = [
   {
     label: 'GECAR Calendar 2027',
@@ -52,7 +52,7 @@ export const uiuxShowcase = [
   calendarFrame('december', 'December', '514 / 364'),
 ];
 
-// Graphic design works. `ratio` is each picture's width / height, so nothing is cropped.
+// Graphic design works. `ratio` is each picture's width / height, so nothing gets cropped.
 export const graphicDesignShowcase = [
   { title: 'Profile banner', src: 'assets/images/graphics/profile-banner.jpg', ratio: '1400 / 467' },
   { title: 'Business card', src: 'assets/images/graphics/business-card.jpg', ratio: '1224 / 864' },
@@ -77,7 +77,7 @@ export const graphicDesignShowcase = [
 ];
 
 // Photos taken by Vheejay. Add more entries here.
-// `ratio` is the picture's width / height, so the gallery shows each photo uncropped.
+// `ratio` is the picture's width / height, so each photo shows uncropped.
 export const photographyShowcase = [
   { title: 'Sunset', src: 'assets/images/photography/sunset.jpg', ratio: '3 / 4' },
   { title: 'Sunset over the road', src: 'assets/images/photography/city-sunset.jpg', ratio: '1 / 1' },
@@ -88,7 +88,7 @@ export const photographyShowcase = [
   { title: 'Woven pendant lamps', src: 'assets/images/photography/woven-pendant-lamps.jpg', ratio: '1 / 1' },
 ];
 
-// IT support work photos. `ratio` is each picture's width / height, so nothing is cropped.
+// IT support work photos. `ratio` is each picture's width / height, so nothing gets cropped.
 // (The ID badge in the laptop photo is pixelated on purpose.)
 export const itSupportShowcase = [
   { title: 'Laptop opened for hardware maintenance', src: 'assets/images/it-support/laptop-internals.jpg', ratio: '1400 / 1050' },
@@ -104,7 +104,7 @@ export const itSupportShowcase = [
   { title: 'Video balun and CCTV cabling on the work table', src: 'assets/images/it-support/balun-cabling-table.jpg', ratio: '1050 / 1400' },
   { title: 'Video balun and DC connector wired to a network cable', src: 'assets/images/it-support/video-balun-wiring.jpg', ratio: '1050 / 1400' },
   { title: 'At my workstation', src: 'assets/images/it-support/workstation.jpg', ratio: '1400 / 1050' },
-  // A short video (no sound), last in the list so it is only seen inside the popup, not in the small row on the page.
+  // A short video (no sound). It is last in the list so it only shows inside the popup, not in the small row on the page.
   // `src` is its cover picture. The ID badge in the video is pixelated on purpose.
   {
     title: 'Refilling a printer ink tank with a syringe (video)',

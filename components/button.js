@@ -2,8 +2,8 @@ import { el } from '../js/dom.js';
 import { icon } from './icons.js';
 
 /**
- * Renders a link-styled or native button.
- * variant: 'primary' | 'secondary' | 'ghost'
+ * Makes a link-styled or native button.
+ * variant: primary, secondary or ghost
  */
 export function button({ label, href, type = 'button', variant = 'primary', iconName, onClick, external = false }) {
   const tag = href ? 'a' : 'button';

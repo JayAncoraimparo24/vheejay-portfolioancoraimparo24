@@ -15,7 +15,7 @@ function openAllSkills(trigger) {
 }
 
 export function createSkills() {
-  // The page shows a moving strip of the main skills and tools; View opens the full list by category
+  // The page shows a moving strip of the main skills and tools. View opens the full list by category
   const inStrip = skillCategories.filter((category) => category.showInStrip).flatMap((category) => category.items);
 
   const viewButton = el(

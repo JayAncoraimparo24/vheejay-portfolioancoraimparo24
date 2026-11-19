@@ -4,10 +4,10 @@
   gap: var(--space-3);
 }
 
-/* A fixed height, so the page below does not jump when the next picture is taller or wider */
+/* Fixed height, so the page below doesn't jump when the next picture is taller or wider */
 .slider__stage {
   height: clamp(10rem, 30vh, 17rem);
-  touch-action: pan-y; /* up and down still scroll the page, left and right turn the page of pictures */
+  touch-action: pan-y; /* up and down still scroll the page, left and right turn the picture */
 }
 
 .slider__slide {
@@ -27,7 +27,7 @@
   aspect-ratio: auto;
 }
 
-/* Show the whole screenshot instead of cropping it */
+/* Show the whole screenshot, don't crop it */
 .slider .media__img {
   object-fit: contain;
   background: var(--color-white);
@@ -86,7 +86,7 @@
   color: var(--color-muted);
 }
 
-/* The row of small pictures under the slider (used for the work galleries) */
+/* Row of small pictures under the slider (used in the work galleries) */
 .slider__thumbs {
   display: flex;
   gap: var(--space-2);
@@ -127,7 +127,7 @@
   opacity: 1;
 }
 
-/* A short video in the slider: the whole frame is shown, on black */
+/* A short video in the slider: the whole frame is shown on black */
 .slider .media__video {
   display: block;
   width: 100%;
@@ -136,7 +136,7 @@
   background: #000;
 }
 
-/* A small play mark on the thumbnail of a video */
+/* Small play mark on the thumbnail of a video */
 .slider__thumb {
   position: relative;
 }

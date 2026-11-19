@@ -1,6 +1,6 @@
 import { setActiveNavLink } from '../components/navbar.js';
 
-/** Highlights the navbar link for the section currently in view. */
+/** Highlights the navbar link of the section that is in view. */
 export function initScrollSpy() {
   const sections = document.querySelectorAll('section[data-nav]');
   if (!('IntersectionObserver' in window)) return;

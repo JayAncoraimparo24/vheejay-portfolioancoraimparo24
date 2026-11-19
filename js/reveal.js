@@ -1,9 +1,9 @@
 const REVEAL_SELECTOR = '.section__header, .card, .media, .timeline__item, .contact__row, .form, .detail-block';
 const VISIBLE_CLASS = 'is-visible';
-const STAGGER_MS = 45; // short, so a grid of cards does not feel like it is waiting
+const STAGGER_MS = 45; // short, so a grid of cards doesn't feel like it is waiting
 const MAX_STAGGER_STEPS = 3;
 
-/** Gives siblings that reveal together a small stagger, so grids cascade instead of popping in. */
+/** Gives neighbors that reveal together a small delay, so grids come in one by one instead of popping in. */
 function assignDelays(targets) {
   const seen = new Map();
   targets.forEach((target) => {
@@ -13,7 +13,7 @@ function assignDelays(targets) {
   });
 }
 
-/** Fades elements in once as they scroll into view. Falls back to visible when unsupported. */
+/** Fades elements in once as they scroll into view. If the browser can't do it, they just show. */
 export function initReveal(root = document) {
   const targets = root.querySelectorAll(REVEAL_SELECTOR);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -29,7 +29,7 @@ export function initReveal(root = document) {
         observer.unobserve(entry.target);
       }
     },
-    // Start a little BEFORE the element reaches the screen, so it is already in when you get there
+    // Start a little BEFORE the element reaches the screen, so it is already visible when you get there
     { threshold: 0, rootMargin: '0px 0px 12% 0px' },
   );
 
@@ -38,8 +38,8 @@ export function initReveal(root = document) {
     observer.observe(target);
   });
 
-  // Safety net: if the observer is slow or does not fire (hidden tab, odd browser), content must
-  // still appear. Check positions directly on load, on scroll, and on resize.
+  // Safety net: if the observer is slow or doesn't fire (hidden tab, odd browser), the content must
+  // still show. Check the positions directly on load, on scroll and on resize.
   const revealVisible = () => {
     targets.forEach((target) => {
       if (target.classList.contains(VISIBLE_CLASS)) return;
@@ -65,7 +65,7 @@ export function initReveal(root = document) {
   window.addEventListener('hashchange', queueCheck);
   setTimeout(revealVisible, 400);
   setTimeout(revealVisible, 1500);
-  // Last resort: after a few seconds show everything, so nothing can stay hidden.
+  // Last resort: after a few seconds show everything, so nothing stays hidden.
   // Then the safety net stops listening, so scrolling does no extra work.
   setTimeout(() => {
     targets.forEach((target) => target.classList.add(VISIBLE_CLASS));

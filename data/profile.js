@@ -26,7 +26,7 @@ export const profile = {
   // Add the real GitHub profile URL here when available. Leave null to show a placeholder.
   github: { label: 'JayAncoraimparo24', url: 'https://github.com/JayAncoraimparo24' },
   // The resume (one page). The Resume button (top of the page) shows `image` in a popup on the page, with
-  // a button to download the PDF; Contact has a Download link. Set this to null to hide both.
+  // a button to download the PDF. Contact has a Download link. Set this to null to hide both.
   // To change the words, edit tools/resume-source.html, then save the PDF and the picture over these two files.
   resume: { url: 'assets/resume/Vheejay-Sugay-Resume.pdf', image: 'assets/resume/Vheejay-Sugay-Resume.webp' },
   summary:

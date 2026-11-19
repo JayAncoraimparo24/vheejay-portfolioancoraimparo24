@@ -1,4 +1,4 @@
-/* Slowly scrolling strip of skill and tool names inside Skills (decorative; see components/marquee.js) */
+/* Slow scrolling strip of skill and tool names in Skills (just for looks, see components/marquee.js) */
 .marquee {
   overflow: hidden;
   border-block: 1px solid var(--color-border);
@@ -43,7 +43,7 @@
   border-radius: 50%;
 }
 
-/* The track holds two identical groups and moves by exactly one group, so the loop is seamless */
+/* The track has two identical groups and moves by exactly one group, so the loop has no jump */
 @keyframes marquee-scroll {
   to {
     transform: translateX(-50%);

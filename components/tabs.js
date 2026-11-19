@@ -75,7 +75,7 @@ export function createTabs({ label, tabs }) {
   window.addEventListener('hashchange', () => openFromHash(window.location.hash, { scroll: true }));
 
   select(0);
-  // Deep links such as index.html#photography: wait until the page has been built
+  // Deep links like index.html#photography: wait until the page is built
   queueMicrotask(() => openFromHash(window.location.hash, { scroll: false }));
 
   return root;

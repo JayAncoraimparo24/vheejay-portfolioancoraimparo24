@@ -2,9 +2,9 @@ import { el } from '../js/dom.js';
 import { icon } from './icons.js';
 
 /**
- * Standard page section with a heading. `nav` maps the section to a navbar link for scroll-spy.
- * tone: 'light' | 'tint' | 'dark'.  narrow: true gives the short, resume-style column.
- * iconName puts a small icon in front of the title. action is an element (such as a View button) placed at the right of the title.
+ * Standard page section with a heading. `nav` links the section to a navbar link for scroll-spy.
+ * tone: light, tint or dark. narrow: true gives the short resume-style column.
+ * iconName puts a small icon before the title. action is an element (like a View button) at the right of the title.
  */
 export function createSection({ id, nav = id, title, intro, iconName, action, tone = 'light', narrow = false }, ...content) {
   const heading = el('h2', { class: 'section__title', id: `${id}-title` }, iconName ? icon(iconName, 22) : null, title);
@@ -28,7 +28,7 @@ export function createSection({ id, nav = id, title, intro, iconName, action, to
   );
 }
 
-/** Short note shown wherever real content has not been provided yet. */
+/** Short note shown where the real content isn't provided yet. */
 export function placeholderNote(text) {
   return el('p', { class: 'placeholder-note', text });
 }

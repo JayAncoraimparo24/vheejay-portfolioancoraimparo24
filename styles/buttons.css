@@ -18,7 +18,7 @@
     transform var(--transition);
 }
 
-/* Hover: the button lifts and a hard shadow appears beneath it, like the portrait */
+/* Hover: the button moves up a little and gets a hard shadow, same as the portrait */
 .btn:hover {
   box-shadow: 3px 3px 0 var(--shadow-hard);
   transform: translate(-2px, -2px);
@@ -58,7 +58,7 @@
   background: var(--color-navy);
 }
 
-/* Row of quick links to the work gallery, under the project list */
+/* Quick links to the work gallery, below the project list */
 .jump-links {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +102,7 @@
   transform: translateX(-4px);
 }
 
-/* Small buttons: the links in the header, the "View" buttons, and the links under the projects */
+/* Small buttons: header links, the View buttons and the links under the projects */
 .btn--small {
   padding: 0.4rem 0.8rem;
   font-size: var(--text-sm);

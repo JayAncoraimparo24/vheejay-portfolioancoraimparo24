@@ -21,7 +21,7 @@
   padding-left: var(--space-5);
 }
 
-/* The vertical line draws itself downward when the timeline comes into view (js/reveal.js) */
+/* The vertical line draws downward when the timeline scrolls into view (js/reveal.js) */
 .timeline::before {
   position: absolute;
   top: 0;
@@ -56,7 +56,7 @@
     transform var(--transition);
 }
 
-/* Dot on the line. Every dot gives off the same soft pulse, and the line keeps one colour from top to bottom. */
+/* Dot on the line. Every dot has the same soft pulse, and the line is one color from top to bottom. */
 .timeline__item::before {
   position: absolute;
   top: var(--space-4);
@@ -81,7 +81,7 @@
   }
 }
 
-/* The top of a job: its details on the left, the View button on the right */
+/* Top of a job: details on the left, View button on the right */
 .timeline__head {
   display: flex;
   gap: var(--space-3);

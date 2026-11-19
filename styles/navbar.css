@@ -1,5 +1,7 @@
-/* Top bar: a floating rounded bar with the brand, the menu, a theme button and "Hire Me",
-   plus the scroll-progress line above it */
+/*
+ * Top bar: a floating rounded bar with the brand, the menu, a theme button and "Hire Me",
+ * plus the scroll progress line above it
+ */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -13,7 +15,7 @@
   transform-origin: left;
 }
 
-/* The header itself is see-through and lets clicks pass; only the bar catches them */
+/* The header itself is see-through and clicks pass through it. Only the bar catches clicks. */
 .site-header {
   position: sticky;
   top: 0;
@@ -38,7 +40,7 @@
   transition: box-shadow var(--transition);
 }
 
-/* Once the page has moved, the bar lifts a little more */
+/* After the page scrolls, the bar lifts a little more */
 .site-header.is-scrolled .nav {
   box-shadow: 0 8px 24px rgb(15 23 42 / 12%);
 }
@@ -56,7 +58,7 @@
   place-items: center;
   width: 2.4rem;
   height: 2.4rem;
-  color: var(--color-navy); /* the mark follows the text colour, so it also works in dark mode */
+  color: var(--color-navy); /* the logo follows the text color, so it also works in dark mode */
 }
 
 .nav__name {
@@ -66,7 +68,7 @@
   text-transform: uppercase;
 }
 
-/* Right side: theme button, "Hire Me", and the hamburger on phones */
+/* Right side: theme button, "Hire Me" and the hamburger on phones */
 .nav__actions {
   display: flex;
   gap: var(--space-2);
@@ -86,7 +88,7 @@
   border-radius: var(--radius-md);
 }
 
-/* Theme button: a small rounded square */
+/* Theme button: small rounded square */
 .theme-toggle {
   display: grid;
   flex-shrink: 0;
@@ -110,7 +112,7 @@
   border-color: var(--color-primary);
 }
 
-/* "Hire Me": outlined, jumps to the contact section */
+/* "Hire Me": outlined, goes to the contact section */
 .nav__hire {
   display: none;
   white-space: nowrap;
@@ -132,7 +134,7 @@
   transform: translateY(-1px);
 }
 
-/* Menu on phones: a card that drops under the bar */
+/* Menu on phones: a card that drops down under the bar */
 .nav__menu {
   position: absolute;
   top: calc(100% + var(--space-2));
@@ -174,7 +176,7 @@
   }
 }
 
-/* Desktop: brand on the left, menu centred, buttons on the right */
+/* Desktop: brand on the left, menu in the center, buttons on the right */
 @media (min-width: 56rem) {
   .nav {
     display: grid;
@@ -200,7 +202,7 @@
     box-shadow: none;
   }
 
-  /* Small caps links; faint pill on hover, cyan for the current section */
+  /* Small caps links. Faint pill on hover, cyan for the current section */
   .nav__link {
     padding: 0.4rem 0.85rem;
     font-size: var(--text-xs);

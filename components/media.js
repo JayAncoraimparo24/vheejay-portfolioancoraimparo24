@@ -12,8 +12,8 @@ function createPlaceholder(label) {
 }
 
 /**
- * Figure with a short video (no sound). It shows `poster` until it is played, and loads only its first frame
- * until then. Played with the controls, so it is never started by itself.
+ * Figure with a short video (no sound). It shows `poster` until played and loads only the first frame
+ * until then. It has controls, so it never starts by itself.
  */
 export function videoFrame({ video, poster, alt, caption }) {
   const frame = el('figure', { class: 'media' });
@@ -27,26 +27,24 @@ export function videoFrame({ video, poster, alt, caption }) {
     preload: 'metadata',
     'aria-label': alt,
   });
-  // The file has no sound track; this makes sure the player is muted too
+  // The file has no sound track. This makes sure the player is muted too
   player.muted = true;
   frame.append(el('div', { class: 'media__box' }, player));
   if (caption) frame.append(el('figcaption', { class: 'media__caption', text: caption }));
   return frame;
 }
 
-/**
- * Figure that shows an image when `src` is set and loads, otherwise a placeholder.
- */
+/** Figure that shows an image when `src` is set and loads, otherwise a placeholder. */
 export function mediaFrame({ src, fullSrc = src, alt, label, caption, ratio = '16 / 10', openFull = false }) {
   const frame = el('figure', { class: 'media', style: `--media-ratio: ${ratio}` });
   const placeholder = createPlaceholder(label ?? alt);
   const box = el('div', { class: 'media__box' });
 
   if (src) {
-    // `src` is what the tile shows (a small copy); `fullSrc` is the full picture, used when it is opened
+    // `src` is what the tile shows (a small copy). `fullSrc` is the full picture, used when it is opened
     const image = el('img', { class: 'media__img', src: siteUrl(src), alt, loading: 'lazy', decoding: 'async' });
     image.addEventListener('error', () => {
-      // If the small copy is missing, fall back to the full picture before giving up
+      // If the small copy is missing, use the full picture before giving up
       if (fullSrc && fullSrc !== src && !image.dataset.triedFull) {
         image.dataset.triedFull = 'true';
         image.src = siteUrl(fullSrc);

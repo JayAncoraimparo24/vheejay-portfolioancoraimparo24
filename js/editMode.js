@@ -4,10 +4,10 @@ import { initImageEditing } from './imageEdit.js';
 import { initLinkEditing } from './linkEdit.js';
 
 /**
- * In-page editing: toggle "Edit text", then click text to type, an image to replace it,
+ * In-page editing: turn on "Edit text", then click text to type, an image to replace it,
  * or a contact row to change its link. Edits are saved in this browser (localStorage).
- * A text edit is applied only while the original text still matches, so changing the
- * data files never shows stale edits.
+ * A text edit only applies while the original text still matches, so changing the
+ * data files never shows old edits.
  */
 const EDITABLE_SELECTOR = 'h1, h2, h3, p, li, dt, dd, figcaption, strong, span';
 const EXCLUDED_SELECTOR = '.site-header, form, svg, .edit-toolbar, .skip-link, .marquee, .lightbox';
@@ -26,10 +26,10 @@ function applySavedText(elements, originals) {
   const entries = Object.values(edits).filter(Boolean);
   const occurrences = (text) => originals.filter((original) => original === text).length;
   elements.forEach((node, index) => {
-    // Prefer the entry saved at this position. Otherwise look for one saved for the same
-    // original text, so removing an element from the page does not orphan later edits.
-    // That fallback is only safe when the text is unique: repeated labels such as
-    // "Role: " must never receive an edit that was made on a different copy.
+    // Use the entry saved at this position. If none, look for one saved for the same
+    // original text, so removing an element doesn't lose later edits.
+    // The fallback is only safe when the text is unique. Repeated labels like
+    // "Role: " must never get an edit made on a different copy.
     const atIndex = edits[index];
     let saved = atIndex?.original === originals[index] ? atIndex : null;
     if (!saved && occurrences(originals[index]) === 1) {
@@ -88,8 +88,8 @@ function createToolbar({ onToggle, onReset }) {
 const LOCAL_HOSTS = ['localhost', '127.0.0.1', '[::1]', '::1'];
 
 /**
- * Editing is for the owner. It is available while running on this computer (localhost),
- * or on a published copy when the address ends with ?edit. Visitors never see the toolbar.
+ * Editing is for the owner. It works on this computer (localhost),
+ * or on the published site when the address ends with ?edit. Visitors never see the toolbar.
  */
 function isEditingAllowed() {
   return LOCAL_HOSTS.includes(window.location.hostname) || new URLSearchParams(window.location.search).has('edit');
@@ -103,7 +103,7 @@ export function initEditMode() {
 
   applySavedText(elements, originals);
   bindTextEditing(elements, originals);
-  // Run after text indexes are captured: link edits replace elements and would shift them.
+  // Run after the text indexes are saved: link edits replace elements and would shift them.
   initImageEditing();
   initLinkEditing();
 

@@ -1,11 +1,13 @@
 /*
  * Loading screen: the sprout of the logo grows (the stem draws itself, then the two leaves open),
- * "Ancora Imparo" is written across in script, the role fades in below it, and the screen lifts away
+ * "Ancora Imparo" is written in script, the role fades in below it, and the screen goes away
  * when the page is ready (js/splash.js). The markup is in index.html.
  */
 
-/* Great Vibes (SIL Open Font License, see assets/fonts/GreatVibes-OFL.txt), kept on the site itself.
-   It is only used here, and index.html preloads it, so the words never flash in a plain font first. */
+/*
+ * Great Vibes font (SIL Open Font License, see assets/fonts/GreatVibes-OFL.txt), kept on the site itself.
+ * Only used here. index.html preloads it so the words never show in a plain font first.
+ */
 @font-face {
   font-family: 'Great Vibes';
   font-style: normal;
@@ -28,7 +30,7 @@ html.is-loading {
   gap: var(--space-1);
   color: var(--color-navy);
   background: var(--color-page);
-  /* If the page's script never finishes, the screen still goes away by itself */
+  /* If the page's script never finishes, the screen still goes away on its own */
   animation: splash-fallback 400ms ease 6s forwards;
 }
 
@@ -42,7 +44,7 @@ html.no-splash .splash {
 }
 
 .splash__mark {
-  width: 8rem; /* in your design the sprout is nearly twice as wide as the words are tall */
+  width: 8rem; /* the sprout is almost twice as wide as the words are tall */
   height: auto;
   margin-bottom: var(--space-4);
   overflow: visible;
@@ -79,8 +81,10 @@ html.no-splash .splash {
   animation: splash-fade 300ms ease 850ms forwards;
 }
 
-/* The motto is written from left to right, as if by hand. The reveal box is a little larger than the
-   words, so the swashes of the capital letters are not cut off. */
+/*
+ * The motto is written from left to right, like by hand. The reveal box is a little bigger than the
+ * words so the swashes of the capital letters don't get cut.
+ */
 .splash__motto {
   margin: 0;
   padding: 0 0.15em;
@@ -135,7 +139,7 @@ html.no-splash .splash {
   }
 }
 
-/* The screen simply fades away, with no movement, so the page behind it takes over calmly */
+/* The screen just fades away with no movement, so the page behind takes over calmly */
 @keyframes splash-out {
   to {
     opacity: 0;

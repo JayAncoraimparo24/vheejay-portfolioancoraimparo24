@@ -7,12 +7,12 @@ function shape(tag, attributes) {
 }
 
 /**
- * The personal mark: a sprout that grows out of the hook of a "J" (growth, and J for Vheejay).
- * It is drawn from plain shapes (no font and no stock picture), so it is entirely original.
+ * My own mark: a sprout growing out of the hook of a "J" (growth, and J for Vheejay).
+ * It is drawn from plain shapes (no font, no stock picture), so it is fully original.
  * Same drawing as vheejay-logo/improved/vheejay-logo-v2-navy.svg.
  *
- * The leaves and the stem take the text colour, so the mark follows the light and dark theme.
- * The two thin veins are drawn in the page colour, which makes them look cut out of the leaves.
+ * The leaves and the stem take the text color, so the mark follows the light and dark theme.
+ * The two thin veins use the page color, so they look cut out of the leaves.
  */
 export function createLogo(height = 38) {
   const svg = shape('svg', {

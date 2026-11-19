@@ -8,11 +8,11 @@ function readStored() {
     const value = window.localStorage.getItem(STORAGE_KEY);
     return value === 'dark' || value === 'light' ? value : null;
   } catch {
-    return null; // storage can be blocked; the page still works
+    return null; // storage can be blocked, the page still works
   }
 }
 
-/** A saved choice wins. Otherwise the page follows the visitor's clock: dark at night. */
+/** A saved choice wins. If there is none, the page follows the visitor's clock: dark at night. */
 export function getInitialTheme(now = new Date()) {
   const stored = readStored();
   if (stored) return stored;
@@ -33,7 +33,7 @@ const FADE_CLASS = 'theme-fade';
 const FADE_MS = 500;
 let fadeTimer = 0;
 
-/** Applies and remembers the visitor's choice. Colours glide for a moment (see interactions.css). */
+/** Applies and saves the visitor's choice. Colors fade for a moment (see theme-dark.css). */
 export function setTheme(theme) {
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add(FADE_CLASS);
@@ -44,6 +44,6 @@ export function setTheme(theme) {
   try {
     window.localStorage.setItem(STORAGE_KEY, theme);
   } catch {
-    /* choice just won't be remembered */
+    /* the choice just won't be remembered */
   }
 }

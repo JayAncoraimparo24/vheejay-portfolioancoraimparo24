@@ -1,4 +1,4 @@
-/* Tabs (the work gallery): a row of pill buttons above one visible panel */
+/* Tabs (work gallery): a row of pill buttons above one visible panel */
 .tabs__list {
   display: flex;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@
   box-shadow: 3px 3px 0 var(--shadow-hard);
 }
 
-/* On a phone the four tabs sit in two rows of two, so they do not take three lines */
+/* On a phone the four tabs are in two rows of two, so they don't take three lines */
 @media (max-width: 40rem) {
   .tabs__list {
     display: grid;

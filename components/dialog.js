@@ -4,7 +4,7 @@ import { icon } from './icons.js';
 const OPEN_BODY_CLASS = 'has-dialog';
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-// The popup is built the first time it is opened, then reused for every "View" button
+// The popup is built the first time it opens, then reused for every "View" button
 let overlay = null;
 let panel = null;
 let titleNode = null;
@@ -13,7 +13,7 @@ let body = null;
 let closeButton = null;
 let opener = null;
 
-/** A titled part of the popup: a small capital label, then the content. */
+/** A titled part of the popup: a small uppercase label, then the content. */
 export function block(heading, content) {
   return el('section', { class: 'dialog__block' }, el('h3', { class: 'dialog__heading', text: heading }), content);
 }
@@ -57,7 +57,7 @@ function build() {
   overlay = el('div', { class: 'dialog', hidden: true }, panel);
   document.body.append(overlay);
 
-  // A click on the dark area around the popup closes it
+  // Clicking the dark area around the popup closes it
   overlay.addEventListener('click', (event) => {
     if (event.target === overlay) close();
   });
@@ -71,8 +71,8 @@ function build() {
 }
 
 /**
- * Opens the popup. `content` is a list of elements (empty entries are skipped);
- * `trigger` is the element that gets the focus back when the popup closes;
+ * Opens the popup. `content` is a list of elements (empty ones are skipped).
+ * `trigger` is the element that gets the focus back when the popup closes.
  * `wide` makes the popup wider.
  */
 export function openDialog({ title, subtitle = '', content, trigger, wide = false }) {

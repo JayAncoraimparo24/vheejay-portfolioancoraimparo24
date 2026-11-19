@@ -41,7 +41,7 @@ function askForLink(row) {
   return { href: trimmed, text: newText.trim() };
 }
 
-/** Lets the user click a contact row (while editing) to change its link and label. */
+/** Click a contact row (while editing) to change its link and label. */
 export function initLinkEditing() {
   const rows = [...document.querySelectorAll(ROW_SELECTOR)];
   const saved = readEdits('link');

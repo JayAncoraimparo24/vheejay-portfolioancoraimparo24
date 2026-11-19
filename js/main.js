@@ -16,7 +16,7 @@ import { initScrollState } from './scrollState.js';
 import { finishSplash } from './splash.js';
 import { initLightbox } from '../components/lightbox.js';
 
-// A short resume-style page first (about, education, skills, experience, projects), then the work galleries
+// Short resume-style page first (about, education, skills, experience, projects), then the work galleries
 const SECTION_FACTORIES = [
   createHero,
   createAbout,
@@ -43,8 +43,8 @@ function mountPage() {
 }
 
 /**
- * The page is built by JavaScript, so the browser cannot jump to #projects (or any #section)
- * by itself when arriving from the project page's "Back" link. Do it here, instantly.
+ * The page is built by JavaScript, so the browser can't jump to #projects (or any #section)
+ * on its own when coming back from the project page's "Back" link. Do it here, right away.
  */
 function scrollToHash() {
   const id = decodeURIComponent(window.location.hash.slice(1));

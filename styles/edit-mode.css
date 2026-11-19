@@ -59,7 +59,7 @@
   border-radius: inherit;
 }
 
-/* Edit-mode hints for images and contact rows */
+/* Edit mode hints for images and contact rows */
 .is-editing-text .media__box,
 .is-editing-text .hero__photo,
 .is-editing-text .contact__row {

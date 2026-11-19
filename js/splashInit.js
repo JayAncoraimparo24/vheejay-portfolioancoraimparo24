@@ -1,7 +1,7 @@
 /*
  * Runs in <head> before the page paints (a classic script, like themeInit.js).
  * The loading screen shows once per visit (per browser tab), so going back from a project page or
- * reloading does not show it again. Add ?splash to the address to see it again.
+ * reloading doesn't show it again. Add ?splash to the address to see it again.
  */
 (function () {
   var seen = false;
@@ -11,6 +11,6 @@
     seen = false;
   }
   var forced = /[?&]splash\b/.test(window.location.search);
-  // is-loading keeps the page from scrolling behind the loading screen; no-splash hides it
+  // is-loading stops the page from scrolling behind the loading screen, no-splash hides it
   document.documentElement.classList.add(seen && !forced ? 'no-splash' : 'is-loading');
 })();

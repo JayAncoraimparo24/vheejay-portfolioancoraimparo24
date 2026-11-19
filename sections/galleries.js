@@ -15,12 +15,12 @@ import { createSlider } from '../components/slider.js';
 import { openDialog } from '../components/dialog.js';
 import { siteUrl, thumbOf } from '../js/config.js';
 
-const PREVIEW_COUNT = 6; // small pictures shown on the page; View opens all of them
+const PREVIEW_COUNT = 6; // small pictures shown on the page, View opens all of them
 
 /**
  * One kind of work: a short row of small pictures on the page, and a View button.
  * View (or any small picture) opens the popup with the big picture, one at a time, and the row of small ones to jump around.
- * The Figma files of that kind of work (if any) are inside the popup, under the pictures.
+ * The Figma files for that kind of work (if any) are in the popup, under the pictures.
  */
 function createGallery(items, label, description, figma = []) {
   const pictures = items.map(({ title, src, video }) => ({ src, thumb: thumbOf(src), caption: title, video }));
@@ -56,7 +56,7 @@ function createGallery(items, label, description, figma = []) {
     ),
   );
 
-  // "+7" opens the popup at the first picture that is not shown here
+  // "+7" opens the popup at the first picture that isn't shown here
   const hidden = pictures.length - PREVIEW_COUNT;
   if (hidden > 0) {
     previews.push(
@@ -101,7 +101,7 @@ function createGallery(items, label, description, figma = []) {
  * Each chip: a design icon on the left, the name, and an "opens in a new tab" arrow on the right.
  */
 function createFigmaButtons(links) {
-  if (!links.length) return null; // no links yet: show no empty row
+  if (!links.length) return null; // no links yet: don't show an empty row
   return el(
     'div',
     { class: 'figma-links' },
@@ -128,7 +128,7 @@ function createFigmaButtons(links) {
 
 /**
  * One "Work Gallery" section with a tab for each kind of work.
- * The tab ids double as link targets, so #photography etc. open the right tab.
+ * The tab ids are also link targets, so #photography etc. open the right tab.
  */
 export function createWorkGallery() {
   return createSection(

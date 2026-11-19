@@ -1,14 +1,14 @@
-const HOLD_MS = 700; // how long the finished screen stays on show before it lifts
-const FALLBACK_MS = 3700; // only used if the animations cannot be read: lift this long after the page started loading
+const HOLD_MS = 700; // how long the finished screen stays before it goes away
+const FALLBACK_MS = 3700; // only used if the animations can't be read: go away this long after the page started loading
 
 /**
- * Lifts the loading screen away once the page is built (called at the end of main.js).
- * The screen itself is plain HTML in index.html, so it shows before any script has loaded;
- * its CSS also hides it by itself after a few seconds, in case a script fails.
+ * Takes the loading screen away once the page is built (called at the end of main.js).
+ * The screen is plain HTML in index.html, so it shows before any script loads.
+ * Its CSS also hides it by itself after a few seconds, in case a script fails.
  *
- * The screen waits for its own animations (the sprout, the motto being written, the role) to finish and
- * then holds for a moment. It does not use a fixed time from the start of loading, because the animations
- * only begin once the styles have arrived, and on a slow connection that would cut the words off.
+ * It waits for its own animations (the sprout, the motto being written, the role) to finish,
+ * then holds for a moment. It doesn't use a fixed time from the start of loading, because the
+ * animations only begin when the styles arrive, and on a slow connection that would cut the words off.
  */
 export function finishSplash() {
   const root = document.documentElement;
@@ -28,15 +28,15 @@ export function finishSplash() {
     try {
       window.sessionStorage.setItem('portfolio-splash-seen', '1');
     } catch (error) {
-      // private mode: the loading screen simply shows again next time
+      // private mode: the loading screen just shows again next time
     }
   }
 
-  // The animations of the sprout and the words. (The screen's own safety animation is left out.)
+  // The animations of the sprout and the words. (The screen's own safety animation is not included.)
   const intro = splash.getAnimations({ subtree: true }).filter((animation) => animation.effect?.target !== splash);
 
   if (intro.length === 0) {
-    // performance.now() is the time since the page started loading, so a slow page never waits any longer
+    // performance.now() is the time since the page started loading, so a slow page never waits longer
     window.setTimeout(lift, Math.max(0, FALLBACK_MS - performance.now()));
     return;
   }

@@ -1,4 +1,4 @@
-/* Full-screen picture viewer (see components/lightbox.js). The page behind it, or behind the project popup, does not scroll. */
+/* Full-screen picture viewer (components/lightbox.js). The page behind it, or behind the project popup, doesn't scroll. */
 .has-lightbox,
 .has-dialog {
   overflow: hidden;

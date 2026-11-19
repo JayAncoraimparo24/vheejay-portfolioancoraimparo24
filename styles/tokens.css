@@ -1,28 +1,28 @@
 /*
- * Design tokens: every colour, size, and timing used by the other stylesheets.
- * Dark-theme overrides live in theme-dark.css.
+ * Design tokens: all colors, sizes and timings used by the other stylesheets.
+ * Dark theme overrides are in theme-dark.css.
  */
 :root {
-  /* Brand palette */
+  /* Brand colors */
   --color-primary: #06b6d4;
   --color-primary-dark: #0e7490; /* readable cyan for text on light backgrounds */
-  --color-navy: #0f172a; /* strong text (flips to a light colour in dark mode) */
-  --color-white: #ffffff; /* page surface (flips to a dark colour in dark mode) */
-  --color-page: #f8fafc; /* the page background: a very slightly cool off-white, so white chips and buttons stand out a little */
-  --grid-line: rgb(15 23 42 / 6%); /* the faint grid behind the top of the page */
+  --color-navy: #0f172a; /* strong text (turns light in dark mode) */
+  --color-white: #ffffff; /* page surface (turns dark in dark mode) */
+  --color-page: #f8fafc; /* page background: a very slightly cool off-white so white chips and buttons stand out a little */
+  --grid-line: rgb(15 23 42 / 6%); /* faint grid behind the top of the page */
   --color-cyan-50: #ecfeff;
   --color-text: #1e293b;
   --color-muted: #64748b;
   --color-border: #e2e8f0;
   --color-muted-on-dark: #cbd5e1;
 
-  /* Fixed colours: they never change with the theme */
+  /* Fixed colors: they don't change with the theme */
   --color-on-dark: #ffffff; /* text on always-dark areas */
   --color-deep: #0f172a; /* always-dark fills, and text on cyan */
-  --shadow-hard: var(--color-deep); /* the offset "print" shadow used on the portrait, cards, and buttons */
-  --header-glass: rgb(255 255 255 / 96%); /* nearly solid: a blur behind the bar made scrolling heavy */
+  --shadow-hard: var(--color-deep); /* the offset "print" shadow on the portrait, cards and buttons */
+  --header-glass: rgb(255 255 255 / 96%); /* almost solid: blurring behind the bar made scrolling heavy */
 
-  /* Typography */
+  /* Fonts */
   --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
   --text-xs: 0.8125rem;
@@ -47,7 +47,7 @@
   --space-8: 4rem;
   --space-9: 6rem;
 
-  /* Shape and effects */
+  /* Shapes and effects */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;

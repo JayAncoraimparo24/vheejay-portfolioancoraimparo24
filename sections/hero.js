@@ -39,7 +39,7 @@ function createLinks() {
 }
 
 /**
- * The portrait. Tap it to turn it over (toga and barong). The Enlarge button below it opens the picture
+ * The portrait. Tap it to flip it (toga and barong). The Enlarge button below it opens the picture
  * that is showing in the full-screen viewer (components/lightbox.js), where the arrows go to the other one.
  */
 function createPortrait() {

@@ -123,7 +123,7 @@ export const projects = [
     ],
     highlight:
       'Combined inventory management functions with barcode scanning and hardware setup, supported by a user manual and technical documentation.',
-    // `ratio` is width / height of each picture, so portrait photos are not squeezed into a wide box.
+    // `ratio` is width / height of each picture, so tall photos aren't squeezed into a wide box.
     screenshots: [
       { src: 'assets/images/ais/user-manual-cover.jpg', caption: 'User manual: front cover', ratio: '1236 / 1600' },
       { src: 'assets/images/ais/user-manual-back-cover.jpg', caption: 'User manual: back cover', ratio: '1236 / 1600' },

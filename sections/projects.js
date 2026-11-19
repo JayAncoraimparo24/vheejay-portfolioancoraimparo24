@@ -16,7 +16,7 @@ const MORE_WORK = [
   { id: 'it-support-showcase', label: 'IT Support' },
 ];
 
-/** One project as a row: title and dates, a View button, the main tools, and a few key points. */
+/** One project as a row: title and dates, a View button, the main tools and a few key points. */
 function projectRow(project) {
   const allTools = [...project.techStack, ...project.designTools];
   const hiddenTools = allTools.length - MAX_TOOLS;
@@ -36,7 +36,7 @@ function projectRow(project) {
         el('h3', { class: 'project-row__title', text: project.title }),
         el('p', { class: 'project-row__meta', text: [project.type, project.date].filter(Boolean).join(' · ') }),
       ),
-      // View opens the details in a popup. The link still goes to the full page when it is opened in a new tab.
+      // View opens the details in a popup. The link still goes to the full page when opened in a new tab.
       el(
         'a',
         {

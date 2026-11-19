@@ -40,7 +40,7 @@ function createHeader(project) {
       { class: 'meta' },
       metaItem('My role', project.role),
       metaItem('Date', project.date),
-      // These two only appear for the projects that have them
+      // These two only show for projects that have them
       project.subject ? metaItem('Subject', project.subject) : null,
       project.achievement ? metaItem('Achievement', project.achievement) : null,
     ),
@@ -71,7 +71,7 @@ function createProjectBody(project, index) {
     el(
       'div',
       { class: 'detail-columns' },
-      // A tools block is left out when that list is empty
+      // The tools block is left out when the list is empty
       project.techStack.length ? detailBlock('Tech stack', tagList(project.techStack)) : null,
       project.designTools.length ? detailBlock('Design tools', tagList(project.designTools)) : null,
       detailBlock('Key features', bulletList(project.features)),

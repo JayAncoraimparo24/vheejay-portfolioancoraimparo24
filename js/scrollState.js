@@ -1,14 +1,14 @@
 /**
- * Adds `is-scrolling` to <html> while the page is being scrolled, and removes it shortly after.
- * CSS uses it to pause decorative looping animations during the scroll, so scrolling stays smooth.
- * (The animations carry on from where they stopped, so nothing jumps.)
+ * Adds `is-scrolling` to <html> while the page is scrolling, and removes it a moment after.
+ * The CSS uses it to pause the looping animations during scroll so scrolling stays smooth.
+ * (They continue from where they stopped, so nothing jumps.)
  */
 export function initScrollState() {
   const root = document.documentElement;
   let timer = 0;
 
-  // The looping animations of the hero and the skills strip stop while they are off screen
-  // (nobody can see them), and start again when they come back.
+  // The looping animations in the hero and the skills strip stop while off screen
+  // (nobody can see them) and start again when they come back.
   if ('IntersectionObserver' in window) {
     const watcher = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => target.toggleAttribute('data-offscreen', !isIntersecting));

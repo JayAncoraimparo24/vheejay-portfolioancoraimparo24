@@ -2,7 +2,7 @@ import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
 import { button } from './button.js';
 
-// A mailto: link is limited in length, so very long messages are better copied
+// A mailto: link has a length limit, so very long messages are better copied
 const MAILTO_SAFE_LENGTH = 1500;
 
 function field({ id, label, type = 'text', multiline = false }) {
@@ -12,7 +12,7 @@ function field({ id, label, type = 'text', multiline = false }) {
   return el('div', { class: 'field' }, el('label', { for: id, text: label }), input);
 }
 
-/** The subject and text of the message, shared by every way of sending it. */
+/** Subject and text of the message, used by every way of sending it. */
 function composeMessage({ name, email, message }) {
   return {
     subject: `Portfolio inquiry from ${name}`,
@@ -26,14 +26,14 @@ export function buildMailto(data) {
   return `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-/** A Gmail "compose" link (opens in the browser, so it works without an email app). */
+/** A Gmail compose link (opens in the browser, so it works without an email app). */
 export function buildGmail(data) {
   const { subject, body } = composeMessage(data);
   const query = new URLSearchParams({ view: 'cm', fs: '1', to: profile.email, su: subject, body });
   return `https://mail.google.com/mail/?${query.toString()}`;
 }
 
-/** Copies text to the clipboard; falls back to the old method on browsers that block the new one. */
+/** Copies text to the clipboard. Falls back to the old way on browsers that block the new one. */
 async function copyText(text) {
   try {
     await navigator.clipboard.writeText(text);

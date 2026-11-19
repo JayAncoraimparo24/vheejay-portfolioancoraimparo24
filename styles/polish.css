@@ -1,4 +1,4 @@
-/* Polish layer: smoother motion and livelier icons. Loaded after the base styles so it refines them. */
+/* Polish: smoother motion and livelier icons. Loaded after the base styles so it can adjust them. */
 :root {
   --transition: 260ms var(--ease-out);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Contact icons: a dark glass tile that pops and tilts on hover */
+/* Contact icons: dark glass tile that pops and tilts on hover */
 .contact__icon {
   position: relative;
   background: rgb(255 255 255 / 6%);
@@ -34,7 +34,7 @@ html {
 .contact__row:hover .contact__icon .icon-file {
   transform: scale(1.1) rotate(6deg);
 }
-/* Buttons: the icon nudges on hover. (No light streak across the button: it looked like a stray line.) */
+/* Buttons: the icon moves a little on hover. (No light streak across the button, it looked like a stray line.) */
 .btn {
   position: relative;
 }
@@ -43,8 +43,10 @@ html {
   transition: transform 320ms var(--ease-spring);
 }
 
-/* Reveal: fades up and settles in. It is an animation (not a transition), so the hover
-   lift on cards and pictures keeps its own quick timing once the reveal is over. */
+/*
+ * Reveal: fades up and settles in. It is an animation, not a transition, so the hover
+ * lift on cards and pictures keeps its own quick timing after the reveal.
+ */
 .reveal.is-visible {
   animation: reveal-in 480ms var(--ease-out) backwards;
   animation-delay: var(--reveal-delay, 0ms);
@@ -57,7 +59,7 @@ html {
   }
 }
 
-/* Pressing a button or tab gives a small "push" */
+/* Pressing a button or tab gives a small push */
 .btn:active {
   transform: scale(0.97);
   box-shadow: none;
@@ -68,7 +70,7 @@ html {
   transform: scale(0.96);
 }
 
-/* Tabs: the open tab's colour slides in, and panels fade and rise */
+/* Tabs: the open tab's color slides in, and the panels fade and rise */
 .tabs__tab {
   transition:
     background-color 300ms var(--ease-out),
@@ -92,8 +94,10 @@ html {
   }
 }
 
-/* Performance: pictures fade in with opacity and a tiny scale (smooth, runs on the GPU)
-   instead of the old clip-path reveal, which redraws a big image on every frame */
+/*
+ * Speed: pictures fade in with opacity and a tiny scale (smooth, runs on the GPU)
+ * instead of the old clip-path reveal that redraws a big image on every frame
+ */
 .media.is-visible .media__img {
   animation: picture-fade 420ms var(--ease-out) backwards;
   animation-delay: var(--reveal-delay, 0ms);
@@ -106,7 +110,7 @@ html {
   }
 }
 
-/* Gallery pictures zoom gently, and the caption follows */
+/* Gallery pictures zoom a little, and the caption follows */
 .media__img {
   transition: transform 700ms var(--ease-out);
 }
@@ -115,7 +119,7 @@ html {
   transform: scale(1.05);
 }
 
-/* Navbar links: an underline that grows from the centre */
+/* Navbar links: the underline grows from the center */
 .site-header a:not(.btn) {
   transition:
     color var(--transition),

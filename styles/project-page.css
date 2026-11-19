@@ -1,4 +1,4 @@
-/* A project's own page: the same compact look as the rest of the site */
+/* A project's own page: same compact look as the rest of the site */
 .project-page {
   display: grid;
   gap: var(--space-5);
@@ -18,7 +18,7 @@
   line-height: 1.25;
 }
 
-/* The header lines arrive one after another */
+/* The header lines come in one after another */
 .project-header > * {
   animation: rise-in 600ms var(--ease-out) backwards;
 }

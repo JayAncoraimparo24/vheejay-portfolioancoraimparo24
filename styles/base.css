@@ -1,4 +1,4 @@
-/* Reset and element defaults */
+/* Reset and basic element styles */
 *,
 *::before,
 *::after {
@@ -89,7 +89,7 @@ textarea {
   padding-block: var(--space-7);
 }
 
-/* Shared entrance animation (used by the hero, scroll reveal, and the project page) */
+/* Entrance animation, used by the hero, the scroll reveal and the project page */
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -97,7 +97,7 @@ textarea {
   }
 }
 
-/* Visitors who ask for less motion get none: no animations, no transitions, no smooth scroll */
+/* For visitors who want less motion: no animations, transitions or smooth scroll */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -111,7 +111,7 @@ textarea {
   }
 }
 
-/* An icon from an SVG file (components/icons.js): the file is a mask, so it takes the text colour */
+/* Icon from a PNG file (components/icons.js). The file works as a mask, so the icon takes the text color */
 .icon-file {
   display: inline-block;
   background: currentcolor;

@@ -4,8 +4,8 @@ import { isEditing } from '../js/editStorage.js';
 const FLIPPED_CLASS = 'is-flipped';
 
 /**
- * Wraps a front and a back face in a card that turns over when it is clicked, tapped,
- * or activated from the keyboard (Enter / Space). Turning is disabled while editing,
+ * Puts a front and a back face in a card that flips when clicked, tapped,
+ * or used with the keyboard (Enter / Space). Flipping is off while editing,
  * because a click there means "replace this picture".
  */
 export function createFlipCard({ front, back, label, hint }) {

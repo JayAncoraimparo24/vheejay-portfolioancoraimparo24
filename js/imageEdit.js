@@ -21,7 +21,7 @@ function loadImage(file) {
   });
 }
 
-/** Shrinks the picture so it fits comfortably in browser storage. */
+/** Makes the picture smaller so it fits in browser storage. */
 async function fileToDataUrl(file) {
   const image = await loadImage(file);
   const scale = Math.min(1, MAX_SIDE / Math.max(image.width, image.height));
@@ -32,7 +32,7 @@ async function fileToDataUrl(file) {
   return canvas.toDataURL('image/jpeg', JPEG_QUALITY);
 }
 
-/** The picture shipped in the page for this slot ('' when it is only a placeholder). */
+/** The picture that comes with the page for this slot ('' if it is only a placeholder). */
 function builtInSrc(slot) {
   if (slot.dataset.builtIn === undefined) {
     slot.dataset.builtIn = slot.querySelector(':scope > .slot-image')?.getAttribute('src') ?? '';
@@ -72,13 +72,13 @@ async function replaceImage(slot, index) {
   }
 }
 
-/** Lets the user click an image area (while editing) to replace it with their own picture. */
+/** Click an image area (while editing) to replace it with your own picture. */
 export function initImageEditing() {
   const slots = [...document.querySelectorAll(SLOT_SELECTOR)];
   const saved = readEdits('image');
 
   slots.forEach((slot, index) => {
-    // An edit applies only while the slot's built-in picture is unchanged (like text edits).
+    // An edit only applies while the slot's built-in picture is unchanged (same as text edits).
     // Older edits were plain data URLs made when the slot had no built-in picture.
     const entry = saved[index];
     const savedOriginal = typeof entry === 'string' ? '' : entry?.original;
@@ -86,7 +86,7 @@ export function initImageEditing() {
     if (savedData && savedOriginal === builtInSrc(slot)) showImage(slot, savedData);
     slot.addEventListener('click', (event) => {
       if (!isEditing()) return;
-      event.preventDefault(); // do not open the full-size link while replacing
+      event.preventDefault(); // don't open the full-size link while replacing
       replaceImage(slot, index);
     });
   });

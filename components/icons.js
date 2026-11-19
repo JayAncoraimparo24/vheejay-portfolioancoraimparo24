@@ -1,10 +1,10 @@
 import { siteUrl } from '../js/config.js';
 
 /**
- * Every icon on the site is a PNG picture in assets/icons/ (black on a clear background), taken from the free Lineal set by one Flaticon author
+ * Every icon on the site is a PNG picture in assets/icons/ (black on a clear background), from the free Lineal set by one Flaticon author
  * (flaticon.com/icons). To change one, replace its file.
  *
- * The picture is used as a mask, so the icon is painted in the surrounding text colour
+ * The picture is used as a mask, so the icon takes the surrounding text color
  * and follows the light and dark theme (see .icon-file in base.css).
  */
 export function icon(name, size = 20) {

@@ -6,7 +6,7 @@
   padding-inline: var(--gutter);
 }
 
-/* The short, resume-style column. It comes after .container so its narrower width wins. */
+/* The short resume-style column. It is after .container so the narrower width wins. */
 .container--narrow {
   max-width: 52rem;
 }
@@ -20,21 +20,23 @@
   background: var(--color-deep);
 }
 
-/* A thin line between two plain sections, as wide as the text column.
-   It is not drawn next to the dark contact section. */
+/*
+ * Thin line between two plain sections, as wide as the text column.
+ * It is not drawn next to the dark contact section.
+ */
 .section--light + .section--light {
   background: linear-gradient(var(--color-border), var(--color-border)) top center /
     min(calc(52rem - 2 * var(--gutter)), calc(100% - 2 * var(--gutter))) 1px no-repeat;
 }
 
-/* Section heading: an icon, the title, and an optional short intro */
+/* Section heading: icon, title and an optional short intro */
 .section__header {
   display: grid;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
 }
 
-/* A heading with a View button: the title on the left, the button on the right */
+/* Heading with a View button: title on the left, button on the right */
 .section__headline {
   display: flex;
   gap: var(--space-3);
@@ -42,7 +44,7 @@
   justify-content: space-between;
 }
 
-/* The title has a small icon in front of it */
+/* Small icon in front of the title */
 .section__title {
   display: flex;
   gap: var(--space-2);
@@ -78,8 +80,10 @@
   color: var(--color-primary);
 }
 
-/* Scroll reveal: js/reveal.js adds .reveal, then .is-visible when the element enters the screen.
-   Without JavaScript (or with reduced motion) nothing is hidden. */
+/*
+ * Scroll reveal: js/reveal.js adds .reveal, then .is-visible when the element comes into view.
+ * Without JavaScript (or with reduced motion) nothing is hidden.
+ */
 .reveal {
   opacity: 0;
 }

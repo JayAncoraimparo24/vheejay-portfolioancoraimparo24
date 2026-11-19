@@ -1,7 +1,7 @@
 /*
  * Dark theme, switched by <html data-theme="dark"> (js/theme.js).
- * In this theme --color-white means "page surface" and --color-navy means "strong text",
- * so almost every component recolours itself with no extra rules.
+ * Here --color-white means "page surface" and --color-navy means "strong text",
+ * so almost every component changes color with no extra rules.
  * The night version of the portrait is in hero.css.
  */
 :root[data-theme='dark'] {
@@ -23,8 +23,10 @@
   --shadow-md: 0 8px 24px rgb(0 0 0 / 45%);
 }
 
-/* While the visitor switches theme (js/theme.js adds .theme-fade for half a second),
-   colours glide instead of snapping. The eyelids keep their own slower timing. */
+/*
+ * While the visitor switches theme (js/theme.js adds .theme-fade for half a second)
+ * colors fade instead of snapping. The eyelids keep their own slower timing.
+ */
 .theme-fade,
 .theme-fade *,
 .theme-fade *::before,
