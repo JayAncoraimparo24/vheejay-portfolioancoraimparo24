@@ -63,7 +63,7 @@ function createPager(index) {
 function createProjectBody(project, index) {
   return el(
     'div',
-    { class: 'container project-page' },
+    { class: 'container container--narrow project-page' },
     createHeader(project),
     detailBlock('Overview', el('p', { text: project.overview })),
     project.highlight ? detailBlock('Project highlight', createAchievement(project.highlight)) : null,
@@ -86,7 +86,7 @@ function createProjectBody(project, index) {
 function createNotFound() {
   return el(
     'div',
-    { class: 'container project-page' },
+    { class: 'container container--narrow project-page' },
     el('a', { class: 'link-back', href: siteUrl('index.html#projects') }, icon('back', 18), 'Back to projects'),
     el('h1', { class: 'project-header__title', text: 'Project not found' }),
     el('p', { text: 'The project you are looking for does not exist.' }),

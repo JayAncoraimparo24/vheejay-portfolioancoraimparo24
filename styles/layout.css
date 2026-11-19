@@ -1,13 +1,14 @@
 /* Page structure: container, sections, section headings, grids, scroll reveal */
-.container--narrow {
-  max-width: 52rem;
-}
-
 .container {
   width: 100%;
   max-width: var(--container-width);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+/* The short, resume-style column. It comes after .container so its narrower width wins. */
+.container--narrow {
+  max-width: 52rem;
 }
 
 .section {

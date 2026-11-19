@@ -60,6 +60,7 @@ export function createWorkGallery() {
       title: 'Work Gallery',
       intro: 'Design, photography, and IT support work. Pick a tab to browse.',
       tone: 'tint',
+      narrow: true,
     },
     createTabs({
       label: 'Work categories',

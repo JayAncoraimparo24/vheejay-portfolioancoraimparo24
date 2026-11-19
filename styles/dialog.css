@@ -94,15 +94,6 @@
   color: var(--color-muted);
 }
 
-.dialog .meta {
-  margin-top: 0;
-}
-
-.dialog__block .achievement {
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--text-sm);
-}
-
 .dialog__full {
   justify-self: start;
 }
