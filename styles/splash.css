@@ -38,7 +38,7 @@ html.no-splash .splash {
 
 .splash.is-done {
   pointer-events: none;
-  animation: splash-out 450ms var(--ease-out) forwards;
+  animation: splash-out 600ms ease forwards;
 }
 
 .splash__mark {
@@ -135,11 +135,11 @@ html.no-splash .splash {
   }
 }
 
+/* The screen simply fades away, with no movement, so the page behind it takes over calmly */
 @keyframes splash-out {
   to {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-1.5rem);
   }
 }
 
