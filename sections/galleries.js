@@ -23,7 +23,7 @@ const PREVIEW_COUNT = 6; // small pictures shown on the page; View opens all of 
  * The Figma files of that kind of work (if any) are inside the popup, under the pictures.
  */
 function createGallery(items, label, description, figma = []) {
-  const pictures = items.map(({ title, src }) => ({ src, thumb: thumbOf(src), caption: title }));
+  const pictures = items.map(({ title, src, video }) => ({ src, thumb: thumbOf(src), caption: title, video }));
   const figmaCount = `${figma.length} Figma ${figma.length === 1 ? 'file' : 'files'}`;
   const summary = figma.length ? `${pictures.length} pictures · ${figmaCount}` : `${pictures.length} pictures`;
 

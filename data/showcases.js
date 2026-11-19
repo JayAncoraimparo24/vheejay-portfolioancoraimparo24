@@ -95,9 +95,22 @@ export const itSupportShowcase = [
   { title: 'Network rack with switches and patch panels', src: 'assets/images/it-support/network-rack.jpg', ratio: '1050 / 1400' },
   { title: 'Printer ink system and print head maintenance', src: 'assets/images/it-support/printer-ink-system.jpg', ratio: '1050 / 1400' },
   { title: 'Refilling a printer ink tank', src: 'assets/images/it-support/printer-ink-refill.jpg', ratio: '1050 / 1400' },
+  // A short video (no sound). `src` is its cover picture. The ID badge in it is pixelated on purpose.
+  {
+    title: 'Refilling a printer ink tank with a syringe (video)',
+    src: 'assets/images/it-support/printer-ink-refill-video.jpg',
+    video: 'assets/videos/it-support/printer-ink-refill.mp4',
+    ratio: '540 / 960',
+  },
   { title: 'At the server room network rack', src: 'assets/images/it-support/server-room-workstation.jpg', ratio: '1400 / 1050' },
   { title: 'Server room cabling', src: 'assets/images/it-support/server-room-cabling.jpg', ratio: '1400 / 1050' },
   { title: 'Monitor on a mounting arm', src: 'assets/images/it-support/monitor-mount.jpg', ratio: '1050 / 1400' },
+  { title: 'CCTV camera and its live feed on a monitor', src: 'assets/images/it-support/cctv-camera-feed.jpg', ratio: '1050 / 1400' },
+  { title: 'CCTV camera with its power and video cables', src: 'assets/images/it-support/cctv-camera-cables.jpg', ratio: '1050 / 1400' },
+  { title: 'Network cable wired to a DC power connector', src: 'assets/images/it-support/cable-dc-connector.jpg', ratio: '1050 / 1400' },
+  { title: 'Video balun and CCTV cabling on the work table', src: 'assets/images/it-support/balun-cabling-table.jpg', ratio: '1050 / 1400' },
+  { title: 'Video balun and DC connector wired to a network cable', src: 'assets/images/it-support/video-balun-wiring.jpg', ratio: '1050 / 1400' },
+  { title: 'At my workstation', src: 'assets/images/it-support/workstation.jpg', ratio: '1400 / 1050' },
 ];
 
 // Short descriptions shown with each part of the Work Gallery (on the page and in its popup).
@@ -108,5 +121,5 @@ export const showcaseDescriptions = {
     'A mix of print and social media designs: posters, ads, banners, a business card, logos, booth design, covers, portraits, and mug wraps for GECAR, MHIPCOR, and Genesis. The company uniform and merch design is in Figma.',
   photography: 'Photos taken by Vheejay: sunsets, a mountain view, a snail, and pendant lamps.',
   itSupport:
-    'Photos of hands-on IT support work: laptop hardware maintenance, network racks and server room cabling, printer ink system maintenance, and monitor mounting.',
+    'Hands-on IT support work in photos and video: laptop hardware maintenance, network racks and server room cabling, CCTV camera wiring, printer ink system maintenance and refilling, and monitor mounting.',
 };

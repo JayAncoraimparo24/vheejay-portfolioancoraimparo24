@@ -1,23 +1,27 @@
 import { el } from '../js/dom.js';
 import { siteUrl } from '../js/config.js';
 import { icon } from './icons.js';
-import { mediaFrame } from './media.js';
+import { mediaFrame, videoFrame } from './media.js';
 
 const SWIPE_DISTANCE = 40; // how far a finger must travel (px) to turn the page
 
 /**
  * Pictures shown one at a time, with previous / next buttons, a counter, the arrow keys, and swipe.
  *
- * items: [{ src, caption, thumb }]. "thumb" is an optional smaller copy that is shown on the page;
+ * items: [{ src, caption, thumb, video }]. "thumb" is an optional smaller copy that is shown on the page;
  * the full "src" opens in the full-screen viewer (components/lightbox.js) when a picture is clicked.
+ * An item with "video" is a short video: "src" is then its cover picture, and it plays in the slider.
  * thumbs: true adds a row of small pictures to jump to any page (used for the work galleries).
  * start: the picture to begin with (0 is the first).
  */
 export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
   if (!items.length) return null;
 
-  const slides = items.map(({ src, thumb, caption }) => {
-    const slide = mediaFrame({ src: thumb ?? src, fullSrc: src, alt: `${label} – ${caption}`, label: caption, caption, openFull: true });
+  const slides = items.map(({ src, thumb, caption, video }) => {
+    const alt = `${label} – ${caption}`;
+    const slide = video
+      ? videoFrame({ video, poster: thumb ?? src, alt, caption })
+      : mediaFrame({ src: thumb ?? src, fullSrc: src, alt, label: caption, caption, openFull: true });
     slide.classList.add('slider__slide');
     return slide;
   });
@@ -30,6 +34,8 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
     index = (next + slides.length) % slides.length;
     slides.forEach((slide, position) => {
       slide.hidden = position !== index;
+      // A video stops when its page is turned
+      if (position !== index) slide.querySelector('video')?.pause();
     });
     count.textContent = `${index + 1} / ${slides.length}`;
     picker?.select(index);
@@ -41,8 +47,9 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
   let startX = null;
   let swiped = false;
   stage.addEventListener('pointerdown', (event) => {
-    startX = event.clientX;
     swiped = false;
+    // Dragging the video's own time bar must not turn the page
+    startX = event.target.closest('video') ? null : event.clientX;
   });
   stage.addEventListener('pointerup', (event) => {
     if (startX === null) return;
@@ -92,10 +99,16 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
 
 /** The row of small pictures under the slider. Returns the row and a function that marks the current one. */
 function createThumbs(items, onPick) {
-  const buttons = items.map(({ src, thumb, caption }, position) =>
+  const buttons = items.map(({ src, thumb, caption, video }, position) =>
     el(
       'button',
-      { class: 'slider__thumb', type: 'button', 'aria-label': caption, title: caption, on: { click: () => onPick(position) } },
+      {
+        class: video ? 'slider__thumb slider__thumb--video' : 'slider__thumb',
+        type: 'button',
+        'aria-label': video ? `${caption} (video)` : caption,
+        title: caption,
+        on: { click: () => onPick(position) },
+      },
       el('img', { src: siteUrl(thumb ?? src), alt: '', loading: 'lazy', decoding: 'async' }),
     ),
   );

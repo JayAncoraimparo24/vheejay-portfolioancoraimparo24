@@ -12,6 +12,29 @@ function createPlaceholder(label) {
 }
 
 /**
+ * Figure with a short video (no sound). It shows `poster` until it is played, and loads only its first frame
+ * until then. Played with the controls, so it is never started by itself.
+ */
+export function videoFrame({ video, poster, alt, caption }) {
+  const frame = el('figure', { class: 'media' });
+  const player = el('video', {
+    class: 'media__video',
+    src: siteUrl(video),
+    poster: siteUrl(poster),
+    controls: true,
+    loop: true,
+    playsinline: true,
+    preload: 'metadata',
+    'aria-label': alt,
+  });
+  // The file has no sound track; this makes sure the player is muted too
+  player.muted = true;
+  frame.append(el('div', { class: 'media__box' }, player));
+  if (caption) frame.append(el('figcaption', { class: 'media__caption', text: caption }));
+  return frame;
+}
+
+/**
  * Figure that shows an image when `src` is set and loads, otherwise a placeholder.
  */
 export function mediaFrame({ src, fullSrc = src, alt, label, caption, ratio = '16 / 10', openFull = false }) {
