@@ -170,7 +170,22 @@
   }
 }
 
-@media (min-width: 72rem) {
+/* My name next to the logo. It shows whenever there is room:
+   phones from 28rem wide and up, and screens from 64rem. Between 56rem and 64rem the desktop menu
+   needs the space, so it is hidden there. Under 28rem it would touch the buttons. */
+@media (min-width: 28rem) {
+  .nav__name {
+    display: inline;
+  }
+}
+
+@media (min-width: 56rem) {
+  .nav__name {
+    display: none;
+  }
+}
+
+@media (min-width: 64rem) {
   .nav__name {
     display: inline;
   }
