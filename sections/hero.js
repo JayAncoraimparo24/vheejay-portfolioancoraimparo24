@@ -1,7 +1,6 @@
 import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
 import { icon } from '../components/icons.js';
-import { createFlipCard } from '../components/flipCard.js';
 import { siteUrl } from '../js/config.js';
 
 /** A small pill-shaped link with an icon in front: View My Work, Message, GitHub, LinkedIn. */
@@ -23,25 +22,39 @@ function createLinks() {
   return el('div', { class: 'hero__links' }, links.map(linkButton));
 }
 
-/** The portrait. Click it to turn it over and see the second picture (components/flipCard.js). */
+/**
+ * The portrait. Clicking it opens the picture big in the full-screen viewer (components/lightbox.js),
+ * where the arrows go to the second picture (in barong). Only the first picture shows on the page.
+ */
 function createPortrait() {
-  const front = el(
-    'div',
-    { class: 'hero__photo' },
-    profile.photo
-      ? el('img', { class: 'hero__img', src: siteUrl(profile.photo), alt: `Portrait of ${profile.name}` })
-      : el('span', { class: 'hero__initials', text: profile.initials }),
-  );
-  if (!profile.photo || !profile.photoBack) return front;
+  if (!profile.photo) {
+    return el('div', { class: 'hero__photo' }, el('span', { class: 'hero__initials', text: profile.initials }));
+  }
 
-  const { src, alt, caption } = profile.photoBack;
-  const back = el(
-    'div',
-    { class: 'hero__photo hero__photo--back' },
-    el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: 'lazy' }),
-    el('span', { class: 'hero__caption', text: caption }),
+  const pictures = [
+    { src: profile.photo, alt: `Portrait of ${profile.name}`, caption: 'Portrait' },
+    profile.photoBack ? { src: profile.photoBack.src, alt: profile.photoBack.alt, caption: profile.photoBack.caption } : null,
+  ].filter(Boolean);
+
+  const items = pictures.map(({ src, alt, caption }, position) =>
+    el(
+      'figure',
+      { class: 'portrait__item', hidden: position > 0 },
+      el(
+        'div',
+        { class: 'hero__photo' },
+        el(
+          'a',
+          { class: 'media__link', href: siteUrl(src), target: '_blank', rel: 'noopener noreferrer', 'aria-label': `Open larger: ${caption}` },
+          el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: position > 0 ? 'lazy' : null }),
+        ),
+      ),
+      // The viewer shows this caption; it is not shown on the page
+      el('figcaption', { class: 'portrait__caption', text: caption }),
+    ),
   );
-  return createFlipCard({ front, back, label: 'Turn the photo over to see the other side', hint: 'Tap to flip' });
+
+  return el('div', { class: 'portrait' }, items, el('span', { class: 'portrait__hint', text: 'Tap to enlarge' }));
 }
 
 export function createHero() {

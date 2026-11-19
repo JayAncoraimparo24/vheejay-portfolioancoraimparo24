@@ -2,7 +2,7 @@ import { el } from '../js/dom.js';
 import { icon } from './icons.js';
 
 const OPEN_CLASS = 'is-open';
-const GALLERY_SELECTOR = '.slider';
+const GALLERY_SELECTOR = '.slider, .portrait';
 const LINK_SELECTOR = 'a.media__link';
 
 /** Full-screen picture viewer for gallery images: arrows, keyboard, Esc, click outside to close. */
