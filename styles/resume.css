@@ -1,18 +1,5 @@
 /* The short, resume-style sections: skills, education, and the project list */
 
-/* Skills: one line of short names that slides sideways. View opens the full list in the popup. */
-.skill-row {
-  flex-wrap: nowrap;
-  padding-bottom: var(--space-2);
-  overflow-x: auto;
-  scrollbar-width: thin;
-}
-
-.skill-row .tag {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
 .section__title .icon-file {
   flex-shrink: 0;
   color: var(--color-primary-dark);

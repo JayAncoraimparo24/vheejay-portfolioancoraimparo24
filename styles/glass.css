@@ -31,12 +31,13 @@
 /* ---------- Performance: pause decorative loops while the page is scrolling ----------
    js/scrollState.js sets .is-scrolling on <html>. The animations resume where they stopped. */
 .is-scrolling .snake-border__line,
+.is-scrolling .marquee__track,
 .is-scrolling .timeline__item::before,
 .is-scrolling .hero__title {
   animation-play-state: paused !important;
 }
 
-/* Off screen: nothing in the hero needs to keep moving */
+/* Off screen: nothing in the hero or the skills strip needs to keep moving */
 [data-offscreen],
 [data-offscreen]::before,
 [data-offscreen] *,

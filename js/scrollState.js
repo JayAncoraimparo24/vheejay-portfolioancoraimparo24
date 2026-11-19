@@ -7,14 +7,13 @@ export function initScrollState() {
   const root = document.documentElement;
   let timer = 0;
 
-  // The looping animations of the hero stop while it is off screen
-  // (nobody can see them), and start again when it comes back.
+  // The looping animations of the hero and the skills strip stop while they are off screen
+  // (nobody can see them), and start again when they come back.
   if ('IntersectionObserver' in window) {
     const watcher = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => target.toggleAttribute('data-offscreen', !isIntersecting));
     });
-    const hero = document.querySelector('.hero');
-    if (hero) watcher.observe(hero);
+    document.querySelectorAll('.hero, .marquee').forEach((section) => watcher.observe(section));
   }
 
   window.addEventListener(
