@@ -143,11 +143,38 @@
   color: var(--color-primary-dark);
 }
 
+/* the links: View My Work on its own row, the other four in two columns.
+   on wide screens all five fit in one row, so none is left alone on a second line */
 .hero__links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-2);
+  max-width: 22rem;
   margin-top: var(--space-1);
+}
+
+.hero__links .btn {
+  justify-content: center;
+  padding-inline: 0.7rem;
+}
+
+.hero__links .btn--primary {
+  grid-column: 1 / -1;
+}
+
+/* very narrow phones: one button per row */
+@media (max-width: 23rem) {
+  .hero__links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero__links {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+  }
 }
 
 /* portrait: tap to flip, Enlarge opens it big (4 x 5) */
