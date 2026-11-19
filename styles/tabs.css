@@ -3,14 +3,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
 }
 
 .tabs__tab {
   display: inline-flex;
   gap: var(--space-2);
   align-items: center;
-  padding: 0.6rem 1.25rem;
+  padding: 0.45rem 1rem;
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-text);
@@ -36,6 +36,19 @@
   background: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: 3px 3px 0 var(--shadow-hard);
+}
+
+/* On a phone the four tabs sit in two rows of two, so they do not take three lines */
+@media (max-width: 40rem) {
+  .tabs__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tabs__tab {
+    justify-content: center;
+    padding-inline: 0.5rem;
+  }
 }
 
 .tabs__panel {
