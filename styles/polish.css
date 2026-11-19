@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* contact icons pop and tilt on hover */
+/* contact icons lift a little on hover (no tilt, no bounce) */
 .contact__icon {
   position: relative;
   background: rgb(255 255 255 / 6%);
@@ -17,22 +17,22 @@ html {
     background var(--transition),
     color var(--transition),
     box-shadow var(--transition),
-    transform 420ms var(--ease-spring);
+    transform 260ms var(--ease-out);
 }
 
 .contact__icon .icon-file {
-  transition: transform 420ms var(--ease-spring);
+  transition: transform 260ms var(--ease-out);
 }
 
 .contact__row:hover .contact__icon {
   color: var(--color-deep);
   background: linear-gradient(135deg, #67e8f9, var(--color-primary));
   box-shadow: 0 6px 16px rgb(6 182 212 / 40%);
-  transform: translateY(-2px) rotate(-6deg) scale(1.08);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .contact__row:hover .contact__icon .icon-file {
-  transform: scale(1.1) rotate(6deg);
+  transform: scale(1.08);
 }
 /* the icon moves a little on hover */
 .btn {
@@ -40,7 +40,7 @@ html {
 }
 
 .btn .icon-file {
-  transition: transform 320ms var(--ease-spring);
+  transition: transform 240ms var(--ease-out);
 }
 
 /* reveal is an animation, not a transition, so the hover lift keeps its own timing */
