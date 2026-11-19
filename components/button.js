@@ -1,6 +1,5 @@
 import { el } from '../js/dom.js';
 import { icon } from './icons.js';
-import { withSnakeBorder } from './snakeBorder.js';
 
 /**
  * Renders a link-styled or native button.
@@ -13,6 +12,5 @@ export function button({ label, href, type = 'button', variant = 'primary', icon
   else props.type = type;
   if (href && external) Object.assign(props, { target: '_blank', rel: 'noopener noreferrer' });
   if (onClick) props.on = { click: onClick };
-  const node = el(tag, props, label, iconName ? icon(iconName, 18) : null);
-  return variant === 'primary' ? withSnakeBorder(node, { radius: 24 }) : node;
+  return el(tag, props, label, iconName ? icon(iconName, 18) : null);
 }

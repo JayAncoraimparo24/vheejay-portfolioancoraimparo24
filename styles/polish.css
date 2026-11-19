@@ -34,25 +34,9 @@ html {
 .contact__row:hover .contact__icon .icon-file {
   transform: scale(1.1) rotate(6deg);
 }
-/* Buttons: a light sweep across the button, and the icon nudges */
+/* Buttons: the icon nudges on hover. (No light streak across the button: it looked like a stray line.) */
 .btn {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.btn::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  content: '';
-  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 45%) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 700ms var(--ease-out);
-}
-
-.btn:hover::before {
-  transform: translateX(120%);
 }
 
 .btn .icon-file {
@@ -146,10 +130,6 @@ html {
 
   .reveal.is-visible {
     animation: none;
-  }
-
-  .btn::before {
-    display: none;
   }
 
   .tabs__panel {

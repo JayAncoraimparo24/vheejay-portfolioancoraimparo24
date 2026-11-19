@@ -30,7 +30,7 @@ The "Edit text" toolbar appears only on localhost (or on a published copy when t
 `styles/main.css` imports everything in order:
 
 - Foundations: `tokens.css` (colours, sizes, timing), `base.css`, `layout.css`
-- Components: `navbar`, `buttons`, `cards`, `media`, `lightbox`, `marquee`, `snake`
+- Components: `navbar`, `buttons`, `cards`, `media`, `lightbox`, `marquee`
 - Page sections: `hero`, `experience`, `contact`, `project-page`
 - Special cases: `edit-mode`, `theme-dark`
 
