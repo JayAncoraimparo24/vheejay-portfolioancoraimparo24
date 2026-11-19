@@ -80,20 +80,8 @@ html {
 }
 
 .site-footer__top:active,
-.link-back:active,
-.jump-links__link:active {
+.link-back:active {
   transform: scale(0.96);
-}
-
-.jump-links__link {
-  transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    transform 300ms var(--ease-spring);
-}
-
-.jump-links__link:hover {
-  transform: translateY(-2px);
 }
 
 /* Tabs: the open tab's colour slides in, and panels fade and rise */

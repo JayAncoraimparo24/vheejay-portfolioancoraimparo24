@@ -63,8 +63,8 @@ function createMoreWork() {
   return el(
     'nav',
     { class: 'jump-links', 'aria-label': 'More of my work' },
-    el('span', { class: 'jump-links__label', text: 'More of my work:' }),
-    MORE_WORK.map(({ id, label }) => el('a', { class: 'jump-links__link', href: `#${id}`, text: label })),
+    el('span', { class: 'jump-links__label', text: 'More of my work' }),
+    MORE_WORK.map(({ id, label }) => el('a', { class: 'btn btn--secondary btn--small', href: `#${id}`, text: label })),
   );
 }
 

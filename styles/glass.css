@@ -116,7 +116,6 @@
 
 /* ---------- Tabs, chips, small links ---------- */
 .tabs__tab,
-.jump-links__link,
 .link-back,
 .pager__link {
   background: var(--glass-bg);
@@ -125,7 +124,6 @@
 }
 
 .tabs__tab:hover,
-.jump-links__link:hover,
 .link-back:hover,
 .pager__link:hover {
   background: var(--glass-bg-strong);
