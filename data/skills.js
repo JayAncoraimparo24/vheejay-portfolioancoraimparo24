@@ -1,3 +1,5 @@
+// showInRow: the short names of this category also appear in the one-line strip on the page.
+// Every category, with all of its skills, is in the "View" popup.
 export const skillCategories = [
   {
     id: 'it-support',
@@ -28,6 +30,7 @@ export const skillCategories = [
   },
   {
     id: 'front-end',
+    showInRow: true,
     title: 'Front-End Development',
     icon: 'code',
     items: [
@@ -49,12 +52,14 @@ export const skillCategories = [
   },
   {
     id: 'back-end',
+    showInRow: true,
     title: 'Back-End Development',
     icon: 'database',
     items: ['PHP', 'Python', 'MySQL', 'XAMPP'],
   },
   {
     id: 'tools',
+    showInRow: true,
     title: 'Tools',
     icon: 'tool',
     items: [

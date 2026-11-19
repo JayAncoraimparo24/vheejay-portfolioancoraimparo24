@@ -4,16 +4,16 @@ import { icon } from './icons.js';
 /**
  * Standard page section with a heading. `nav` maps the section to a navbar link for scroll-spy.
  * tone: 'light' | 'tint' | 'dark'.  narrow: true gives the short, resume-style column.
- * iconName puts a small icon in front of the title.
+ * iconName puts a small icon in front of the title. action is an element (such as a View button) placed at the right of the title.
  */
-export function createSection({ id, nav = id, eyebrow, title, intro, iconName, tone = 'light', narrow = false }, ...content) {
+export function createSection({ id, nav = id, eyebrow, title, intro, iconName, action, tone = 'light', narrow = false }, ...content) {
   const heading = el('h2', { class: 'section__title', id: `${id}-title` }, iconName ? icon(iconName, 22) : null, title);
 
   const header = el(
     'header',
     { class: 'section__header' },
     eyebrow ? el('p', { class: 'eyebrow', text: eyebrow }) : null,
-    heading,
+    action ? el('div', { class: 'section__headline' }, heading, action) : heading,
     intro ? el('p', { class: 'section__intro', text: intro }) : null,
   );
 

@@ -1,25 +1,18 @@
 /* The short, resume-style sections: skills, education, and the project list */
 
-/* Skills: a category name, then its skills as small chips */
-.skill-groups {
-  display: grid;
-  gap: var(--space-4);
+/* Skills: one line of short names that slides sideways. View opens the full list in the popup. */
+.skill-row {
+  flex-wrap: nowrap;
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
-.skill-group {
-  display: grid;
-  gap: var(--space-2);
+.skill-row .tag {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.skill-group__title {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-  font-size: var(--text-sm);
-  color: var(--color-muted);
-}
-
-.skill-group__title .icon-file,
 .section__title .icon-file {
   flex-shrink: 0;
   color: var(--color-primary-dark);

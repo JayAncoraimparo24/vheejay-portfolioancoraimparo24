@@ -64,6 +64,14 @@
   counter-increment: section;
 }
 
+/* A heading with a View button: the title on the left, the button on the right */
+.section__headline {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* The title has a small icon in front of it */
 .section__title {
   display: flex;
