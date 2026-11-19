@@ -29,7 +29,7 @@
   left: 0;
   width: 2px;
   content: '';
-  background: linear-gradient(180deg, var(--color-primary), rgb(6 182 212 / 25%));
+  background: var(--color-primary);
   transform-origin: top;
 }
 
@@ -56,7 +56,7 @@
     transform var(--transition);
 }
 
-/* Dot on the line; the current job's dot pulses */
+/* Dot on the line. Every dot gives off the same soft pulse, and the line keeps one colour from top to bottom. */
 .timeline__item::before {
   position: absolute;
   top: var(--space-4);
@@ -67,9 +67,6 @@
   background: var(--color-primary);
   border: 2px solid var(--color-white);
   border-radius: 50%;
-}
-
-.timeline__item:first-child::before {
   animation: pulse-ring 2.4s ease-out infinite;
 }
 
