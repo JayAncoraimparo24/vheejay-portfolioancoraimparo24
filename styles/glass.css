@@ -11,6 +11,9 @@
   --glass-bg-strong: rgb(255 255 255 / 76%);
   --glass-edge: rgb(255 255 255 / 85%); /* the bright rim of the glass */
   --glass-line: rgb(14 116 144 / 14%); /* the faint outer line */
+  --btn-edge: rgb(14 116 144 / 26%); /* the one clean edge line of a quiet button */
+  --btn-shadow: 0 6px 16px rgb(14 116 144 / 9%);
+  --btn-shadow-hover: 0 10px 24px rgb(6 182 212 / 22%);
   --glass-nav: rgb(255 255 255 / 90%);
   --glass-shadow: 0 6px 16px rgb(14 116 144 / 9%), inset 0 1px 0 rgb(255 255 255 / 90%);
   --glass-shadow-hover: 0 12px 28px rgb(6 182 212 / 22%), inset 0 1px 0 rgb(255 255 255 / 95%);
@@ -22,6 +25,9 @@
   --glass-bg-strong: rgb(26 40 70 / 72%);
   --glass-edge: rgb(255 255 255 / 16%);
   --glass-line: rgb(255 255 255 / 8%);
+  --btn-edge: rgb(255 255 255 / 20%);
+  --btn-shadow: 0 6px 16px rgb(0 0 0 / 32%);
+  --btn-shadow-hover: 0 10px 24px rgb(6 182 212 / 20%);
   --glass-nav: rgb(16 27 52 / 90%);
   --glass-shadow: 0 6px 16px rgb(0 0 0 / 32%), inset 0 1px 0 rgb(255 255 255 / 12%);
   --glass-shadow-hover: 0 12px 28px rgb(6 182 212 / 20%), inset 0 1px 0 rgb(255 255 255 / 18%);
@@ -92,17 +98,20 @@
   transform: translateY(-2px);
 }
 
+/* Quiet buttons have one clean edge line. Before, a white border, a thin ring outside it and a white
+   highlight inside it were stacked, and together they looked like a double line along the side. */
 .btn--secondary {
   color: var(--color-navy);
-  background: var(--glass-bg);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-shadow), 0 0 0 1px var(--glass-line);
+  background: var(--glass-bg-strong);
+  border-color: var(--btn-edge);
+  box-shadow: var(--btn-shadow);
 }
 
 .btn--secondary:hover {
   color: var(--color-navy);
   background: var(--glass-bg-strong);
-  box-shadow: var(--glass-shadow-hover), 0 0 0 1px rgb(6 182 212 / 40%);
+  border-color: var(--color-primary);
+  box-shadow: var(--btn-shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -115,24 +124,27 @@
 .tabs__tab,
 .link-back,
 .pager__link {
-  background: var(--glass-bg);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-shadow), 0 0 0 1px var(--glass-line);
+  background: var(--glass-bg-strong);
+  border-color: var(--btn-edge);
+  box-shadow: var(--btn-shadow);
 }
 
 .tabs__tab:hover,
 .link-back:hover,
 .pager__link:hover {
   background: var(--glass-bg-strong);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-shadow-hover), 0 0 0 1px rgb(6 182 212 / 40%);
+  border-color: var(--color-primary);
+  box-shadow: var(--btn-shadow-hover);
 }
 
+/* The open tab is solid cyan. Its gradient starts at the outer edge of the border, so it cannot
+   repeat inside the border and draw a line there. */
 .tabs__tab[aria-selected='true'] {
   color: var(--color-deep);
   background: linear-gradient(135deg, #67e8f9, var(--color-primary));
-  border-color: rgb(255 255 255 / 55%);
-  box-shadow: 0 10px 24px var(--glass-glow), inset 0 1px 0 rgb(255 255 255 / 60%);
+  background-origin: border-box;
+  border-color: transparent;
+  box-shadow: 0 10px 24px var(--glass-glow);
 }
 
 /* ---------- Contact (dark section) ---------- */
@@ -206,5 +218,4 @@
 /* Footer button */
 .site-footer__top {
   background: rgb(255 255 255 / 6%);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 14%);
 }
