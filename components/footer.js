@@ -9,7 +9,6 @@ export function createFooter() {
       'div',
       { class: 'container site-footer__inner' },
       el('p', { text: `© ${new Date().getFullYear()} ${profile.name}` }),
-      el('p', { class: 'site-footer__roles', text: profile.roles.join(' | ') }),
       // Scrolls to the very top of whatever page this is (project pages have no #home section)
       el('a', {
         class: 'site-footer__top',
