@@ -1,0 +1,143 @@
+/*
+ * Loading screen: the sprout of the logo grows (the stem draws itself, then the two leaves open),
+ * the name fades in, and the screen lifts away when the page is ready (js/splash.js).
+ * The markup is in index.html.
+ */
+html.is-loading {
+  overflow: hidden;
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-2);
+  color: var(--color-navy);
+  background: var(--color-white);
+  /* If the page's script never finishes, the screen still goes away by itself */
+  animation: splash-fallback 400ms ease 6s forwards;
+}
+
+html.no-splash .splash {
+  display: none;
+}
+
+.splash.is-done {
+  pointer-events: none;
+  animation: splash-out 450ms var(--ease-out) forwards;
+}
+
+.splash__mark {
+  width: 5.5rem;
+  height: auto;
+  margin-bottom: var(--space-3);
+  overflow: visible;
+}
+
+/* The stem is drawn from the top down to the end of the hook (its length is about 160) */
+.splash__stem {
+  stroke-dasharray: 165;
+  stroke-dashoffset: 165;
+  animation: splash-draw 650ms var(--ease-out) 100ms forwards;
+}
+
+/* Each leaf opens from the point where it meets the stem */
+.splash__leaf {
+  transform: scale(0);
+  transform-origin: 100px 90px;
+  animation: splash-grow 500ms var(--ease-out) forwards;
+}
+
+.splash__leaf--right {
+  animation-delay: 550ms;
+}
+
+.splash__leaf--left {
+  animation-delay: 650ms;
+}
+
+.splash__vein {
+  fill: none;
+  stroke: var(--color-white);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: splash-fade 300ms ease 1000ms forwards;
+}
+
+.splash__name,
+.splash__role {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: splash-rise 450ms var(--ease-out) forwards;
+}
+
+.splash__name {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  animation-delay: 750ms;
+}
+
+.splash__role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  animation-delay: 900ms;
+}
+
+@keyframes splash-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes splash-grow {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes splash-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1.5rem);
+  }
+}
+
+@keyframes splash-fallback {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Reduced motion: no loading screen at all */
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    display: none;
+  }
+
+  html.is-loading {
+    overflow: auto;
+  }
+}

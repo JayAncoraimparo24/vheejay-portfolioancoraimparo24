@@ -13,6 +13,7 @@ import { initReveal } from './reveal.js';
 import { initScrollSpy } from './scrollSpy.js';
 import { initEditMode } from './editMode.js';
 import { initScrollState } from './scrollState.js';
+import { finishSplash } from './splash.js';
 import { initLightbox } from '../components/lightbox.js';
 
 // A short resume-style page first (about, education, skills, experience, projects), then the work galleries
@@ -38,6 +39,7 @@ function mountPage() {
   initEditMode();
   initScrollState();
   scrollToHash();
+  finishSplash();
 }
 
 /**
