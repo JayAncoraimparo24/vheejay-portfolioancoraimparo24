@@ -72,11 +72,14 @@ function build() {
 
 /**
  * Opens the popup. `content` is a list of elements (empty entries are skipped);
- * `trigger` is the element that gets the focus back when the popup closes.
+ * `trigger` is the element that gets the focus back when the popup closes;
+ * `wide` makes the popup wider.
  */
-export function openDialog({ title, subtitle = '', content, trigger }) {
+export function openDialog({ title, subtitle = '', content, trigger, wide = false }) {
   if (!overlay) build();
   opener = trigger;
+  // A wide popup is for a whole page, like the resume
+  panel.classList.toggle('dialog__panel--wide', wide);
   titleNode.textContent = title;
   subtitleNode.textContent = subtitle;
   subtitleNode.hidden = !subtitle;

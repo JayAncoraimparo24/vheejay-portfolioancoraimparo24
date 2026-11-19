@@ -25,10 +25,10 @@ export const profile = {
   },
   // Add the real GitHub profile URL here when available. Leave null to show a placeholder.
   github: { label: 'JayAncoraimparo24', url: 'https://github.com/JayAncoraimparo24' },
-  // The resume (PDF, one page). The Resume button (top of the page) opens it in a new tab,
-  // and Contact has a Download link. Set this to null to hide both.
-  // To change the words, edit tools/resume-source.html and save it as a PDF over this file.
-  resume: { url: 'assets/resume/Vheejay-Sugay-Resume.pdf' },
+  // The resume (one page). The Resume button (top of the page) shows `image` in a popup on the page, with
+  // a button to download the PDF; Contact has a Download link. Set this to null to hide both.
+  // To change the words, edit tools/resume-source.html, then save the PDF and the picture over these two files.
+  resume: { url: 'assets/resume/Vheejay-Sugay-Resume.pdf', image: 'assets/resume/Vheejay-Sugay-Resume.webp' },
   summary:
     'Information Technology professional with experience in IT assistance, web development, and UI/UX. Builds user-friendly websites and writes technical documentation. Has led IT team projects and works well with different teams. Communicates in both English and Filipino. Fast learner, detail-oriented, adaptable, and responsible, with a willingness to learn new technologies.',
 };

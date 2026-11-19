@@ -2,12 +2,25 @@ import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
 import { icon } from '../components/icons.js';
 import { createFlipCard } from '../components/flipCard.js';
+import { openResume } from '../components/resumeDialog.js';
 import { siteUrl } from '../js/config.js';
 
-/** A small pill-shaped link with an icon in front: View My Work, Message, GitHub, LinkedIn. */
-function linkButton({ label, href, iconName, variant = 'secondary', external = false }) {
+/**
+ * A small pill-shaped link with an icon in front: View My Work, Message, Resume, GitHub, LinkedIn.
+ * With onOpen, a plain click runs that instead of following the link (the link is still there for a new tab).
+ */
+function linkButton({ label, href, iconName, variant = 'secondary', external = false, onOpen }) {
   const props = { class: `btn btn--${variant} btn--small`, href };
   if (external) Object.assign(props, { target: '_blank', rel: 'noopener noreferrer' });
+  if (onOpen) {
+    props.on = {
+      click: (event) => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        event.preventDefault();
+        onOpen(event.currentTarget);
+      },
+    };
+  }
   return el('a', props, icon(iconName, 16), label);
 }
 
@@ -16,8 +29,8 @@ function createLinks() {
     { label: 'View My Work', href: '#projects', iconName: 'folder', variant: 'primary' },
     // The message button goes to the contact form (a plain mailto: link does nothing without a mail app)
     profile.email && { label: 'Message', href: '#contact', iconName: 'mail' },
-    // Opens the PDF in a new tab (the browser's viewer has its own download button)
-    profile.resume?.url && { label: 'Resume', href: siteUrl(profile.resume.url), iconName: 'file', external: true },
+    // Shows the resume on the page, in a popup (the link goes to the PDF when opened in a new tab)
+    profile.resume?.url && { label: 'Resume', href: siteUrl(profile.resume.url), iconName: 'file', onOpen: openResume },
     profile.github?.url && { label: 'GitHub', href: profile.github.url, iconName: 'github', external: true },
     profile.linkedin?.url && { label: 'LinkedIn', href: profile.linkedin.url, iconName: 'linkedin', external: true },
   ].filter(Boolean);
