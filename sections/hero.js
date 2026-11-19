@@ -1,6 +1,7 @@
 import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
 import { icon } from '../components/icons.js';
+import { createFlipCard } from '../components/flipCard.js';
 import { siteUrl } from '../js/config.js';
 
 /** A small pill-shaped link with an icon in front: View My Work, Message, GitHub, LinkedIn. */
@@ -23,8 +24,8 @@ function createLinks() {
 }
 
 /**
- * The portrait. Clicking it opens the picture big in the full-screen viewer (components/lightbox.js),
- * where the arrows go to the second picture (in barong). Only the first picture shows on the page.
+ * The portrait. Tap it to turn it over (toga and barong). The Enlarge button below it opens the picture
+ * that is showing in the full-screen viewer (components/lightbox.js), where the arrows go to the other one.
  */
 function createPortrait() {
   if (!profile.photo) {
@@ -36,25 +37,46 @@ function createPortrait() {
     profile.photoBack ? { src: profile.photoBack.src, alt: profile.photoBack.alt, caption: profile.photoBack.caption } : null,
   ].filter(Boolean);
 
-  const items = pictures.map(({ src, alt, caption }, position) =>
+  const face = ({ src, alt }, modifier = '') =>
+    el('div', { class: `hero__photo ${modifier}`.trim() }, el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: modifier ? 'lazy' : null }));
+
+  // Hidden links, one per picture: the full-screen viewer reads them (it shows the caption too)
+  const viewerLinks = pictures.map(({ src, alt, caption }) =>
     el(
       'figure',
-      { class: 'portrait__item', hidden: position > 0 },
-      el(
-        'div',
-        { class: 'hero__photo' },
-        el(
-          'a',
-          { class: 'media__link', href: siteUrl(src), target: '_blank', rel: 'noopener noreferrer', 'aria-label': `Open larger: ${caption}` },
-          el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: position > 0 ? 'lazy' : null }),
-        ),
-      ),
-      // The viewer shows this caption; it is not shown on the page
-      el('figcaption', { class: 'portrait__caption', text: caption }),
+      { class: 'portrait__viewer', hidden: true },
+      el('a', { class: 'media__link', href: siteUrl(src), target: '_blank', rel: 'noopener noreferrer', 'aria-label': `Open larger: ${caption}` }, el('img', { alt })),
+      el('figcaption', { text: caption }),
     ),
   );
 
-  return el('div', { class: 'portrait' }, items, el('span', { class: 'portrait__hint', text: 'Tap to enlarge' }));
+  const card =
+    pictures.length > 1
+      ? createFlipCard({
+          front: face(pictures[0]),
+          back: face(pictures[1], 'hero__photo--back'),
+          label: 'Turn the photo over to see the other one',
+          hint: 'Tap to flip',
+        })
+      : face(pictures[0]);
+
+  const enlarge = el(
+    'button',
+    {
+      class: 'portrait__enlarge',
+      type: 'button',
+      'aria-label': 'Enlarge the photo',
+      on: {
+        click: () => {
+          const flipped = card.classList.contains('is-flipped');
+          viewerLinks[flipped ? 1 : 0].querySelector('a').click();
+        },
+      },
+    },
+    'Enlarge',
+  );
+
+  return el('div', { class: 'portrait' }, card, enlarge, viewerLinks);
 }
 
 export function createHero() {
