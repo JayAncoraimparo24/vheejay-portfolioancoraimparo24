@@ -104,7 +104,7 @@
 
 /* Small buttons: the links in the header, the "View" buttons, and the links under the projects */
 .btn--small {
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 0.8rem;
   font-size: var(--text-sm);
 }
 
