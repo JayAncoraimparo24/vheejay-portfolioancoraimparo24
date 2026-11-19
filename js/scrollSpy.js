@@ -1,16 +1,36 @@
 import { setActiveNavLink } from '../components/navbar.js';
 
-// highlight the navbar link of the section in view
-export function initScrollSpy() {
-  const sections = document.querySelectorAll('section[data-nav]');
-  if (!('IntersectionObserver' in window)) return;
+// a section is the current one once its top goes above this line (just under the navbar)
+const LINE = 120;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries.find((entry) => entry.isIntersecting);
-      if (visible) setActiveNavLink(visible.target.dataset.nav);
+// highlight the navbar link of the section that is at the top of the screen
+export function initScrollSpy() {
+  const sections = [...document.querySelectorAll('section[data-nav]')];
+  if (!sections.length) return;
+
+  let waiting = false;
+
+  function update() {
+    waiting = false;
+    let current = sections[0];
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= LINE) current = section;
+    });
+    // at the very bottom the last section wins, even if it is too short to reach the line
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom) current = sections[sections.length - 1];
+    setActiveNavLink(current.dataset.nav);
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (waiting) return;
+      waiting = true;
+      requestAnimationFrame(update);
     },
-    { rootMargin: '-40% 0px -55% 0px' },
+    { passive: true },
   );
-  sections.forEach((section) => observer.observe(section));
+  window.addEventListener('resize', update);
+  update();
 }

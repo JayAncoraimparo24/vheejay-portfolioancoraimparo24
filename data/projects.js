@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 'rbm-motorparts',
     number: '01',
+    cover: 'assets/images/rbm/login.jpg', // picture on the project card
     // Same title as the capstone paper.
     title: 'Development of a Web Application Sales & Inventory System for RBM Motorparts, Accessories, & Services',
     type: 'Capstone Project · Team Collaboration',
@@ -55,6 +56,7 @@ export const projects = [
   {
     id: 'seafood-price-tracking',
     number: '02',
+    cover: 'assets/images/seafood/home.jpg',
     title: 'Local Seafood Market Price Monitoring System',
     type: 'Hackathon Project · Team Collaboration',
     role: 'UI/UX Designer & Presenter',
@@ -91,6 +93,7 @@ export const projects = [
   {
     id: 'automated-itemization-system',
     number: '03',
+    cover: 'assets/images/ais/user-manual-cover.jpg',
     title: 'Automated Itemization System (AIS)',
     type: 'Academic Project · System Integration Architecture',
     role: 'UI/UX Designer · Manual QA Tester · Technical Documentation · Hardware Installation',

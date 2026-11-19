@@ -95,4 +95,9 @@
   :root {
     --gutter: 2rem;
   }
+
+  /* more white space between the sections on bigger screens */
+  .section {
+    padding-block: var(--space-7);
+  }
 }

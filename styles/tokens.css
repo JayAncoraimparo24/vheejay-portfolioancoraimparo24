@@ -8,7 +8,7 @@
   --color-primary-dark: #0e7490; /* cyan that reads on light backgrounds */
   --color-navy: #0f172a; /* strong text (light in dark mode) */
   --color-white: #ffffff; /* page surface (dark in dark mode) */
-  --color-page: #f8fafc; /* page background, a slightly cool off-white */
+  --color-page: #ffffff; /* page background, plain white */
   --grid-line: rgb(15 23 42 / 6%); /* faint grid behind the top */
   --color-cyan-50: #ecfeff;
   --color-text: #1e293b;

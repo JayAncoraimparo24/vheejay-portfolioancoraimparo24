@@ -32,11 +32,12 @@ export const profile = {
     'Information Technology professional with experience in IT assistance, web development, and UI/UX. Builds user-friendly websites and writes technical documentation. Has led IT team projects and works well with different teams. Communicates in both English and Filipino. Fast learner, detail-oriented, adaptable, and responsible, with a willingness to learn new technologies.',
 };
 
+// same order as the sections on the page, so the links and the scrolling follow each other
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ];
