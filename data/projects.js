@@ -55,7 +55,7 @@ export const projects = [
   {
     id: 'seafood-price-tracking',
     number: '02',
-    title: 'Local Seafood Price Tracking System',
+    title: 'Local Seafood Market Price Monitoring System',
     type: 'Hackathon Project · Team Collaboration',
     role: 'UI/UX Designer & Presenter',
     date: 'April 2025',
