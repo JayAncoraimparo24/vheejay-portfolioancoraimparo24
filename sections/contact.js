@@ -3,10 +3,11 @@ import { profile } from '../data/profile.js';
 import { createSection } from '../components/section.js';
 import { createContactForm } from '../components/contactForm.js';
 import { icon } from '../components/icons.js';
+import { siteUrl } from '../js/config.js';
 
-function contactRow({ iconName, label, value, href, external = false }) {
+function contactRow({ iconName, label, value, href, external = false, download = false }) {
   const content = href
-    ? el('a', { href, text: value, ...(external && { target: '_blank', rel: 'noopener noreferrer' }) })
+    ? el('a', { href, text: value, ...(external && { target: '_blank', rel: 'noopener noreferrer' }), ...(download && { download: '' }) })
     : el('span', { class: 'placeholder-note', text: value });
 
   return el(
@@ -32,6 +33,10 @@ function createContactList() {
     // Shown only once a real GitHub address is set in data/profile.js (no "to be added" note for visitors).
     github.url
       ? contactRow({ iconName: 'github', label: 'GitHub', value: github.label ?? github.url, href: github.url, external: true })
+      : null,
+    // Shown only when a resume file is set in data/profile.js
+    profile.resume?.url
+      ? contactRow({ iconName: 'file', label: 'Resume', value: 'Download PDF', href: siteUrl(profile.resume.url), download: true })
       : null,
   ]);
 }

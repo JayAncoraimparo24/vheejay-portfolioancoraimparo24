@@ -16,6 +16,8 @@ function createLinks() {
     { label: 'View My Work', href: '#projects', iconName: 'folder', variant: 'primary' },
     // The message button goes to the contact form (a plain mailto: link does nothing without a mail app)
     profile.email && { label: 'Message', href: '#contact', iconName: 'mail' },
+    // Opens the PDF in a new tab (the browser's viewer has its own download button)
+    profile.resume?.url && { label: 'Resume', href: siteUrl(profile.resume.url), iconName: 'file', external: true },
     profile.github?.url && { label: 'GitHub', href: profile.github.url, iconName: 'github', external: true },
     profile.linkedin?.url && { label: 'LinkedIn', href: profile.linkedin.url, iconName: 'linkedin', external: true },
   ].filter(Boolean);
