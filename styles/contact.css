@@ -192,6 +192,7 @@ body:has(.edit-toolbar) .site-footer {
   .site-footer__inner {
     grid-template-columns: 1fr auto;
     align-items: center;
+    justify-items: start;
     text-align: left;
   }
 

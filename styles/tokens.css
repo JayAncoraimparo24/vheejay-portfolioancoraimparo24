@@ -22,10 +22,6 @@
   --shadow-hard: var(--color-deep); /* the offset "print" shadow used on the portrait, cards, and buttons */
   --header-glass: rgb(255 255 255 / 96%); /* nearly solid: a blur behind the bar made scrolling heavy */
 
-  /* Dot-grid texture */
-  --dot-color: rgb(14 116 144 / 22%);
-  --dot-size: 22px;
-
   /* Typography */
   --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;

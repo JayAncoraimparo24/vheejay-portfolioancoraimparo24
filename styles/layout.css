@@ -16,8 +16,6 @@
 }
 
 .section--dark {
-  --dot-color: rgb(103 232 249 / 10%);
-
   color: var(--color-muted-on-dark);
   background: var(--color-deep);
 }
@@ -27,22 +25,6 @@
 .section--light + .section--light {
   background: linear-gradient(var(--color-border), var(--color-border)) top center /
     min(calc(52rem - 2 * var(--gutter)), calc(100% - 2 * var(--gutter))) 1px no-repeat;
-}
-
-/* Faint dot grid behind the dark (contact) section */
-.section--dark {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.section--dark::before {
-  position: absolute;
-  inset: calc(-1 * var(--dot-size));
-  z-index: -1;
-  content: '';
-  pointer-events: none;
-  background: radial-gradient(circle, var(--dot-color) 1px, transparent 1.6px) 0 0 / var(--dot-size) var(--dot-size);
 }
 
 /* Section heading: an icon, the title, and an optional short intro */
