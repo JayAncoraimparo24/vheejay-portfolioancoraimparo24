@@ -1,0 +1,56 @@
+﻿/* Work gallery: a short row of small pictures and a View button (the big pictures are in the popup) */
+.gallery-preview {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gallery-preview__head {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-preview__count {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.gallery-preview__row {
+  display: flex;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.gallery-preview__item {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  padding: 0;
+  overflow: hidden;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  background: var(--color-cyan-50);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  transition:
+    border-color var(--transition),
+    transform 300ms var(--ease-spring, ease);
+}
+
+.gallery-preview__item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.gallery-preview__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -4,18 +4,78 @@ import { createSection } from '../components/section.js';
 import { createTabs } from '../components/tabs.js';
 import { icon } from '../components/icons.js';
 import { createSlider } from '../components/slider.js';
-import { thumbOf } from '../js/config.js';
+import { openDialog } from '../components/dialog.js';
+import { siteUrl, thumbOf } from '../js/config.js';
+
+const PREVIEW_COUNT = 6; // small pictures shown on the page; View opens all of them
 
 /**
- * Each kind of work is shown one picture at a time, with a row of small pictures under it to jump around.
- * The page shows a small copy of the picture, and the full picture opens when it is clicked.
+ * One kind of work: a short row of small pictures on the page, and a View button.
+ * View (or any small picture) opens the popup with the big picture, one at a time, and the row of small ones to jump around.
  */
-const createGallery = (items, label) =>
-  createSlider(
-    items.map(({ title, src }) => ({ src, thumb: thumbOf(src), caption: title })),
-    label,
-    { thumbs: true },
+function createGallery(items, label) {
+  const pictures = items.map(({ title, src }) => ({ src, thumb: thumbOf(src), caption: title }));
+
+  const open = (start, trigger) =>
+    openDialog({
+      title: label,
+      subtitle: `${pictures.length} pictures`,
+      trigger,
+      content: [createSlider(pictures, label, { thumbs: true, start })],
+    });
+
+  const previews = pictures.slice(0, PREVIEW_COUNT).map(({ thumb, caption }, index) =>
+    el(
+      'button',
+      {
+        class: 'gallery-preview__item',
+        type: 'button',
+        'aria-label': `Open: ${caption}`,
+        title: caption,
+        on: { click: (event) => open(index, event.currentTarget) },
+      },
+      el('img', { src: siteUrl(thumb), alt: '', loading: 'lazy', decoding: 'async' }),
+    ),
   );
+
+  // "+7" opens the popup at the first picture that is not shown here
+  const hidden = pictures.length - PREVIEW_COUNT;
+  if (hidden > 0) {
+    previews.push(
+      el(
+        'button',
+        {
+          class: 'gallery-preview__item gallery-preview__more',
+          type: 'button',
+          'aria-label': `Open the other ${hidden} pictures`,
+          on: { click: (event) => open(PREVIEW_COUNT, event.currentTarget) },
+        },
+        `+${hidden}`,
+      ),
+    );
+  }
+
+  return el(
+    'div',
+    { class: 'gallery-preview' },
+    el(
+      'div',
+      { class: 'gallery-preview__head' },
+      el('p', { class: 'gallery-preview__count', text: `${pictures.length} pictures` }),
+      el(
+        'button',
+        {
+          class: 'btn btn--secondary btn--small',
+          type: 'button',
+          'aria-label': `View all: ${label}`,
+          on: { click: (event) => open(0, event.currentTarget) },
+        },
+        'View',
+      ),
+    ),
+    el('div', { class: 'gallery-preview__row' }, previews),
+  );
+}
 
 /**
  * A row of small, equal chips that open the Figma files in a new tab.
@@ -56,10 +116,8 @@ export function createWorkGallery() {
     {
       id: 'work-gallery',
       nav: 'projects',
-      eyebrow: 'Gallery',
       title: 'Work Gallery',
-      intro: 'Design, photography, and IT support work. Pick a tab to browse.',
-      tone: 'tint',
+      iconName: 'image',
       narrow: true,
     },
     createTabs({
@@ -69,16 +127,16 @@ export function createWorkGallery() {
           id: 'ui-ux-showcase',
           label: 'UI/UX Design',
           icon: 'layout',
-          content: [createFigmaButtons(figmaLinks), createGallery(uiuxShowcase, 'UI/UX design')],
+          content: [createFigmaButtons(figmaLinks), createGallery(uiuxShowcase, 'UI/UX Design')],
         },
         {
           id: 'graphic-design',
           label: 'Graphic Design',
           icon: 'palette',
-          content: [createFigmaButtons(graphicFigmaLinks), createGallery(graphicDesignShowcase, 'Graphic design')],
+          content: [createFigmaButtons(graphicFigmaLinks), createGallery(graphicDesignShowcase, 'Graphic Design')],
         },
         { id: 'photography', label: 'Photography', icon: 'camera', content: createGallery(photographyShowcase, 'Photography') },
-        { id: 'it-support-showcase', label: 'IT Support', icon: 'headset', content: createGallery(itSupportShowcase, 'IT support') },
+        { id: 'it-support-showcase', label: 'IT Support', icon: 'headset', content: createGallery(itSupportShowcase, 'IT Support') },
       ],
     }),
   );

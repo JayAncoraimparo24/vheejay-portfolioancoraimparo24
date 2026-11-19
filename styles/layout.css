@@ -15,10 +15,6 @@
   padding-block: var(--space-6);
 }
 
-.section--tint {
-  background: var(--color-cyan-50);
-}
-
 .section--dark {
   --dot-color: rgb(103 232 249 / 10%);
 
@@ -26,16 +22,13 @@
   background: var(--color-deep);
 }
 
-/* Faint dot grid behind the tinted and dark sections.
-   The layer is one grid cell larger than the section and moves exactly one cell, so the loop never jumps. */
-.section--tint,
+/* Faint dot grid behind the dark (contact) section */
 .section--dark {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-.section--tint::before,
 .section--dark::before {
   position: absolute;
   inset: calc(-1 * var(--dot-size));
@@ -43,13 +36,6 @@
   content: '';
   pointer-events: none;
   background: radial-gradient(circle, var(--dot-color) 1px, transparent 1.6px) 0 0 / var(--dot-size) var(--dot-size);
-  animation: grid-drift 40s linear infinite;
-}
-
-@keyframes grid-drift {
-  to {
-    transform: translate(var(--dot-size), var(--dot-size));
-  }
 }
 
 /* Section heading: an icon, the title, and an optional short intro */

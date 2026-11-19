@@ -1,14 +1,9 @@
 import { el } from '../js/dom.js';
 import { projectUrl } from '../js/config.js';
 import { icon } from './icons.js';
-import { block, openDialog } from './dialog.js';
+import { block, listBlock, openDialog } from './dialog.js';
 import { createSlider } from './slider.js';
 import { tagList } from './tag.js';
-
-/** A block with a bullet list, or nothing when the list is empty. */
-function listBlock(heading, items) {
-  return items?.length ? block(heading, el('ul', { class: 'bullet-list' }, items.map((text) => el('li', { text })))) : null;
-}
 
 function tagBlock(heading, items) {
   return items?.length ? block(heading, tagList(items)) : null;

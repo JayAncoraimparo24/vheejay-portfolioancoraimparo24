@@ -84,6 +84,19 @@
   }
 }
 
+/* The top of a job: its details on the left, the View button on the right */
+.timeline__head {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.timeline__summary {
+  display: grid;
+  gap: var(--space-1);
+}
+
 .timeline__period {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

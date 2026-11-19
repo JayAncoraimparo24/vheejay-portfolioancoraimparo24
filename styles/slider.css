@@ -86,11 +86,7 @@
   color: var(--color-muted);
 }
 
-/* The work galleries: a taller picture, and a row of small pictures to jump to any page */
-.slider--gallery .slider__stage {
-  height: clamp(14rem, 48vh, 26rem);
-}
-
+/* The row of small pictures under the slider (used for the work galleries) */
 .slider__thumbs {
   display: flex;
   gap: var(--space-2);

@@ -1,4 +1,4 @@
-﻿import { el } from '../js/dom.js';
+import { el } from '../js/dom.js';
 import { siteUrl } from '../js/config.js';
 import { icon } from './icons.js';
 import { mediaFrame } from './media.js';
@@ -11,8 +11,9 @@ const SWIPE_DISTANCE = 40; // how far a finger must travel (px) to turn the page
  * items: [{ src, caption, thumb }]. "thumb" is an optional smaller copy that is shown on the page;
  * the full "src" opens in the full-screen viewer (components/lightbox.js) when a picture is clicked.
  * thumbs: true adds a row of small pictures to jump to any page (used for the work galleries).
+ * start: the picture to begin with (0 is the first).
  */
-export function createSlider(items, label, { thumbs = false } = {}) {
+export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
   if (!items.length) return null;
 
   const slides = items.map(({ src, thumb, caption }) => {
@@ -68,7 +69,7 @@ export function createSlider(items, label, { thumbs = false } = {}) {
   const slider = el(
     'div',
     {
-      class: thumbs ? 'slider slider--gallery' : 'slider',
+      class: 'slider',
       role: 'group',
       'aria-roledescription': 'carousel',
       'aria-label': label,
@@ -85,7 +86,7 @@ export function createSlider(items, label, { thumbs = false } = {}) {
     picker?.node,
   );
 
-  show(0);
+  show(start);
   return slider;
 }
 

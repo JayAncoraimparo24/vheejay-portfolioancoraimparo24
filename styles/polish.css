@@ -120,11 +120,6 @@ html {
   }
 }
 
-/* Performance: the very tall gallery section keeps still dots (a huge moving layer is costly) */
-#work-gallery::before {
-  animation: none;
-}
-
 /* Performance: pictures fade in with opacity and a tiny scale (smooth, runs on the GPU)
    instead of the old clip-path reveal, which redraws a big image on every frame */
 .media.is-visible .media__img {

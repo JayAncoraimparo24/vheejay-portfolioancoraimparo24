@@ -18,6 +18,11 @@ export function block(heading, content) {
   return el('section', { class: 'dialog__block' }, el('h3', { class: 'dialog__heading', text: heading }), content);
 }
 
+/** A block with a bullet list, or nothing when the list is empty. */
+export function listBlock(heading, items) {
+  return items?.length ? block(heading, el('ul', { class: 'bullet-list' }, items.map((text) => el('li', { text })))) : null;
+}
+
 function close() {
   overlay.hidden = true;
   document.body.classList.remove(OPEN_BODY_CLASS);
