@@ -113,6 +113,7 @@
 /* "Hire Me": outlined, jumps to the contact section */
 .nav__hire {
   display: none;
+  white-space: nowrap;
   padding: 0.6rem 1.25rem;
   font-size: var(--text-sm);
   font-weight: 700;
@@ -177,7 +178,7 @@
 @media (min-width: 56rem) {
   .nav {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto 1fr auto;
   }
 
   .nav__actions {
@@ -191,6 +192,7 @@
   .nav__menu {
     position: static;
     display: flex;
+    justify-self: center;
     gap: var(--space-1);
     padding: 0;
     background: none;

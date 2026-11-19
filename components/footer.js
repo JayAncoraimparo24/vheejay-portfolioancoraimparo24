@@ -7,7 +7,7 @@ export function createFooter() {
     { class: 'site-footer' },
     el(
       'div',
-      { class: 'container site-footer__inner' },
+      { class: 'container container--narrow site-footer__inner' },
       el('p', { text: `© ${new Date().getFullYear()} ${profile.name}` }),
       // Scrolls to the very top of whatever page this is (project pages have no #home section)
       el('a', {

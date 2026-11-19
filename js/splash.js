@@ -1,4 +1,4 @@
-const MIN_VISIBLE_MS = 1250; // long enough to see the sprout grow, never longer than the page needs
+const MIN_VISIBLE_MS = 1900; // long enough to see the sprout grow and the motto being written, never longer than the page needs
 
 /**
  * Lifts the loading screen away once the page is built (called at the end of main.js).

@@ -49,6 +49,7 @@ export function createContact() {
       title: "Let's Connect",
       intro: 'Reach out by email, phone, or LinkedIn, or use the form below.',
       tone: 'dark',
+      narrow: true,
     },
     el('div', { class: 'contact' }, createContactList(), createContactForm()),
   );
