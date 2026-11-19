@@ -1,4 +1,4 @@
-﻿/* Work gallery: a short row of small pictures and a View button (the big pictures are in the popup) */
+/* Work gallery: a short row of small pictures and a View button (the big pictures are in the popup) */
 .gallery-preview {
   display: grid;
   gap: var(--space-3);
@@ -14,6 +14,10 @@
 .gallery-preview__count {
   font-size: var(--text-xs);
   color: var(--color-muted);
+}
+
+.gallery-preview__text {
+  font-size: var(--text-sm);
 }
 
 .gallery-preview__row {

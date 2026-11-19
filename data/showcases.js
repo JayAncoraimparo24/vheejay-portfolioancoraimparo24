@@ -1,4 +1,4 @@
-﻿// Every `src: null` renders a replaceable placeholder.
+// Every `src: null` renders a replaceable placeholder.
 // Put real images in assets/images/ and set `src` to the relative path.
 
 // UI/UX and Figma work. `ratio` is each picture's width / height, so nothing is cropped.
@@ -99,3 +99,14 @@ export const itSupportShowcase = [
   { title: 'Server room cabling', src: 'assets/images/it-support/server-room-cabling.jpg', ratio: '1400 / 1050' },
   { title: 'Monitor on a mounting arm', src: 'assets/images/it-support/monitor-mount.jpg', ratio: '1050 / 1400' },
 ];
+
+// Short descriptions shown with each part of the Work Gallery (on the page and in its popup).
+// They only use what the picture titles say. Change the wording here any time.
+export const showcaseDescriptions = {
+  uiux: 'Calendar designs made in Figma. The 2027 GECAR souvenir calendar is shown here, with a cover and a page for each month. The Figma files are in the popup.',
+  graphic:
+    'A mix of print and social media designs: posters, ads, banners, a business card, logos, booth design, covers, portraits, and mug wraps for GECAR, MHIPCOR, and Genesis. The company uniform and merch design is in Figma.',
+  photography: 'Photos taken by Vheejay: sunsets, a mountain view, a snail, and pendant lamps.',
+  itSupport:
+    'Photos of hands-on IT support work: laptop hardware maintenance, network racks and server room cabling, printer ink system maintenance, and monitor mounting.',
+};
