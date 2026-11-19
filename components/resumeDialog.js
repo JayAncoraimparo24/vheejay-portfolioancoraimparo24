@@ -4,10 +4,8 @@ import { profile } from '../data/profile.js';
 import { icon } from './icons.js';
 import { openDialog } from './dialog.js';
 
-/**
- * Shows the resume on the page itself, in a popup: the page as a picture (it looks the same on every phone and
- * computer), with buttons to download the PDF or open it in its own tab. The PDF has real text you can select.
- */
+// resume in a popup as a picture (looks the same everywhere)
+// with buttons to download the PDF or open it in a new tab. the PDF has real text
 export function openResume(trigger) {
   const { url, image } = profile.resume;
 
@@ -23,7 +21,7 @@ export function openResume(trigger) {
         el('a', { class: 'btn btn--primary btn--small', href: siteUrl(url), download: '' }, icon('file', 16), 'Download PDF'),
         el('a', { class: 'btn btn--secondary btn--small', href: siteUrl(url), target: '_blank', rel: 'noopener noreferrer' }, 'Open in a new tab', icon('external', 16)),
       ),
-      // On a phone the page stays big enough to read and scrolls sideways
+      // phones: keep it readable and scroll sideways
       el(
         'div',
         { class: 'resume__scroll' },

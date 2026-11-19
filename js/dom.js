@@ -1,7 +1,5 @@
-/**
- * Small helper to build DOM elements. No innerHTML, so text is always escaped.
- * Props: class, text, on ({event: handler}). Any other key becomes an attribute.
- */
+// tiny helper to build elements. no innerHTML, so text is escaped
+// props: class, text, on. anything else becomes an attribute
 export function el(tag, props = {}, ...children) {
   const node = document.createElement(tag);
   for (const [key, value] of Object.entries(props)) {

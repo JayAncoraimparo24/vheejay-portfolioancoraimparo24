@@ -1,12 +1,7 @@
 import { siteUrl } from '../js/config.js';
 
-/**
- * Every icon on the site is a PNG picture in assets/icons/ (black on a clear background), from the free Lineal set by one Flaticon author
- * (flaticon.com/icons). To change one, replace its file.
- *
- * The picture is used as a mask, so the icon takes the surrounding text color
- * and follows the light and dark theme (see .icon-file in base.css).
- */
+// icons are PNG files in assets/icons (black on clear, free Flaticon Lineal set)
+// used as a mask so they take the text color, see .icon-file in base.css
 export function icon(name, size = 20) {
   const span = document.createElement('span');
   span.className = 'icon-file';

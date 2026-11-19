@@ -1,4 +1,4 @@
-/* Contact section (dark background) and the footer */
+/* contact section and footer */
 .contact {
   display: grid;
   gap: var(--space-6);
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-/* The whole row is one big tap area, not just the small text link */
+/* whole row is one tap target */
 .contact__row a::after {
   position: absolute;
   inset: 0;
@@ -119,7 +119,7 @@
   color: var(--color-primary);
 }
 
-/* Ways to send the message, shown after the form is filled in */
+/* send options, shown after the form is filled */
 .form__result {
   display: grid;
   gap: var(--space-3);
@@ -147,7 +147,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Footer */
+/* footer */
 .site-footer {
   padding-block: var(--space-5);
   font-size: var(--text-sm);
@@ -156,8 +156,8 @@
 }
 
 /*
- * Copyright on the left, "Back to top" on the right.
- * On phones they stack in the center.
+ * copyright on the left, back to top on the right
+ * stacked on phones
  */
 .site-footer__inner {
   display: grid;
@@ -166,7 +166,7 @@
   text-align: center;
 }
 
-/* Bigger button-like target so it is easy to click or tap */
+/* bigger tap target */
 .site-footer__top {
   padding: 0.5rem 1rem;
   font-weight: 600;
@@ -185,7 +185,7 @@
   transform: translateY(-2px);
 }
 
-/* When editing on my own computer the floating toolbar covers the footer, so leave some room */
+/* the edit toolbar covers the footer, so leave room */
 body:has(.edit-toolbar) .site-footer {
   padding-bottom: 4.5rem;
 }

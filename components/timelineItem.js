@@ -1,7 +1,7 @@
 import { el } from '../js/dom.js';
 import { listBlock, openDialog } from './dialog.js';
 
-const MAX_POINTS = 3; // the page shows the first few points, View shows all of them
+const MAX_POINTS = 3; // first few points on the page, View shows all
 
 function openJob(job, trigger) {
   openDialog({
@@ -20,11 +20,8 @@ function openJob(job, trigger) {
   });
 }
 
-/**
- * One entry in the experience timeline.
- * When a job has no responsibilities yet, nothing is shown there (no "to be announced" text).
- * View only shows when there are more points than the page shows.
- */
+// one entry in the experience timeline
+// no responsibilities yet = nothing shown. View only when there are more points than shown
 export function timelineItem(job) {
   const points = job.responsibilities.slice(0, MAX_POINTS);
   const view =

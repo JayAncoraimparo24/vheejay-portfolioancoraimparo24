@@ -1,10 +1,10 @@
-/* Pictures shown one at a time (components/slider.js), in the project popup and on the project page */
+/* picture slider (slider.js) */
 .slider {
   display: grid;
   gap: var(--space-3);
 }
 
-/* Fixed height, so the page below doesn't jump when the next picture is taller or wider */
+/* fixed height so the page doesn't jump */
 .slider__stage {
   height: clamp(10rem, 30vh, 17rem);
   touch-action: pan-y; /* up and down still scroll the page, left and right turn the picture */
@@ -27,7 +27,7 @@
   aspect-ratio: auto;
 }
 
-/* Show the whole screenshot, don't crop it */
+/* show the whole screenshot, no cropping */
 .slider .media__img {
   object-fit: contain;
   background: var(--color-white);
@@ -86,7 +86,7 @@
   color: var(--color-muted);
 }
 
-/* Row of small pictures under the slider (used in the work galleries) */
+/* row of small pictures */
 .slider__thumbs {
   display: flex;
   gap: var(--space-2);
@@ -127,7 +127,7 @@
   opacity: 1;
 }
 
-/* A short video in the slider: the whole frame is shown on black */
+/* video: whole frame on black */
 .slider .media__video {
   display: block;
   width: 100%;
@@ -136,7 +136,7 @@
   background: #000;
 }
 
-/* Small play mark on the thumbnail of a video */
+/* play mark on video thumbnails */
 .slider__thumb {
   position: relative;
 }

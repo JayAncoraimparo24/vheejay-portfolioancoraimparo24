@@ -1,28 +1,28 @@
 /*
- * Design tokens: all colors, sizes and timings used by the other stylesheets.
- * Dark theme overrides are in theme-dark.css.
+ * design tokens: colors, sizes, timing
+ * dark theme overrides are in theme-dark.css
  */
 :root {
-  /* Brand colors */
+  /* brand colors */
   --color-primary: #06b6d4;
-  --color-primary-dark: #0e7490; /* readable cyan for text on light backgrounds */
-  --color-navy: #0f172a; /* strong text (turns light in dark mode) */
-  --color-white: #ffffff; /* page surface (turns dark in dark mode) */
-  --color-page: #f8fafc; /* page background: a very slightly cool off-white so white chips and buttons stand out a little */
-  --grid-line: rgb(15 23 42 / 6%); /* faint grid behind the top of the page */
+  --color-primary-dark: #0e7490; /* cyan that reads on light backgrounds */
+  --color-navy: #0f172a; /* strong text (light in dark mode) */
+  --color-white: #ffffff; /* page surface (dark in dark mode) */
+  --color-page: #f8fafc; /* page background, a slightly cool off-white */
+  --grid-line: rgb(15 23 42 / 6%); /* faint grid behind the top */
   --color-cyan-50: #ecfeff;
   --color-text: #1e293b;
   --color-muted: #64748b;
   --color-border: #e2e8f0;
   --color-muted-on-dark: #cbd5e1;
 
-  /* Fixed colors: they don't change with the theme */
-  --color-on-dark: #ffffff; /* text on always-dark areas */
-  --color-deep: #0f172a; /* always-dark fills, and text on cyan */
-  --shadow-hard: var(--color-deep); /* the offset "print" shadow on the portrait, cards and buttons */
-  --header-glass: rgb(255 255 255 / 96%); /* almost solid: blurring behind the bar made scrolling heavy */
+  /* fixed colors, same in both themes */
+  --color-on-dark: #ffffff; /* text on dark areas */
+  --color-deep: #0f172a; /* dark fills, and text on cyan */
+  --shadow-hard: var(--color-deep); /* the hard "print" shadow */
+  --header-glass: rgb(255 255 255 / 96%); /* almost solid, the blur made scrolling heavy */
 
-  /* Fonts */
+  /* fonts */
   --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
   --text-xs: 0.8125rem;
@@ -36,7 +36,7 @@
   --leading-tight: 1.2;
   --leading-body: 1.65;
 
-  /* Spacing */
+  /* spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -47,18 +47,18 @@
   --space-8: 4rem;
   --space-9: 6rem;
 
-  /* Shapes and effects */
+  /* shapes and effects */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --shadow-sm: 0 1px 2px rgb(15 23 42 / 6%);
   --shadow-md: 0 8px 24px rgb(15 23 42 / 8%);
 
-  /* Motion */
+  /* motion */
   --transition: 180ms ease;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Layout */
+  /* layout */
   --container-width: 72rem;
   --gutter: 1.25rem;
   --header-height: 4.25rem;

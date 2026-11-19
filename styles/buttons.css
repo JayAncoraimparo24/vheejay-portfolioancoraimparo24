@@ -1,4 +1,4 @@
-/* Buttons and text links */
+/* buttons */
 .btn {
   display: inline-flex;
   gap: var(--space-2);
@@ -18,7 +18,7 @@
     transform var(--transition);
 }
 
-/* Hover: the button moves up a little and gets a hard shadow, same as the portrait */
+/* lift on hover with a hard shadow, like the portrait */
 .btn:hover {
   box-shadow: 3px 3px 0 var(--shadow-hard);
   transform: translate(-2px, -2px);
@@ -58,7 +58,7 @@
   background: var(--color-navy);
 }
 
-/* Quick links to the work gallery, below the project list */
+/* quick links under the project list */
 .jump-links {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +102,7 @@
   transform: translateX(-4px);
 }
 
-/* Small buttons: header links, the View buttons and the links under the projects */
+/* small buttons (View, header links) */
 .btn--small {
   padding: 0.4rem 0.8rem;
   font-size: var(--text-sm);

@@ -1,4 +1,4 @@
-/* Tabs (work gallery): a row of pill buttons above one visible panel */
+/* tabs for the work gallery */
 .tabs__list {
   display: flex;
   flex-wrap: wrap;
@@ -30,7 +30,7 @@
   transform: translateY(-1px);
 }
 
-/* The open tab is filled cyan and has the same hard shadow as the portrait */
+/* the open tab is cyan with the hard shadow */
 .tabs__tab[aria-selected='true'] {
   color: var(--color-deep);
   background: var(--color-primary);
@@ -38,7 +38,7 @@
   box-shadow: 3px 3px 0 var(--shadow-hard);
 }
 
-/* On a phone the four tabs are in two rows of two, so they don't take three lines */
+/* phones: two rows of two */
 @media (max-width: 40rem) {
   .tabs__list {
     display: grid;
@@ -59,7 +59,7 @@
   display: none;
 }
 
-/* Figma links sit above the gallery so they are seen right away: a label and small equal chips */
+/* figma links above the gallery */
 .figma-links {
   display: flex;
   flex-wrap: wrap;

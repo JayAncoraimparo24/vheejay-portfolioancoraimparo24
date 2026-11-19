@@ -1,9 +1,9 @@
 const REVEAL_SELECTOR = '.section__header, .card, .media, .timeline__item, .contact__row, .form, .detail-block';
 const VISIBLE_CLASS = 'is-visible';
-const STAGGER_MS = 45; // short, so a grid of cards doesn't feel like it is waiting
+const STAGGER_MS = 45; // short so grids don't feel slow
 const MAX_STAGGER_STEPS = 3;
 
-/** Gives neighbors that reveal together a small delay, so grids come in one by one instead of popping in. */
+// small delay between neighbors so grids come in one by one
 function assignDelays(targets) {
   const seen = new Map();
   targets.forEach((target) => {
@@ -13,7 +13,7 @@ function assignDelays(targets) {
   });
 }
 
-/** Fades elements in once as they scroll into view. If the browser can't do it, they just show. */
+// fade elements in once when they scroll into view. just show them if the browser can't
 export function initReveal(root = document) {
   const targets = root.querySelectorAll(REVEAL_SELECTOR);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -29,7 +29,7 @@ export function initReveal(root = document) {
         observer.unobserve(entry.target);
       }
     },
-    // Start a little BEFORE the element reaches the screen, so it is already visible when you get there
+    // start a bit before it reaches the screen
     { threshold: 0, rootMargin: '0px 0px 12% 0px' },
   );
 
@@ -38,8 +38,7 @@ export function initReveal(root = document) {
     observer.observe(target);
   });
 
-  // Safety net: if the observer is slow or doesn't fire (hidden tab, odd browser), the content must
-  // still show. Check the positions directly on load, on scroll and on resize.
+  // safety net: if the observer doesn't fire (hidden tab etc.) check the positions on load, scroll and resize
   const revealVisible = () => {
     targets.forEach((target) => {
       if (target.classList.contains(VISIBLE_CLASS)) return;
@@ -54,7 +53,7 @@ export function initReveal(root = document) {
   const queueCheck = () => {
     if (queued) return;
     queued = true;
-    // setTimeout (not requestAnimationFrame) so it also runs in a tab that is not being painted
+    // setTimeout, not requestAnimationFrame, so it runs in tabs that aren't painted
     setTimeout(() => {
       queued = false;
       revealVisible();
@@ -65,8 +64,7 @@ export function initReveal(root = document) {
   window.addEventListener('hashchange', queueCheck);
   setTimeout(revealVisible, 400);
   setTimeout(revealVisible, 1500);
-  // Last resort: after a few seconds show everything, so nothing stays hidden.
-  // Then the safety net stops listening, so scrolling does no extra work.
+  // last resort: after a few seconds show everything, then stop listening
   setTimeout(() => {
     targets.forEach((target) => target.classList.add(VISIBLE_CLASS));
     window.removeEventListener('scroll', queueCheck);
@@ -74,7 +72,7 @@ export function initReveal(root = document) {
     window.removeEventListener('hashchange', queueCheck);
   }, 6000);
 
-  // The experience timeline's vertical line draws itself when it comes into view.
+  // the timeline line draws itself when it comes into view
   const drawObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {

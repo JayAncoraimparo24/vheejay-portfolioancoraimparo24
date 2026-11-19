@@ -1,16 +1,13 @@
 /*
- * Glass look: see-through surfaces with soft light edges, like modern phone apps.
- * It has its own file. Remove the @import of glass.css in main.css to go back to the old look.
- *
- * For speed, the real blur (backdrop-filter) is only on the navbar and the contact form.
- * Everything else gets the glass look from see-through colors, a light edge and a soft color behind it.
+ * glass look. remove the @import in main.css to go back to the old look
+ * blur is only on the navbar and the form (speed), the rest is just see-through colors
  */
 :root {
   --glass-bg: rgb(255 255 255 / 58%);
   --glass-bg-strong: rgb(255 255 255 / 76%);
-  --glass-edge: rgb(255 255 255 / 85%); /* bright edge of the glass */
+  --glass-edge: rgb(255 255 255 / 85%); /* edge of the glass */
   --glass-line: rgb(14 116 144 / 14%); /* faint outer line */
-  --btn-edge: rgb(14 116 144 / 26%); /* the one clean edge line of a quiet button */
+  --btn-edge: rgb(14 116 144 / 26%); /* edge of a quiet button */
   --btn-shadow: 0 6px 16px rgb(14 116 144 / 9%);
   --btn-shadow-hover: 0 10px 24px rgb(6 182 212 / 22%);
   --glass-nav: rgb(255 255 255 / 90%);
@@ -33,17 +30,14 @@
   --glass-glow: rgb(34 211 238 / 35%);
 }
 
-/*
- * Speed: pause the looping animations while the page scrolls.
- * js/scrollState.js adds .is-scrolling on <html>. The animations continue after.
- */
+/* pause the loops while scrolling (scrollState.js adds .is-scrolling) */
 .is-scrolling .marquee__track,
 .is-scrolling .timeline__item::before,
 .is-scrolling .hero__title {
   animation-play-state: paused !important;
 }
 
-/* Off screen: the hero and the skills strip don't need to keep moving */
+/* nothing moves while it is off screen */
 [data-offscreen],
 [data-offscreen]::before,
 [data-offscreen] *,
@@ -52,17 +46,15 @@
   animation-play-state: paused !important;
 }
 
-/* Background polish (nothing here moves, so it costs nothing while scrolling) */
 
-/* Cards */
+/* cards */
 .timeline__item {
   background: var(--glass-bg);
   border: 1px solid var(--glass-edge);
   box-shadow: var(--glass-shadow), 0 0 0 1px var(--glass-line);
 }
 
-/* The colored top edge of skill and project cards stays, as a soft rim */
-/* Tags and chips: small frosted pills */
+/* tags and chips */
 .tag {
   background: rgb(6 182 212 / 9%);
   border-color: rgb(6 182 212 / 30%);
@@ -74,22 +66,15 @@
   border-color: var(--color-primary);
 }
 
-/*
- * Navbar
- * No live blur here. The bar is always over moving content and blurring it on every scroll made the page heavy.
- * A mostly solid frosted color looks almost the same.
- */
+/* navbar: no live blur, it made scrolling heavy */
 .nav {
   background: var(--glass-nav);
   border-color: var(--glass-edge);
   box-shadow: var(--glass-shadow), 0 0 0 1px var(--glass-line);
 }
 
-/* Buttons */
-/*
- * The gradient starts at the outer edge of the border (background-origin). Before, it repeated
- * inside the transparent 2px border and left a thin line on the edge of the button.
- */
+/* buttons */
+/* the gradient starts at the border edge, so it doesn't repeat inside the border and leave a line */
 .btn--primary {
   background: linear-gradient(135deg, #22d3ee, var(--color-primary) 60%, #0891b2);
   background-origin: border-box;
@@ -103,10 +88,7 @@
   transform: translateY(-2px);
 }
 
-/*
- * Quiet buttons have one clean edge line. Before, a white border, a thin ring outside it and a white
- * highlight inside were stacked, and it looked like a double line on the side.
- */
+/* one clean edge line. before it was a white border + a ring + a highlight stacked */
 .btn--secondary {
   color: var(--color-navy);
   background: var(--glass-bg-strong);
@@ -127,7 +109,7 @@
   box-shadow: none;
 }
 
-/* Tabs, chips, small links */
+/* tabs and small links */
 .tabs__tab,
 .link-back,
 .pager__link {
@@ -144,10 +126,7 @@
   box-shadow: var(--btn-shadow-hover);
 }
 
-/*
- * The open tab is solid cyan. Its gradient starts at the outer edge of the border,
- * so it can't repeat inside the border and draw a line there.
- */
+/* open tab: the gradient starts at the border edge so no line shows */
 .tabs__tab[aria-selected='true'] {
   color: var(--color-deep);
   background: linear-gradient(135deg, #67e8f9, var(--color-primary));
@@ -156,7 +135,7 @@
   box-shadow: 0 10px 24px var(--glass-glow);
 }
 
-/* Contact (dark section) */
+/* contact (dark) */
 .contact__icon {
   background: rgb(255 255 255 / 8%);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%), 0 0 0 1px rgb(255 255 255 / 16%);
@@ -188,10 +167,7 @@
   border-color: var(--color-primary);
 }
 
-/*
- * Shapes: big things have soft rounded corners, small controls are pills or circles.
- * (Delete this block to go back to the less rounded look.)
- */
+/* rounded corners. delete this block to go back to the less rounded look */
 .timeline__item,
 .pager__link {
   border-radius: 18px;
@@ -226,7 +202,7 @@
   border-radius: 12px;
 }
 
-/* Footer button */
+/* footer button */
 .site-footer__top {
   background: rgb(255 255 255 / 6%);
 }

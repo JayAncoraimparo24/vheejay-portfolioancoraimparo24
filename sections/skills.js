@@ -5,7 +5,7 @@ import { block, openDialog } from '../components/dialog.js';
 import { createMarquee } from '../components/marquee.js';
 import { tagList } from '../components/tag.js';
 
-/** Every category with all of its skills, shown in the popup. */
+// every category with all its skills, for the popup
 function openAllSkills(trigger) {
   openDialog({
     title: 'Skills',
@@ -15,7 +15,7 @@ function openAllSkills(trigger) {
 }
 
 export function createSkills() {
-  // The page shows a moving strip of the main skills and tools. View opens the full list by category
+  // the page shows a moving strip of the main skills, View opens the full list
   const inStrip = skillCategories.filter((category) => category.showInStrip).flatMap((category) => category.items);
 
   const viewButton = el(

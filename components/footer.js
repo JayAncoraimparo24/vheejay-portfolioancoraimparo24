@@ -9,7 +9,7 @@ export function createFooter() {
       'div',
       { class: 'container container--narrow site-footer__inner' },
       el('p', { text: `© ${new Date().getFullYear()} ${profile.name}` }),
-      // Scrolls to the very top of whatever page this is (project pages have no #home section)
+      // scroll to the very top (project pages have no #home)
       el('a', {
         class: 'site-footer__top',
         href: '#',

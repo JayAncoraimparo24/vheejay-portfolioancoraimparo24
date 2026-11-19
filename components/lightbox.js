@@ -5,7 +5,7 @@ const OPEN_CLASS = 'is-open';
 const GALLERY_SELECTOR = '.slider, .portrait';
 const LINK_SELECTOR = 'a.media__link';
 
-/** Full-screen picture viewer for gallery images: arrows, keyboard, Esc, click outside to close. */
+// full-screen picture viewer: arrows, keyboard, Esc, click outside to close
 export function initLightbox() {
   let links = [];
   let index = 0;
@@ -80,7 +80,7 @@ export function initLightbox() {
 
   document.addEventListener('keydown', (event) => {
     if (overlay.hidden) return;
-    // preventDefault tells anything else listening (like the project popup) that this key was already used
+    // preventDefault tells others (like the project popup) this key is already used
     if (event.key === 'Escape') {
       event.preventDefault();
       close();

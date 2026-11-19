@@ -1,4 +1,4 @@
-/* Work gallery: a short row of small pictures and a View button (the big pictures are in the popup) */
+/* work gallery preview row */
 .gallery-preview {
   display: grid;
   gap: var(--space-3);

@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Vheejay Delacruz Sugay',
   initials: 'VS',
-  photo: 'assets/profile.jpg', // set to null to show the initials placeholder instead
-  // Shown on the back of the portrait when it is clicked. Remove this line to turn the flip off.
+  photo: 'assets/profile.jpg', // null shows the initials instead
+  // shown on the back of the portrait when it is clicked. remove the line to turn the flip off
   photoBack: {
     src: 'assets/profile-barong.jpg',
     alt: 'Portrait of Vheejay Delacruz Sugay in a barong',
@@ -10,7 +10,7 @@ export const profile = {
   },
   roles: ['Junior IT Specialist'],
   verse: { text: 'Commit your work to the Lord.', reference: 'Proverbs 16:3' },
-  // Personal statement shown in the hero, under the verse.
+  // personal statement in the hero, under the verse
   quote: {
     text: 'Success, for me, is about what you have done to help others, your community, and your family to improve their lives. It’s not about having the things that I have. It’s about making them proud as time goes by and creating a positive change in their lives. That, for me, is the true meaning of success. You are successful because you helped them on their journey and contributed to their growth and achievements.',
     author: 'Vheejay Sugay',
@@ -23,11 +23,10 @@ export const profile = {
     label: 'Vheejay Sugay',
     url: 'https://www.linkedin.com/in/vheejay-sugay-ab219a398/',
   },
-  // Add the real GitHub profile URL here when available. Leave null to show a placeholder.
+  // put the real GitHub url here, null shows a placeholder
   github: { label: 'JayAncoraimparo24', url: 'https://github.com/JayAncoraimparo24' },
-  // The resume (one page). The Resume button (top of the page) shows `image` in a popup on the page, with
-  // a button to download the PDF. Contact has a Download link. Set this to null to hide both.
-  // To change the words, edit tools/resume-source.html, then save the PDF and the picture over these two files.
+  // the resume (one page). the Resume button shows image in a popup with a download button, Contact has a Download link. null hides both
+  // to change the words edit tools/resume-source.html and save the PDF and the picture over these two files
   resume: { url: 'assets/resume/Vheejay-Sugay-Resume.pdf', image: 'assets/resume/Vheejay-Sugay-Resume.webp' },
   summary:
     'Information Technology professional with experience in IT assistance, web development, and UI/UX. Builds user-friendly websites and writes technical documentation. Has led IT team projects and works well with different teams. Communicates in both English and Filipino. Fast learner, detail-oriented, adaptable, and responsible, with a willingness to learn new technologies.',

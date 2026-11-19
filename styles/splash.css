@@ -1,13 +1,6 @@
-/*
- * Loading screen: the sprout of the logo grows (the stem draws itself, then the two leaves open),
- * "Ancora Imparo" is written in script, the role fades in below it, and the screen goes away
- * when the page is ready (js/splash.js). The markup is in index.html.
- */
+/* loading screen: the sprout grows, the motto is written, the role fades in, then it goes away (splash.js) */
 
-/*
- * Great Vibes font (SIL Open Font License, see assets/fonts/GreatVibes-OFL.txt), kept on the site itself.
- * Only used here. index.html preloads it so the words never show in a plain font first.
- */
+/* Great Vibes font (SIL OFL, see assets/fonts). preloaded in index.html so there is no flash of a plain font */
 @font-face {
   font-family: 'Great Vibes';
   font-style: normal;
@@ -30,7 +23,7 @@ html.is-loading {
   gap: var(--space-1);
   color: var(--color-navy);
   background: var(--color-page);
-  /* If the page's script never finishes, the screen still goes away on its own */
+  /* if the script never finishes it still goes away */
   animation: splash-fallback 400ms ease 6s forwards;
 }
 
@@ -50,14 +43,14 @@ html.no-splash .splash {
   overflow: visible;
 }
 
-/* The stem is drawn from the top down to the end of the hook (its length is about 160) */
+/* stem is drawn from the top down (length about 160) */
 .splash__stem {
   stroke-dasharray: 165;
   stroke-dashoffset: 165;
   animation: splash-draw 550ms var(--ease-out) 80ms forwards;
 }
 
-/* Each leaf opens from the point where it meets the stem */
+/* a leaf opens from where it meets the stem */
 .splash__leaf {
   transform: scale(0);
   transform-origin: 100px 90px;
@@ -81,10 +74,7 @@ html.no-splash .splash {
   animation: splash-fade 300ms ease 850ms forwards;
 }
 
-/*
- * The motto is written from left to right, like by hand. The reveal box is a little bigger than the
- * words so the swashes of the capital letters don't get cut.
- */
+/* the motto is written left to right. the box is a bit bigger so the swashes don't get cut */
 .splash__motto {
   margin: 0;
   padding: 0 0.15em;
@@ -139,7 +129,7 @@ html.no-splash .splash {
   }
 }
 
-/* The screen just fades away with no movement, so the page behind takes over calmly */
+/* just fades away, no movement */
 @keyframes splash-out {
   to {
     opacity: 0;
@@ -154,7 +144,7 @@ html.no-splash .splash {
   }
 }
 
-/* Reduced motion: no loading screen at all */
+/* reduced motion: no loading screen */
 @media (prefers-reduced-motion: reduce) {
   .splash {
     display: none;

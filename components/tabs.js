@@ -1,11 +1,8 @@
 import { el } from '../js/dom.js';
 import { icon } from './icons.js';
 
-/**
- * Accessible tabs: a row of buttons that switches between panels.
- * Each tab is `{ id, label, content }`. Left/Right/Home/End move between tabs.
- * A link to `#<tab id>` anywhere on the page opens that tab and scrolls to it.
- */
+// tabs: a row of buttons that switches panels. each tab is { id, label, content }
+// arrow keys, Home and End move between tabs. a #tab-id link opens that tab
 export function createTabs({ label, tabs }) {
   const buttons = [];
   const panels = [];
@@ -59,7 +56,7 @@ export function createTabs({ label, tabs }) {
 
   const root = el('div', { class: 'tabs' }, tablist, panels);
 
-  // Links like <a href="#photography"> open that tab
+  // links like #photography open that tab
   const openFromHash = (hash, { scroll }) => {
     const index = tabs.findIndex(({ id }) => `#${id}` === hash);
     if (index < 0) return false;
@@ -75,7 +72,7 @@ export function createTabs({ label, tabs }) {
   window.addEventListener('hashchange', () => openFromHash(window.location.hash, { scroll: true }));
 
   select(0);
-  // Deep links like index.html#photography: wait until the page is built
+  // deep links (index.html#photography): wait until the page is built
   queueMicrotask(() => openFromHash(window.location.hash, { scroll: false }));
 
   return root;

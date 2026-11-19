@@ -1,5 +1,5 @@
-// showInStrip: the short names of this category also show in the moving strip on the page.
-// Every category, with all of its skills, is in the "View" popup.
+// showInStrip: the short names also show in the moving strip
+// every category is in the View popup
 export const skillCategories = [
   {
     id: 'it-support',

@@ -2,7 +2,7 @@ import { el } from '../js/dom.js';
 import { currentTheme, setTheme } from '../js/theme.js';
 import { icon } from './icons.js';
 
-/** Sun/moon button that switches between the light and dark theme. */
+// sun/moon button for the theme
 export function createThemeToggle() {
   const button = el('button', { class: 'theme-toggle nav__theme', type: 'button' });
 

@@ -1,5 +1,4 @@
-/* Tags, bullet lists and notes */
-/* Tags */
+/* tags, lists and notes */
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +20,6 @@
   border-color: var(--color-primary);
 }
 
-/* Lists and notes */
 .bullet-list {
   display: grid;
   gap: var(--space-2);
@@ -50,7 +48,7 @@
   color: var(--color-muted);
 }
 
-/* "+3 more" is a count, not a tool, so it looks different from the other tags */
+/* the "+3 more" chip is a count, not a tool */
 .tag--more {
   color: var(--color-primary-dark);
   background: transparent;

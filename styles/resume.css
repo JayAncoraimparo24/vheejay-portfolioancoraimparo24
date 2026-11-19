@@ -1,11 +1,10 @@
-/* The short resume-style sections: skills, education and the project list */
+/* resume-style sections */
 
 .section__title .icon-file {
   flex-shrink: 0;
   color: var(--color-primary-dark);
 }
 
-/* Education */
 .education {
   display: grid;
   gap: var(--space-1);
@@ -25,7 +24,7 @@
   color: var(--color-muted);
 }
 
-/* Projects: one row each, with a thin line between */
+/* projects: one row each with a thin line */
 .project-rows {
   display: grid;
 }

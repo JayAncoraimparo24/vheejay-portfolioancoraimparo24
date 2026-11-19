@@ -11,10 +11,7 @@ function createPlaceholder(label) {
   );
 }
 
-/**
- * Figure with a short video (no sound). It shows `poster` until played and loads only the first frame
- * until then. It has controls, so it never starts by itself.
- */
+// figure with a short video (no sound). shows the poster and loads only the first frame until played
 export function videoFrame({ video, poster, alt, caption }) {
   const frame = el('figure', { class: 'media' });
   const player = el('video', {
@@ -27,24 +24,24 @@ export function videoFrame({ video, poster, alt, caption }) {
     preload: 'metadata',
     'aria-label': alt,
   });
-  // The file has no sound track. This makes sure the player is muted too
+  // no sound track, muted anyway
   player.muted = true;
   frame.append(el('div', { class: 'media__box' }, player));
   if (caption) frame.append(el('figcaption', { class: 'media__caption', text: caption }));
   return frame;
 }
 
-/** Figure that shows an image when `src` is set and loads, otherwise a placeholder. */
+// figure with an image, or a placeholder if there is no src
 export function mediaFrame({ src, fullSrc = src, alt, label, caption, ratio = '16 / 10', openFull = false }) {
   const frame = el('figure', { class: 'media', style: `--media-ratio: ${ratio}` });
   const placeholder = createPlaceholder(label ?? alt);
   const box = el('div', { class: 'media__box' });
 
   if (src) {
-    // `src` is what the tile shows (a small copy). `fullSrc` is the full picture, used when it is opened
+    // src is the small copy, fullSrc is the full picture
     const image = el('img', { class: 'media__img', src: siteUrl(src), alt, loading: 'lazy', decoding: 'async' });
     image.addEventListener('error', () => {
-      // If the small copy is missing, use the full picture before giving up
+      // small copy missing: use the full one
       if (fullSrc && fullSrc !== src && !image.dataset.triedFull) {
         image.dataset.triedFull = 'true';
         image.src = siteUrl(fullSrc);
@@ -52,7 +49,7 @@ export function mediaFrame({ src, fullSrc = src, alt, label, caption, ratio = '1
       }
       box.replaceChildren(placeholder);
     });
-    // With openFull, clicking the picture opens it at full size in a new tab.
+    // openFull: a click opens it full size in a new tab
     box.append(
       openFull
         ? el(

@@ -3,12 +3,8 @@ import { readEdits, writeEdits, clearAllEdits } from './editStorage.js';
 import { initImageEditing } from './imageEdit.js';
 import { initLinkEditing } from './linkEdit.js';
 
-/**
- * In-page editing: turn on "Edit text", then click text to type, an image to replace it,
- * or a contact row to change its link. Edits are saved in this browser (localStorage).
- * A text edit only applies while the original text still matches, so changing the
- * data files never shows old edits.
- */
+// in-page editing: click text to type, an image to replace it, a contact row to change its link
+// edits are saved in localStorage and only apply while the original text still matches
 const EDITABLE_SELECTOR = 'h1, h2, h3, p, li, dt, dd, figcaption, strong, span';
 const EXCLUDED_SELECTOR = '.site-header, form, svg, .edit-toolbar, .skip-link, .marquee, .lightbox';
 const EDITING_CLASS = 'is-editing-text';
@@ -26,10 +22,9 @@ function applySavedText(elements, originals) {
   const entries = Object.values(edits).filter(Boolean);
   const occurrences = (text) => originals.filter((original) => original === text).length;
   elements.forEach((node, index) => {
-    // Use the entry saved at this position. If none, look for one saved for the same
-    // original text, so removing an element doesn't lose later edits.
-    // The fallback is only safe when the text is unique. Repeated labels like
-    // "Role: " must never get an edit made on a different copy.
+    // use the edit saved at this position. if there is none, look for one saved for the same text,
+    // so removing an element doesn't lose other edits
+    // only safe when the text is unique (labels like "Role: " repeat)
     const atIndex = edits[index];
     let saved = atIndex?.original === originals[index] ? atIndex : null;
     if (!saved && occurrences(originals[index]) === 1) {
@@ -87,10 +82,7 @@ function createToolbar({ onToggle, onReset }) {
 
 const LOCAL_HOSTS = ['localhost', '127.0.0.1', '[::1]', '::1'];
 
-/**
- * Editing is for the owner. It works on this computer (localhost),
- * or on the published site when the address ends with ?edit. Visitors never see the toolbar.
- */
+// only for me: works on localhost, or on the live site when the address ends with ?edit
 function isEditingAllowed() {
   return LOCAL_HOSTS.includes(window.location.hostname) || new URLSearchParams(window.location.search).has('edit');
 }
@@ -103,7 +95,7 @@ export function initEditMode() {
 
   applySavedText(elements, originals);
   bindTextEditing(elements, originals);
-  // Run after the text indexes are saved: link edits replace elements and would shift them.
+  // run after the text indexes are saved, link edits replace elements and shift them
   initImageEditing();
   initLinkEditing();
 

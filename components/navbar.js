@@ -79,7 +79,7 @@ export function createNavbar({ isHome }) {
   return header;
 }
 
-/** Marks the navbar link that matches `id` as the current section. */
+// mark the navbar link that matches id
 export function setActiveNavLink(id) {
   document.querySelectorAll('[data-nav-link]').forEach((link) => {
     if (link.dataset.navLink === id) link.setAttribute('aria-current', 'true');

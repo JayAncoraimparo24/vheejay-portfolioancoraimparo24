@@ -1,5 +1,4 @@
-/* About and the work experience timeline */
-/* Quote under the summary */
+/* about and timeline */
 .about__quote {
   display: grid;
   gap: var(--space-1);
@@ -21,7 +20,7 @@
   padding-left: var(--space-5);
 }
 
-/* The vertical line draws downward when the timeline scrolls into view (js/reveal.js) */
+/* the line draws down when it scrolls into view (reveal.js) */
 .timeline::before {
   position: absolute;
   top: 0;
@@ -56,7 +55,7 @@
     transform var(--transition);
 }
 
-/* Dot on the line. Every dot has the same soft pulse, and the line is one color from top to bottom. */
+/* dots pulse, same for every dot. the line is one color */
 .timeline__item::before {
   position: absolute;
   top: var(--space-4);
@@ -81,7 +80,7 @@
   }
 }
 
-/* Top of a job: details on the left, View button on the right */
+/* job header: info on the left, View on the right */
 .timeline__head {
   display: flex;
   gap: var(--space-3);

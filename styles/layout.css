@@ -1,4 +1,4 @@
-/* Page structure: container, sections, section headings, grids, scroll reveal */
+/* page structure */
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -6,7 +6,7 @@
   padding-inline: var(--gutter);
 }
 
-/* The short resume-style column. It is after .container so the narrower width wins. */
+/* narrow resume column, after .container so it wins */
 .container--narrow {
   max-width: 52rem;
 }
@@ -20,23 +20,20 @@
   background: var(--color-deep);
 }
 
-/*
- * Thin line between two plain sections, as wide as the text column.
- * It is not drawn next to the dark contact section.
- */
+/* thin line between plain sections (not next to the dark one) */
 .section--light + .section--light {
   background: linear-gradient(var(--color-border), var(--color-border)) top center /
     min(calc(52rem - 2 * var(--gutter)), calc(100% - 2 * var(--gutter))) 1px no-repeat;
 }
 
-/* Section heading: icon, title and an optional short intro */
+/* section heading */
 .section__header {
   display: grid;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
 }
 
-/* Heading with a View button: title on the left, button on the right */
+/* heading with a View button */
 .section__headline {
   display: flex;
   gap: var(--space-3);
@@ -44,7 +41,7 @@
   justify-content: space-between;
 }
 
-/* Small icon in front of the title */
+/* icon before the title */
 .section__title {
   display: flex;
   gap: var(--space-2);
@@ -75,14 +72,14 @@
   color: var(--color-muted-on-dark);
 }
 
-/* The contact section is always dark, so its icon uses the bright cyan */
+/* contact is always dark, so its icon is bright cyan */
 .section--dark .section__title .icon-file {
   color: var(--color-primary);
 }
 
 /*
- * Scroll reveal: js/reveal.js adds .reveal, then .is-visible when the element comes into view.
- * Without JavaScript (or with reduced motion) nothing is hidden.
+ * scroll reveal: reveal.js adds .reveal, then .is-visible
+ * nothing is hidden without JS or with reduced motion
  */
 .reveal {
   opacity: 0;

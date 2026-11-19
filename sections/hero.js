@@ -5,10 +5,8 @@ import { createFlipCard } from '../components/flipCard.js';
 import { openResume } from '../components/resumeDialog.js';
 import { siteUrl } from '../js/config.js';
 
-/**
- * A small pill-shaped link with an icon in front: View My Work, Message, Resume, GitHub, LinkedIn.
- * With onOpen, a plain click runs that instead of following the link (the link is still there for a new tab).
- */
+// pill link with an icon (View My Work, Message, Resume, GitHub, LinkedIn)
+// with onOpen a plain click runs that, the link is still there for a new tab
 function linkButton({ label, href, iconName, variant = 'secondary', external = false, onOpen }) {
   const props = { class: `btn btn--${variant} btn--small`, href };
   if (external) Object.assign(props, { target: '_blank', rel: 'noopener noreferrer' });
@@ -27,9 +25,9 @@ function linkButton({ label, href, iconName, variant = 'secondary', external = f
 function createLinks() {
   const links = [
     { label: 'View My Work', href: '#projects', iconName: 'folder', variant: 'primary' },
-    // The message button goes to the contact form (a plain mailto: link does nothing without a mail app)
+    // message goes to the contact form (mailto does nothing without a mail app)
     profile.email && { label: 'Message', href: '#contact', iconName: 'mail' },
-    // Shows the resume on the page, in a popup (the link goes to the PDF when opened in a new tab)
+    // resume opens in a popup, the link goes to the PDF in a new tab
     profile.resume?.url && { label: 'Resume', href: siteUrl(profile.resume.url), iconName: 'file', onOpen: openResume },
     profile.github?.url && { label: 'GitHub', href: profile.github.url, iconName: 'github', external: true },
     profile.linkedin?.url && { label: 'LinkedIn', href: profile.linkedin.url, iconName: 'linkedin', external: true },
@@ -38,10 +36,7 @@ function createLinks() {
   return el('div', { class: 'hero__links' }, links.map(linkButton));
 }
 
-/**
- * The portrait. Tap it to flip it (toga and barong). The Enlarge button below it opens the picture
- * that is showing in the full-screen viewer (components/lightbox.js), where the arrows go to the other one.
- */
+// portrait: tap to flip (toga and barong). Enlarge opens the one that is showing in the full-screen viewer, the arrows go to the other
 function createPortrait() {
   if (!profile.photo) {
     return el('div', { class: 'hero__photo' }, el('span', { class: 'hero__initials', text: profile.initials }));
@@ -55,7 +50,7 @@ function createPortrait() {
   const face = ({ src, alt }, modifier = '') =>
     el('div', { class: `hero__photo ${modifier}`.trim() }, el('img', { class: 'hero__img', src: siteUrl(src), alt, loading: modifier ? 'lazy' : null }));
 
-  // Hidden links, one per picture: the full-screen viewer reads them (it shows the caption too)
+  // hidden links, one per picture, the viewer reads them (and the caption)
   const viewerLinks = pictures.map(({ src, alt, caption }) =>
     el(
       'figure',

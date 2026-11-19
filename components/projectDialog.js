@@ -13,7 +13,7 @@ function fact(label, value) {
   return el('div', { class: 'meta__item' }, el('dt', { text: label }), el('dd', { text: value }));
 }
 
-/** Opens the popup with the details of one project. `trigger` is the element that gets the focus back. */
+// open the popup with one project's details
 export function openProject(project, trigger) {
   const facts = [
     fact('My role', project.role),
@@ -26,7 +26,7 @@ export function openProject(project, trigger) {
     subtitle: [project.type, project.date].filter(Boolean).join(' · '),
     trigger,
     content: [
-      // The screenshots and the team photos are shown one page at a time, so the popup stays short
+      // screenshots and team photos one page at a time, keeps the popup short
       createSlider([...project.screenshots, ...(project.photos ?? [])], project.title),
       el('p', { class: 'dialog__overview', text: project.overview }),
       el('dl', { class: 'meta' }, facts.filter(Boolean)),

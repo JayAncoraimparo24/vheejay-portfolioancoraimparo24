@@ -8,7 +8,7 @@ import { openProject } from '../components/projectDialog.js';
 const MAX_TOOLS = 6; // the project page lists every tool
 const MAX_POINTS = 3; // and every contribution
 
-// The other work sections, so a visitor can jump straight to them from here
+// links to the other work sections
 const MORE_WORK = [
   { id: 'ui-ux-showcase', label: 'UI/UX Design' },
   { id: 'graphic-design', label: 'Graphic Design' },
@@ -16,12 +16,12 @@ const MORE_WORK = [
   { id: 'it-support-showcase', label: 'IT Support' },
 ];
 
-/** One project as a row: title and dates, a View button, the main tools and a few key points. */
+// one project row: title, dates, View button, main tools, a few key points
 function projectRow(project) {
   const allTools = [...project.techStack, ...project.designTools];
   const hiddenTools = allTools.length - MAX_TOOLS;
   const tools = hiddenTools > 0 ? [...allTools.slice(0, MAX_TOOLS), `+${hiddenTools} more`] : allTools;
-  // A project that is still in progress has no contributions yet, so its overview is shown instead
+  // project still in progress: show the overview instead
   const points = project.contributions.length ? project.contributions.slice(0, MAX_POINTS) : [project.overview];
 
   return el(
@@ -36,7 +36,7 @@ function projectRow(project) {
         el('h3', { class: 'project-row__title', text: project.title }),
         el('p', { class: 'project-row__meta', text: [project.type, project.date].filter(Boolean).join(' · ') }),
       ),
-      // View opens the details in a popup. The link still goes to the full page when opened in a new tab.
+      // View opens a popup, the link still goes to the full page in a new tab
       el(
         'a',
         {

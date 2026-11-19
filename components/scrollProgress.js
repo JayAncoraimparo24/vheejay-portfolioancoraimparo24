@@ -1,6 +1,6 @@
 import { el } from '../js/dom.js';
 
-/** Thin cyan bar at the top of the page that shows how far the visitor has scrolled. */
+// thin cyan bar at the top that shows scroll progress
 export function createScrollProgress() {
   const bar = el('div', { class: 'scroll-progress', 'aria-hidden': 'true' });
   let frame = 0;

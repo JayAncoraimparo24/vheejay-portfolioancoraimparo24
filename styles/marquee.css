@@ -1,4 +1,4 @@
-/* Slow scrolling strip of skill and tool names in Skills (just for looks, see components/marquee.js) */
+/* slow strip of skill names (marquee.js) */
 .marquee {
   overflow: hidden;
   border-block: 1px solid var(--color-border);
@@ -8,7 +8,7 @@
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 120s linear infinite; /* the real duration is set in components/marquee.js */
+  animation: marquee-scroll 120s linear infinite; /* the real duration is set in marquee.js */
 }
 
 .marquee:hover .marquee__track {
@@ -43,14 +43,14 @@
   border-radius: 50%;
 }
 
-/* The track has two identical groups and moves by exactly one group, so the loop has no jump */
+/* two identical groups, it moves one group so the loop has no jump */
 @keyframes marquee-scroll {
   to {
     transform: translateX(-50%);
   }
 }
 
-/* Reduced motion: show the names as a wrapped list instead of a moving strip */
+/* reduced motion: plain wrapped list */
 @media (prefers-reduced-motion: reduce) {
   .marquee {
     mask-image: none;

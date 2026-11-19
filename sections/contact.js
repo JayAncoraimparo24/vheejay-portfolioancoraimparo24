@@ -30,11 +30,11 @@ function createContactList() {
       href: profile.linkedin.url,
       external: true,
     }),
-    // Only shows once a real GitHub address is set in data/profile.js (no "to be added" note for visitors).
+    // only when a real GitHub address is set in data/profile.js
     github.url
       ? contactRow({ iconName: 'github', label: 'GitHub', value: github.label ?? github.url, href: github.url, external: true })
       : null,
-    // Only shows when a resume file is set in data/profile.js
+    // only when a resume file is set
     profile.resume?.url
       ? contactRow({ iconName: 'file', label: 'Resume', value: 'Download PDF', href: siteUrl(profile.resume.url), download: true })
       : null,

@@ -1,4 +1,4 @@
-/* A project's own page: same compact look as the rest of the site */
+/* project page, same compact look */
 .project-page {
   display: grid;
   gap: var(--space-5);
@@ -18,7 +18,7 @@
   line-height: 1.25;
 }
 
-/* The header lines come in one after another */
+/* header lines come in one by one */
 .project-header > * {
   animation: rise-in 600ms var(--ease-out) backwards;
 }
@@ -35,7 +35,7 @@
   animation-delay: 180ms;
 }
 
-/* My role, date, subject, achievement */
+/* role, date, subject, achievement */
 .meta {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +88,7 @@
   gap: var(--space-5);
 }
 
-/* Previous and next project */
+/* previous and next project */
 .pager {
   display: flex;
   flex-wrap: wrap;
@@ -130,7 +130,7 @@
 
 @media (min-width: 48rem) {
   .detail-columns {
-    /* two columns, or one full-width column when only one block is shown */
+    /* two columns, or one when there is only one block */
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   }
 }

@@ -3,17 +3,12 @@ import { siteUrl } from '../js/config.js';
 import { icon } from './icons.js';
 import { mediaFrame, videoFrame } from './media.js';
 
-const SWIPE_DISTANCE = 40; // how far a finger must move (px) to turn the page
+const SWIPE_DISTANCE = 40; // px a finger must move to turn the page
 
-/**
- * Pictures shown one at a time, with previous / next buttons, a counter, arrow keys and swipe.
- *
- * items: [{ src, caption, thumb, video }]. "thumb" is an optional smaller copy shown on the page.
- * The full "src" opens in the full-screen viewer (components/lightbox.js) when a picture is clicked.
- * An item with "video" is a short video: "src" is then its cover picture, and it plays in the slider.
- * thumbs: true adds a row of small pictures to jump to any page (used in the work galleries).
- * start: the picture to begin with (0 is the first).
- */
+// one picture at a time with arrows, counter, keys and swipe
+// items: [{ src, caption, thumb, video }]. thumb = smaller copy, src opens in the lightbox
+// video item: src is the cover picture, it plays in the slider
+// thumbs: true = row of small pictures. start = first picture (0)
 export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
   if (!items.length) return null;
 
@@ -34,7 +29,7 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
     index = (next + slides.length) % slides.length;
     slides.forEach((slide, position) => {
       slide.hidden = position !== index;
-      // A video stops when its page is turned
+      // a video stops when you turn the page
       if (position !== index) slide.querySelector('video')?.pause();
     });
     count.textContent = `${index + 1} / ${slides.length}`;
@@ -43,12 +38,12 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
 
   const stage = el('div', { class: 'slider__stage' }, slides);
 
-  // Swipe left or right on a touch screen. A swipe must not also count as a click on the picture.
+  // swipe on touch screens, a swipe shouldn't count as a click
   let startX = null;
   let swiped = false;
   stage.addEventListener('pointerdown', (event) => {
     swiped = false;
-    // Dragging the video's own time bar must not turn the page
+    // dragging the video time bar shouldn't turn the page
     startX = event.target.closest('video') ? null : event.clientX;
   });
   stage.addEventListener('pointerup', (event) => {
@@ -88,7 +83,7 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
       },
     },
     stage,
-    // One picture needs no buttons
+    // one picture needs no buttons
     slides.length > 1 ? el('div', { class: 'slider__bar' }, step('back', 'Previous picture', -1), count, step('arrow', 'Next picture', 1)) : null,
     picker?.node,
   );
@@ -97,7 +92,7 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
   return slider;
 }
 
-/** The row of small pictures under the slider. Returns the row and a function that marks the current one. */
+// row of small pictures under the slider. returns the row and a function that marks the current one
 function createThumbs(items, onPick) {
   const buttons = items.map(({ src, thumb, caption, video }, position) =>
     el(
@@ -116,7 +111,7 @@ function createThumbs(items, onPick) {
 
   const select = (position) => {
     buttons.forEach((button, buttonPosition) => button.setAttribute('aria-current', String(buttonPosition === position)));
-    // Slide the row sideways (not the page) so the current picture is in the middle
+    // slide the row, not the page, so the current one is in the middle
     const current = buttons[position];
     node.scrollTo({ left: current.offsetLeft - (node.clientWidth - current.clientWidth) / 2, behavior: 'smooth' });
   };

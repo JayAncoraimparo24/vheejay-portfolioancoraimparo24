@@ -2,7 +2,7 @@ import { el } from '../js/dom.js';
 import { profile } from '../data/profile.js';
 import { button } from './button.js';
 
-// A mailto: link has a length limit, so very long messages are better copied
+// mailto: links have a length limit, long messages are better copied
 const MAILTO_SAFE_LENGTH = 1500;
 
 function field({ id, label, type = 'text', multiline = false }) {
@@ -12,7 +12,7 @@ function field({ id, label, type = 'text', multiline = false }) {
   return el('div', { class: 'field' }, el('label', { for: id, text: label }), input);
 }
 
-/** Subject and text of the message, used by every way of sending it. */
+// subject and text, used by every way of sending
 function composeMessage({ name, email, message }) {
   return {
     subject: `Portfolio inquiry from ${name}`,
@@ -20,20 +20,20 @@ function composeMessage({ name, email, message }) {
   };
 }
 
-/** A mailto: link (opens the visitor's email app, if they have one). */
+// mailto link (opens the email app if they have one)
 export function buildMailto(data) {
   const { subject, body } = composeMessage(data);
   return `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-/** A Gmail compose link (opens in the browser, so it works without an email app). */
+// gmail compose link (works in the browser)
 export function buildGmail(data) {
   const { subject, body } = composeMessage(data);
   const query = new URLSearchParams({ view: 'cm', fs: '1', to: profile.email, su: subject, body });
   return `https://mail.google.com/mail/?${query.toString()}`;
 }
 
-/** Copies text to the clipboard. Falls back to the old way on browsers that block the new one. */
+// copy to clipboard, old method as a fallback
 async function copyText(text) {
   try {
     await navigator.clipboard.writeText(text);
@@ -68,7 +68,7 @@ export function createContactForm() {
     result,
   );
 
-  // Any change after the options were shown makes them out of date, so hide them
+  // any change makes the options out of date, so hide them
   form.addEventListener('input', () => {
     result.hidden = true;
     result.replaceChildren();

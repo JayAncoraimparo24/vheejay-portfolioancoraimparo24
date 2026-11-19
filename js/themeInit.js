@@ -1,6 +1,6 @@
 /*
- * Runs in <head> before the page paints, so a dark visitor never sees a white flash.
- * It is a classic script (not a module) on purpose and does the same as getInitialTheme() in theme.js.
+ * runs in <head> before paint so dark visitors don't see a white flash
+ * classic script on purpose, same logic as getInitialTheme() in theme.js
  */
 (function () {
   var theme = null;

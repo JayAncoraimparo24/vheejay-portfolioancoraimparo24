@@ -1,4 +1,4 @@
-// localStorage helpers for in-page edits. Every key is tied to the current page.
+// localStorage helpers for the edits, keys are per page
 const PAGE_SCOPE = `${window.location.pathname}${window.location.search}`;
 const KINDS = ['text', 'image', 'link'];
 
@@ -12,7 +12,7 @@ export function readEdits(kind) {
   }
 }
 
-/** Returns false when the browser won't store the data (for example, storage is full). */
+// false if the browser won't store it (storage full)
 export function writeEdits(kind, edits) {
   try {
     localStorage.setItem(keyFor(kind), JSON.stringify(edits));

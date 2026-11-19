@@ -21,7 +21,7 @@ function loadImage(file) {
   });
 }
 
-/** Makes the picture smaller so it fits in browser storage. */
+// shrink the picture so it fits in storage
 async function fileToDataUrl(file) {
   const image = await loadImage(file);
   const scale = Math.min(1, MAX_SIDE / Math.max(image.width, image.height));
@@ -32,7 +32,7 @@ async function fileToDataUrl(file) {
   return canvas.toDataURL('image/jpeg', JPEG_QUALITY);
 }
 
-/** The picture that comes with the page for this slot ('' if it is only a placeholder). */
+// the picture that comes with the page ('' if it is a placeholder)
 function builtInSrc(slot) {
   if (slot.dataset.builtIn === undefined) {
     slot.dataset.builtIn = slot.querySelector(':scope > .slot-image')?.getAttribute('src') ?? '';
@@ -72,14 +72,14 @@ async function replaceImage(slot, index) {
   }
 }
 
-/** Click an image area (while editing) to replace it with your own picture. */
+// click an image while editing to replace it
 export function initImageEditing() {
   const slots = [...document.querySelectorAll(SLOT_SELECTOR)];
   const saved = readEdits('image');
 
   slots.forEach((slot, index) => {
-    // An edit only applies while the slot's built-in picture is unchanged (same as text edits).
-    // Older edits were plain data URLs made when the slot had no built-in picture.
+    // an edit only applies while the built-in picture is unchanged
+    // older edits were data urls from when the slot had no picture
     const entry = saved[index];
     const savedOriginal = typeof entry === 'string' ? '' : entry?.original;
     const savedData = typeof entry === 'string' ? entry : entry?.data;

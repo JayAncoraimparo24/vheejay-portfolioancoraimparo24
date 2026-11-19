@@ -1,4 +1,4 @@
-/* Pictures: frames, placeholders, captions and the gallery layouts */
+/* pictures, frames, captions and gallery layouts */
 .media__box {
   position: relative;
   aspect-ratio: var(--media-ratio, 16 / 10);
@@ -26,7 +26,7 @@
   transition: transform 600ms var(--ease-out);
 }
 
-/* When a picture scrolls into view it is uncovered from the top */
+/* the picture uncovers from the top when it scrolls in */
 .media.is-visible .media__img {
   animation: picture-reveal 900ms var(--ease-out) backwards;
   animation-delay: var(--reveal-delay, 0ms);

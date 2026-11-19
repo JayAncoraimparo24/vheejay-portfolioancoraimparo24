@@ -1,14 +1,11 @@
-/* Hero: small header with the portrait, name, job title and a few links */
+/* hero */
 .hero {
   position: relative;
   isolation: isolate;
   padding-block: var(--space-6) var(--space-4);
 }
 
-/*
- * Very faint grid behind the top of the page. It fades toward the edges and the bottom,
- * and it doesn't move, so it costs nothing while scrolling.
- */
+/* faint grid behind the top, fades out. it doesn't move */
 .hero::before {
   position: absolute;
   inset: 0;
@@ -36,7 +33,7 @@
   min-width: 0;
 }
 
-/* The lines come in one after another */
+/* the lines come in one by one */
 .hero__content > * {
   animation: rise-in 600ms var(--ease-out) backwards;
 }
@@ -63,7 +60,7 @@
   font-size: var(--text-3xl);
   letter-spacing: -0.02em;
 
-  /* A cyan shine passes over the name, then it goes back to the normal color */
+  /* a cyan shine passes over the name */
   color: transparent;
   background: linear-gradient(
       105deg,
@@ -87,7 +84,7 @@
   animation-delay: 0ms, 500ms;
 }
 
-/* The shine crosses the name in the first quarter of each 7 second cycle, then it rests */
+/* the shine runs in the first quarter of the 7s cycle, then rests */
 @keyframes name-sweep {
   0% {
     background-position: 100% 0;
@@ -153,7 +150,7 @@
   margin-top: var(--space-1);
 }
 
-/* Portrait. Tap it to flip it (toga and barong). Enlarge opens it big. The ratio is 4 wide, 5 tall. */
+/* portrait: tap to flip, Enlarge opens it big (4 x 5) */
 :root {
   --portrait-width: 5.5rem;
 }
@@ -235,8 +232,8 @@
 }
 
 /*
- * The two sides of the flip card sit on top of each other.
- * This comes after .hero__photo so its position wins.
+ * both faces of the flip card sit on top of each other
+ * (after .hero__photo so it wins)
  */
 .flip-card__inner > .hero__photo {
   position: absolute;
@@ -252,7 +249,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* keeps the face visible when the picture is cropped */
+  object-position: center top; /* keeps the face in view when it is cropped */
 }
 .hero__initials {
   font-size: var(--text-2xl);
@@ -260,7 +257,7 @@
   color: var(--color-primary);
 }
 
-/* Night version of the portrait (dark theme): a bit dimmer so it fits the dark page */
+/* a bit dimmer in the dark theme */
 :root[data-theme='dark'] .hero__photo .hero__img {
   filter: brightness(0.8) saturate(0.9);
 }
