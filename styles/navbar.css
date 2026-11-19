@@ -54,12 +54,9 @@
 .nav__logo {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: var(--text-sm);
-  color: var(--color-primary);
-  background: var(--color-deep);
-  border-radius: var(--radius-md);
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--color-navy); /* the mark follows the text colour, so it also works in dark mode */
 }
 
 .nav__name {

@@ -3,6 +3,7 @@ import { siteUrl } from '../js/config.js';
 import { navLinks, profile } from '../data/profile.js';
 import { icon } from './icons.js';
 import { createThemeToggle } from './themeToggle.js';
+import { createLogo } from './logo.js';
 
 const SCROLLED_OFFSET = 8;
 
@@ -62,7 +63,7 @@ export function createNavbar({ isHome }) {
       'nav',
       { class: 'nav container', 'aria-label': 'Main navigation' },
       el('a', { class: 'nav__brand', href: linkHref('home', isHome), 'aria-label': `${profile.name} – home` },
-        el('span', { class: 'nav__logo', text: profile.initials }),
+        el('span', { class: 'nav__logo' }, createLogo()),
         el('span', { class: 'nav__name', text: profile.name }),
       ),
       menu,
