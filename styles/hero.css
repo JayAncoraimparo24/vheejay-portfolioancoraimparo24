@@ -59,6 +59,48 @@
   width: fit-content;
   font-size: var(--text-3xl);
   letter-spacing: -0.02em;
+
+  /* a cyan shine passes over the name */
+  color: transparent;
+  background: linear-gradient(
+      105deg,
+      var(--color-navy) 30%,
+      #0891b2 40%,
+      #22d3ee 47%,
+      #a5f3fc 50%,
+      #22d3ee 53%,
+      #0891b2 60%,
+      var(--color-navy) 70%
+    )
+    100% 0 / 300% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero__content > .hero__title {
+  animation:
+    rise-in 600ms var(--ease-out) backwards,
+    name-sweep 7s ease-in-out infinite;
+  animation-delay: 0ms, 500ms;
+}
+
+/* the shine runs in the first quarter of the 7s cycle, then rests */
+@keyframes name-sweep {
+  0% {
+    background-position: 100% 0;
+  }
+
+  25%,
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title {
+    color: var(--color-navy);
+    background: none;
+  }
 }
 
 .hero__roles {

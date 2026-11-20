@@ -30,8 +30,10 @@
   --glass-glow: rgb(34 211 238 / 35%);
 }
 
-/* pause the loop while scrolling (scrollState.js adds .is-scrolling) */
-.is-scrolling .marquee__track {
+/* pause the loops while scrolling (scrollState.js adds .is-scrolling) */
+.is-scrolling .marquee__track,
+.is-scrolling .timeline__item::before,
+.is-scrolling .hero__title {
   animation-play-state: paused !important;
 }
 
