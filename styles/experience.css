@@ -55,7 +55,7 @@
     transform var(--transition);
 }
 
-/* dots pulse, same for every dot. the line is one color */
+/* a dot on the line for every job. it has a soft ring but it doesn't move */
 .timeline__item::before {
   position: absolute;
   top: var(--space-4);
@@ -66,18 +66,7 @@
   background: var(--color-primary);
   border: 2px solid var(--color-white);
   border-radius: 50%;
-  animation: pulse-ring 2.4s ease-out infinite;
-}
-
-@keyframes pulse-ring {
-  0% {
-    box-shadow: 0 0 0 0 rgb(6 182 212 / 55%);
-  }
-
-  70%,
-  100% {
-    box-shadow: 0 0 0 10px rgb(6 182 212 / 0%);
-  }
+  box-shadow: 0 0 0 4px rgb(6 182 212 / 18%);
 }
 
 /* job header: info on the left, View on the right */
