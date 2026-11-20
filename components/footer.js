@@ -8,19 +8,7 @@ export function createFooter() {
     el(
       'div',
       { class: 'container container--narrow site-footer__inner' },
-      el(
-        'p',
-        {},
-        `© ${new Date().getFullYear()} ${profile.name} · `,
-        // the free Flaticon licence asks for a credit on the site
-        el('a', {
-          class: 'site-footer__credit',
-          href: 'https://www.flaticon.com',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-          text: 'Icons: Flaticon',
-        }),
-      ),
+      el('p', { text: `© ${new Date().getFullYear()} ${profile.name}` }),
       // scroll to the very top (project pages have no #home)
       el('a', {
         class: 'site-footer__top',
