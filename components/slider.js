@@ -34,6 +34,12 @@ export function createSlider(items, label, { thumbs = false, start = 0 } = {}) {
     });
     count.textContent = `${index + 1} / ${slides.length}`;
     picker?.select(index);
+    // a lazy picture inside a hidden slide does not always start loading when the slide is shown (the
+    // System log screenshot stayed empty), so the shown slide and its two neighbors are loaded by hand
+    [index - 1, index, index + 1].forEach((position) => {
+      const picture = slides[(position + slides.length) % slides.length].querySelector('img');
+      if (picture) picture.loading = 'eager';
+    });
   }
 
   const stage = el('div', { class: 'slider__stage' }, slides);
