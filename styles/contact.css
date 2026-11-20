@@ -166,6 +166,17 @@
   text-align: center;
 }
 
+/* the small icon credit next to the copyright */
+.site-footer__credit {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__credit:hover {
+  color: var(--color-primary);
+}
+
 /* bigger tap target */
 .site-footer__top {
   padding: 0.5rem 1rem;
