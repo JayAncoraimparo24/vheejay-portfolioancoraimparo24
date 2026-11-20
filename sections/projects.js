@@ -9,14 +9,6 @@ import { openProject } from '../components/projectDialog.js';
 const MAX_TOOLS = 6; // the project page lists every tool
 const MAX_POINTS = 3; // and every contribution
 
-// links to the other work sections
-const MORE_WORK = [
-  { id: 'ui-ux-showcase', label: 'UI/UX Design' },
-  { id: 'graphic-design', label: 'Graphic Design' },
-  { id: 'photography', label: 'Photography' },
-  { id: 'it-support-showcase', label: 'IT Support' },
-];
-
 // one project card: cover picture, title, dates, View button, main tools, a few key points
 function projectCard(project) {
   const allTools = [...project.techStack, ...project.designTools];
@@ -77,19 +69,9 @@ function projectCard(project) {
   );
 }
 
-function createMoreWork() {
-  return el(
-    'nav',
-    { class: 'jump-links', 'aria-label': 'More of my work' },
-    el('span', { class: 'jump-links__label', text: 'More of my work' }),
-    MORE_WORK.map(({ id, label }) => el('a', { class: 'btn btn--secondary btn--small', href: `#${id}`, text: label })),
-  );
-}
-
 export function createProjects() {
   return createSection(
     { id: 'projects', title: 'Project Experience', iconName: 'folder', narrow: true },
     el('div', { class: 'project-cards' }, projects.map(projectCard)),
-    createMoreWork(),
   );
 }
