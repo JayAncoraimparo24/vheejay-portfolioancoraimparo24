@@ -1,6 +1,6 @@
 import { siteUrl } from '../js/config.js';
 
-// icons are PNG files in assets/icons (black on clear, free Flaticon Lineal set)
+// icons are PNG files in assets/icons (black on clear)
 // used as a mask so they take the text color, see .icon-file in base.css
 export function icon(name, size = 20) {
   const span = document.createElement('span');

@@ -48,6 +48,5 @@ The resume is one page: `assets/resume/Vheejay-Sugay-Resume.pdf`, with a picture
 
 ## Credits
 
-- Icons: free icons from Flaticon (flaticon.com)
 - Font for the loading screen: Great Vibes, SIL Open Font License (`assets/fonts/GreatVibes-OFL.txt`)
 - The logo, the loading screen and everything else were made for this site
