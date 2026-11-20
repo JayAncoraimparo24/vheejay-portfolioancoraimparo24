@@ -73,6 +73,9 @@ export const graphicDesignShowcase = [
   { title: 'Mug Wrap: GECAR Machine Solutions', src: 'assets/images/graphics/mug-wrap-gecar.jpg', ratio: '2000 / 1535' },
   { title: 'Mug Wrap: MHIPCOR', src: 'assets/images/graphics/mug-wrap-mhipcor.jpg', ratio: '2000 / 1535' },
   { title: 'Mug Wrap: Genesis Hydraulics', src: 'assets/images/graphics/mug-wrap-genesis.jpg', ratio: '2000 / 1535' },
+  { title: 'Dueling Tree user manual: cover (MHIPCOR)', src: 'assets/images/graphics/dueling-tree-manual-cover.jpg', ratio: '1800 / 1272' },
+  { title: 'Dueling Tree user manual: introduction (English and Tagalog)', src: 'assets/images/graphics/dueling-tree-manual-intro.jpg', ratio: '1800 / 1272' },
+  { title: 'Dueling Tree user manual: how to assemble', src: 'assets/images/graphics/dueling-tree-manual-assembly.jpg', ratio: '1800 / 1272' },
 ];
 
 // photos by Vheejay, add more here
@@ -118,7 +121,7 @@ export const itSupportShowcase = [
 export const showcaseDescriptions = {
   uiux: 'Calendar designs made in Figma. The 2027 GECAR souvenir calendar is shown here, with a cover and a page for each month. The Figma files are in the popup.',
   graphic:
-    'A mix of print and social media designs: posters, ads, banners, a business card, logos, booth design, covers, portraits, and mug wraps for GECAR, MHIPCOR, and Genesis. The company uniform and merch design is in Figma.',
+    'A mix of print and social media designs: posters, ads, banners, a business card, logos, booth design, covers, portraits, mug wraps for GECAR, MHIPCOR, and Genesis, and pages from the Dueling Tree user manual. The company uniform and merch design is in Figma.',
   photography: 'Photos taken by Vheejay: sunsets, a mountain view, a snail, and pendant lamps.',
   itSupport:
     'Hands-on IT support work in photos and video: laptop hardware maintenance, network racks and server room cabling, CCTV camera wiring, printer ink system maintenance and refilling, and monitor mounting.',
