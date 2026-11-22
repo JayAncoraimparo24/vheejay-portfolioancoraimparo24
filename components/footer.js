@@ -8,12 +8,7 @@ export function createFooter() {
     el(
       'div',
       { class: 'container container--narrow site-footer__inner' },
-      el(
-        'div',
-        { class: 'site-footer__about' },
-        el('p', { class: 'site-footer__name', text: `© ${new Date().getFullYear()} ${profile.name}` }),
-        el('p', { class: 'site-footer__note', text: 'Built with HTML, CSS and JavaScript' }),
-      ),
+      el('p', { class: 'site-footer__name', text: `© ${new Date().getFullYear()} ${profile.name}` }),
       // scroll to the very top (project pages have no #home)
       el('a', {
         class: 'site-footer__top',
