@@ -10,20 +10,24 @@ export function createExperience() {
   );
 }
 
-export function createEducation() {
-  const details = education.details.map(({ label, value }) =>
+function educationItem(item) {
+  const details = item.details.map(({ label, value }) =>
     el('li', {}, el('strong', { text: `${label}: ` }), el('span', { text: value })),
   );
 
+  return el(
+    'article',
+    { class: 'education' },
+    el('h3', { class: 'education__school', text: item.school }),
+    el('p', { class: 'education__degree', text: item.degree }),
+    el('p', { class: 'education__meta', text: `${item.period} · ${item.location}` }),
+    details.length ? el('ul', { class: 'bullet-list' }, details) : null,
+  );
+}
+
+export function createEducation() {
   return createSection(
     { id: 'education', nav: 'about', title: 'Education', iconName: 'education', narrow: true },
-    el(
-      'article',
-      { class: 'education' },
-      el('h3', { class: 'education__school', text: education.school }),
-      el('p', { class: 'education__degree', text: education.degree }),
-      el('p', { class: 'education__meta', text: `${education.period} · ${education.location}` }),
-      el('ul', { class: 'bullet-list' }, details),
-    ),
+    el('div', { class: 'education-list' }, education.map(educationItem)),
   );
 }

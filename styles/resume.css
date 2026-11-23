@@ -5,6 +5,11 @@
   color: var(--color-primary-dark);
 }
 
+.education-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
 .education {
   display: grid;
   gap: var(--space-1);

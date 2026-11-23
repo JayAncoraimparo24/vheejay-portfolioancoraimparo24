@@ -12,11 +12,11 @@ export const experience = [
     //   'Nov 12: Created a company T-shirt uniform design for 2027.',
     //   'Nov 13: Polished the T-shirt uniform design and continued improving the overall design materials for the company.',
     responsibilities: [
+      'Designed the UI/UX, system layouts, and user flows for a proposed Peso WiFi Management System for Barangay Aurora, Quezon Province, making the system easy to use and navigate.',
+      'Designed promotional materials, customized souvenirs (calendars, shirts, mugs), and user manuals for MHIPCOR, Genesis, and GECAR.',
       'Installed, configured, and maintained network infrastructure (cabling, wiring, and network devices), improving connectivity across departments.',
       'Monitored and maintained office computers, network equipment, and mobile devices, and troubleshot and repaired printers and scanners, ensuring smooth daily operations.',
       "Promoted and sold the company's tools and industrial products to international clients.",
-      'Designed promotional materials, customized souvenirs (calendars, shirts, mugs), and user manuals for MHIPCOR, Genesis, and GECAR.',
-      'Designed the UI/UX, system layouts, and user flows for a proposed Peso WiFi Management System for Barangay Aurora, Quezon Province, making the system easy to use and navigate.',
     ],
   },
   {
@@ -34,13 +34,23 @@ export const experience = [
   },
 ];
 
-export const education = {
-  school: 'GLOBAL RECIPROCAL COLLEGE',
-  location: 'Caloocan City, Metro Manila',
-  degree: 'Bachelor of Science in Information Technology',
-  period: 'July 2022 – July 2026',
-  details: [
-    { label: 'Scholarship', value: 'MLALAF Scholar' },
-    { label: 'General Weighted Average', value: '1.80' },
-  ],
-};
+// newest first
+export const education = [
+  {
+    school: 'GLOBAL RECIPROCAL COLLEGE',
+    location: 'Caloocan City, Metro Manila',
+    degree: 'Bachelor of Science in Information Technology',
+    period: 'July 2022 – July 2026',
+    details: [
+      { label: 'Scholarship', value: 'MLALAF Scholar' },
+      { label: 'General Weighted Average', value: '1.80' },
+    ],
+  },
+  {
+    school: 'AMA COMPUTER LEARNING CENTER (ACLC)',
+    location: 'Caloocan Campus',
+    degree: 'Senior High School, Science, Technology, Engineering, Mathematics (STEM)',
+    period: '2021 – 2022',
+    details: [],
+  },
+];
