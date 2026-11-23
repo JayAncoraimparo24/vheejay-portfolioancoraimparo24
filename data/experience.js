@@ -2,7 +2,7 @@ export const experience = [
   {
     company: 'MHIPCOR',
     location: 'Quezon City, Philippines',
-    position: 'Junior IT Specialist',
+    position: 'UI/UX Designer',
     period: 'October 23, 2026 – Present',
     note: null,
     // Left empty on purpose for now. These lines were taken out and can be put back when you want them shown:
@@ -11,7 +11,13 @@ export const experience = [
     //   'Nov 11: Continued working on the souvenir mug design and made improvements to the calendar layout and overall design.',
     //   'Nov 12: Created a company T-shirt uniform design for 2027.',
     //   'Nov 13: Polished the T-shirt uniform design and continued improving the overall design materials for the company.',
-    responsibilities: [],
+    responsibilities: [
+      'Installed, configured, and maintained network infrastructure (cabling, wiring, and network devices), improving connectivity across departments.',
+      'Monitored and maintained office computers, network equipment, and mobile devices, and troubleshot and repaired printers and scanners, ensuring smooth daily operations.',
+      "Promoted and sold the company's tools and industrial products to international clients.",
+      'Designed promotional materials, customized souvenirs (calendars, shirts, mugs), and user manuals for MHIPCOR, Genesis, and GECAR.',
+      'Designed the UI/UX, system layouts, and user flows for a proposed Peso WiFi Management System for Barangay Aurora, Quezon Province, making the system easy to use and navigate.',
+    ],
   },
   {
     company: 'GRAND MERITUS SECURITY AGENCY',
