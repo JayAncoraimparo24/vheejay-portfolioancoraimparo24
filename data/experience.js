@@ -26,10 +26,9 @@ export const experience = [
     period: 'January 2026 – May 2026',
     note: '600 Hours Internship',
     responsibilities: [
-      'Contributed to UI design for two company websites.',
-      'Developed four security process flowcharts.',
-      'Coordinated applicant records, resume screening, personnel files, document preparation, and data encoding.',
-      'Assisted with recruitment and administrative operations.',
+      'Contributed to UI design for 2 company websites, refining content layout and presentation to create a more organized and user-focused digital interface.',
+      'Developed 4 security process flowcharts, translating established procedures into clear visual references to streamline understanding of operational workflows.',
+      'Coordinated applicant records, resume screening, personnel files, document preparation, and data encoding during a 600-hour internship, facilitating recruitment and administrative operations.',
     ],
   },
 ];
