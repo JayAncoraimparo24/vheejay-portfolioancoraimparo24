@@ -15,7 +15,7 @@ export const experience = [
       'Designed the UI/UX, system layouts, and user flows for a proposed Peso WiFi Management System for Barangay Aurora, Quezon Province, making the system easy to use and navigate.',
       'Designed company souvenirs (calendars, shirts, and mugs) and user manuals for MHIPCOR, Genesis, and GECAR.',
       'Installed, configured, and maintained network infrastructure (cabling, wiring, and network devices), improving connectivity across departments.',
-      'Monitored and maintained office computers, network equipment, and mobile devices, and troubleshot and repaired printers and scanners, ensuring smooth daily operations.',
+      'Monitored and maintained office computers, network equipment, and mobile devices; troubleshot and repaired printers and scanners to keep daily operations running smoothly.',
       "Promoted and sold the company's tools and industrial products to international clients.",
     ],
   },
@@ -27,8 +27,8 @@ export const experience = [
     note: '600 Hours Internship',
     responsibilities: [
       'Contributed to UI design for 2 company websites, refining content layout and presentation to create a more organized and user-focused digital interface.',
-      'Developed 4 security process flowcharts, translating established procedures into clear visual references to streamline understanding of operational workflows.',
-      'Coordinated applicant records, resume screening, personnel files, document preparation, and data encoding during a 600-hour internship, facilitating recruitment and administrative operations.',
+      'Developed 4 security process flowcharts, translating established procedures into clear visual references that make operational workflows easier to understand.',
+      'Handled applicant records, resume screening, personnel files, document preparation, and data encoding during a 600-hour internship, supporting recruitment and administrative operations.',
     ],
   },
 ];
