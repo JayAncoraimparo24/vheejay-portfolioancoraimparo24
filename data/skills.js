@@ -13,7 +13,7 @@ export const skillLogos = {
   Vite: 'assets/images/skills/vite.svg',
   PHP: 'assets/images/skills/php.svg',
   Python: 'assets/images/skills/python.svg',
-  MySQL: 'assets/images/skills/mysql.svg',
+  MySQL: 'assets/images/skills/mysql.png',
   XAMPP: 'assets/images/skills/xampp.svg',
 };
 

@@ -2,6 +2,16 @@
  * dark theme (data-theme="dark", set by theme.js)
  * here --color-white is the page surface and --color-navy is strong text, so most things recolor by themselves
  */
+/* the official MySQL and XAMPP logos have dark blue or dark gray parts, so on the dark theme they sit on a light backing.
+   the logo itself is not changed */
+:root[data-theme='dark'] img[src$='/mysql.png'],
+:root[data-theme='dark'] img[src$='/xampp.svg'] {
+  box-sizing: content-box;
+  padding: 1px 3px;
+  background: #fff;
+  border-radius: 4px;
+}
+
 :root[data-theme='dark'] {
   color-scheme: dark;
 

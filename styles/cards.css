@@ -28,9 +28,11 @@
   padding-left: 0.5rem;
 }
 
+/* the height is fixed, a wide logo (MySQL) keeps its shape instead of shrinking to a square */
 .tag__logo {
   flex: none;
-  width: 1rem;
+  width: auto;
+  max-width: 2.2rem;
   height: 1rem;
   object-fit: contain;
 }
