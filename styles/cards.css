@@ -20,6 +20,21 @@
   border-color: var(--color-primary);
 }
 
+/* a skill tag with its logo in front (sections/skills.js) */
+.tag--logo {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.tag__logo {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+
 .bullet-list {
   display: grid;
   gap: var(--space-2);

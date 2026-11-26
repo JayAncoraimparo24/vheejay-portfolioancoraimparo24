@@ -35,6 +35,20 @@
   text-transform: uppercase;
 }
 
+/* the name with its logo in front (marquee.js) */
+.marquee__label {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.marquee__logo {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .marquee__item::after {
   width: 6px;
   height: 6px;

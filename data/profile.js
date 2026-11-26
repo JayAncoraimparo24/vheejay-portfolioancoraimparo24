@@ -9,6 +9,8 @@ export const profile = {
     caption: 'In barong',
   },
   roles: ['Junior IT Specialist'],
+  // the small label above the name. remove the line to hide it
+  status: 'Open to work',
   verse: { text: 'Commit your work to the Lord.', reference: 'Proverbs 16:3' },
   // personal statement in the hero, under the verse
   quote: {

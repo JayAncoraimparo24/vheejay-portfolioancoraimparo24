@@ -38,20 +38,47 @@
   animation: rise-in 600ms var(--ease-out) backwards;
 }
 
-.hero__content > :nth-child(2) {
+/* by class, not by position, so the order does not change if a line is added or removed */
+.hero__content > .hero__roles {
   animation-delay: 50ms;
 }
 
-.hero__content > :nth-child(3) {
+.hero__content > .hero__location {
   animation-delay: 100ms;
 }
 
-.hero__content > :nth-child(4) {
+.hero__content > .hero__verse {
   animation-delay: 150ms;
 }
 
-.hero__content > :nth-child(5) {
+.hero__content > .hero__links {
   animation-delay: 200ms;
+}
+
+/* the small "Open to work" label above the name (data/profile.js: status) */
+.hero__status {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: 0.2rem 0.8rem 0.2rem 0.6rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-dark);
+  background: rgb(6 182 212 / 9%);
+  border: 1px solid rgb(6 182 212 / 30%);
+  border-radius: 999px;
+}
+
+/* the check mark, drawn with a mask so it takes the text color (same idea as .icon-file) */
+.hero__status::before {
+  flex: none;
+  width: 0.9rem;
+  height: 0.9rem;
+  content: '';
+  background: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6.5' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6.5' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .hero__title {

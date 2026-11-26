@@ -100,6 +100,7 @@ export function createHero() {
       el(
         'div',
         { class: 'hero__content' },
+        profile.status ? el('p', { class: 'hero__status', text: profile.status }) : null,
         el('h1', { class: 'hero__title', id: 'hero-title', text: profile.name }),
         el('p', { class: 'hero__roles', text: profile.roles.join(' | ') }),
         el('p', { class: 'hero__location' }, icon('pin', 16), el('span', { text: profile.location })),

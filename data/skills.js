@@ -1,3 +1,22 @@
+// a small logo in front of the skill name, in the moving strip and in the View popup
+// only the skills with a well-known logo are here, the others stay as plain text
+export const skillLogos = {
+  HTML: 'assets/images/skills/html.svg',
+  CSS: 'assets/images/skills/css.svg',
+  JavaScript: 'assets/images/skills/javascript.svg',
+  TypeScript: 'assets/images/skills/typescript.svg',
+  React: 'assets/images/skills/react.svg',
+  'Tailwind CSS': 'assets/images/skills/tailwind.svg',
+  Bootstrap: 'assets/images/skills/bootstrap.svg',
+  Git: 'assets/images/skills/git.svg',
+  npm: 'assets/images/skills/npm.svg',
+  Vite: 'assets/images/skills/vite.svg',
+  PHP: 'assets/images/skills/php.svg',
+  Python: 'assets/images/skills/python.svg',
+  MySQL: 'assets/images/skills/mysql.svg',
+  XAMPP: 'assets/images/skills/xampp.svg',
+};
+
 // showInStrip: the short names also show in the moving strip
 // every category is in the View popup
 export const skillCategories = [
