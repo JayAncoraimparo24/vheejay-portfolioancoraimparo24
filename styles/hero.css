@@ -81,6 +81,29 @@
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='24' height='24' fill='%23fff'/%3E%3Cpath d='M7.4 12.3l3.2 3.2 6-6.4' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/mask%3E%3C/defs%3E%3Cpath d='M12,0.6L14.33,3.31L17.7,2.13L18.36,5.64L21.87,6.3L20.69,9.67L23.4,12L20.69,14.33L21.87,17.7L18.36,18.36L17.7,21.87L14.33,20.69L12,23.4L9.67,20.69L6.3,21.87L5.64,18.36L2.13,17.7L3.31,14.33L0.6,12L3.31,9.67L2.13,6.3L5.64,5.64L6.3,2.13L9.67,3.31Z' fill='%23000' mask='url(%23m)'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* wide screens: the label sits at the right side of the name. narrower screens keep it above the name */
+@media (min-width: 56rem) {
+  .hero__content {
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-3);
+  }
+
+  .hero__content > * {
+    grid-column: 1 / -1;
+  }
+
+  .hero__content > .hero__title {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .hero__content > .hero__status {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+}
+
 .hero__title {
   position: relative;
   width: fit-content;
