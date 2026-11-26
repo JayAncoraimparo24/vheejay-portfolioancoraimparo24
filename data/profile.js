@@ -14,7 +14,7 @@ export const profile = {
   verse: { text: 'Commit your work to the Lord.', reference: 'Proverbs 16:3' },
   // personal statement in the hero, under the verse
   quote: {
-    text: 'Success, for me, is about what you have done to help others, your community, and your family to improve their lives. It’s not about having the things that I have. It’s about making them proud as time goes by and creating a positive change in their lives. That, for me, is the true meaning of success. You are successful because you helped them on their journey and contributed to their growth and achievements.',
+    text: 'Success, for me, is about what you have done to help others, your community, and your family improve their lives. It’s not about having the things that I have. It’s about making them proud as time goes by and creating a positive change in their lives. That, for me, is the true meaning of success. You are successful because you helped them on their journey and contributed to their growth and achievements.',
     author: 'Vheejay Sugay',
   },
   location: 'Caloocan City',
